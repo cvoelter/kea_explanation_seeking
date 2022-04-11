@@ -18,23 +18,23 @@ library(cowplot)
 library("gghalves")
 library(ggthemes)
 
-load("kea_explanation_seeking_sim_N16.RData")
+#load("kea_explanation_seeking_sim_N16.RData")
 ```
 
 Notes:
 DV: peeking response (binary)
 Design: 2 conditions (functional / intrinsic), within subject design
-4 sessions, 4 trials per condition (increase if needed)
+8 sessions, 8 trials per condition (increase if needed)
 Prediction: peeking in 50% of intrinsic trials, and 25% in functioning trials
 N = 16
 
 ## Generate data
 ```{r echo=FALSE, include=FALSE}
-set.seed(100)
+set.seed(1)
 n.subject <- 16 # number subjects
-n.per.subject <- 8 # observations per subject
-n.per.condition <- 4 # observations per subject and condition
-n.blocks <- 4
+n.per.subject <- 16 # observations per subject
+n.per.condition <- 8 # observations per subject and condition
+n.sessions <- 8
 #age_range <- c(12:130) # age range between 1 and 13 years
 fun.per<-c(0.15, 0.25) # functional condition
 int.per<-c(0.4, 0.5) # intrinsic condition
@@ -42,16 +42,17 @@ int.per<-c(0.4, 0.5) # intrinsic condition
 subj.id <- as.factor(paste("subj", str_pad(1:n.subject, 2, pad = "0"), sep = "."))
 
 #all order combinations
-library(combinat)
-con_order <- c("fun-int", "fun-int", "int-fun", "int-fun")
-order<-unlist(permn(con_order))
-temp.data<-as.data.frame(order)
-temp.data$session<-as.vector(rep(1:4, 24))
-temp.data <- temp.data %>%
+#library(combinat)
+con_order <- c("fun-int", "fun-int", "int-fun", "int-fun", "fun-int", "fun-int", "int-fun", "int-fun")
+#order<-unlist(permn(con_order))
+order<-replicate(n.subject, sample(con_order, n.sessions))
+
+start.data<-as.data.frame(order) %>%
+  pivot_longer(c("V1":"V16"), names_to="session", values_to="order")%>%
+  mutate(session=str_remove(session, "V"))%>%
   separate(order, c("1", "2"), sep = "-") %>%
   pivot_longer(cols="1":"2", names_to = "trial_w_session", values_to = "condition")
 
-start.data <- as.data.frame(temp.data[1:128,]) #only keep data for 16 subjects
 start.data$subj.id<-sort(rep(subj.id, n.per.subject)) 
 
 start.data$trial <- rep(1:n.per.subject,n.subject)
@@ -75,6 +76,7 @@ start.data$condition.dummy <- as.numeric(start.data$condition == levels(start.da
 # center condition for random slopes:
 start.data$condition.c <- as.numeric(start.data$condition) - mean(as.numeric(start.data$condition))
 
+table(start.data$subj.id, start.data$condition)
 table(start.data$trial, start.data$condition)
 table(start.data$sex, start.data$condition)
 table(start.data$trial_w_session, start.data$condition)
@@ -174,7 +176,7 @@ for (i in 1:nrow(all.res)) {
     print(i)
 }
 
-save.image("kea_explanation_seeking_sim_N16.RData")
+save.image("kea_explanation_seeking_sim_N16_16trials.RData")
 ```
 
 ## Evaluation of results 
