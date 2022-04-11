@@ -1,0 +1,289 @@
+---
+title: "Kea explanation seeking - binomial GLMM - Power analysis"
+author: "Christoph Völter"
+date: "11/04/2022"
+output: 
+  html_document:
+    theme: united
+    toc: yes
+    toc_depth: 4
+    toc_float: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+rm(list=ls())
+library(tidyverse)
+library(cowplot)
+library("gghalves")
+library(ggthemes)
+
+#load(".RData")
+```
+
+Notes:
+DV: peeking response (binary)
+Design: 2 conditions (functional / intrinsic), within subject design
+4 sessions, 4 trials per condition (increase if needed)
+Prediction: peeking in 50% of intrinsic trials, and 25% in functioning trials
+N = 16
+
+## Generate data
+```{r echo=FALSE, include=FALSE}
+set.seed(100)
+n.subject <- 16 # number subjects
+n.per.subject <- 8 # observations per subject
+n.per.condition <- 4 # observations per subject and condition
+n.blocks <- 4
+#age_range <- c(12:130) # age range between 1 and 13 years
+fun.per<-c(0.15, 0.25) # functional condition
+int.per<-c(0.4, 0.5) # intrinsic condition
+
+subj.id <- as.factor(paste("subj", str_pad(1:n.subject, 2, pad = "0"), sep = "."))
+
+#all order combinations
+library(combinat)
+con_order <- c("fun-int", "fun-int", "int-fun", "int-fun")
+order<-unlist(permn(con_order))
+temp.data<-as.data.frame(order)
+temp.data$session<-as.vector(rep(1:4, 24))
+temp.data <- temp.data %>%
+  separate(order, c("1", "2"), sep = "-") %>%
+  pivot_longer(cols="1":"2", names_to = "trial_w_session", values_to = "condition")
+
+start.data <- as.data.frame(temp.data[1:128,]) #only keep data for 16 subjects
+start.data$subj.id<-sort(rep(subj.id, n.per.subject)) 
+
+start.data$trial <- rep(1:n.per.subject,n.subject)
+#start.data$sex <- rep(c(rep("m", n.per.subject), rep("f", n.per.subject)), n.subject/2)
+
+demo.data<-read.csv(file="data/demo_data.csv")
+start.data$sex <- rep(demo.data$sex,each=n.per.subject)
+start.data$age <- rep(demo.data$age,each=n.per.subject)
+
+# z-transformation of covariates
+xdata$z.age <- as.vector((scale(xdata$age))
+
+start.data$z.trial <- as.vector(scale(as.numeric(start.data$trial_w_session)))
+start.data$z.session <- as.vector(scale(as.numeric(start.data$session)))
+
+# dummy code factors
+start.data$condition <- as.factor(start.data$condition)
+start.data$condition.dummy <- as.numeric(start.data$condition == levels(start.data$condition)[2])
+
+
+# center condition for random slopes:
+start.data$condition.c <- as.numeric(start.data$condition) - mean(as.numeric(start.data$condition))
+
+table(start.data$trial, start.data$condition)
+table(start.data$sex, start.data$condition)
+table(start.data$trial_w_session, start.data$condition)
+```
+
+## Simulation
+
+```{r eval=FALSE, include=FALSE}
+n.simus <- 1000
+r.effects <- c(1.1) # random effects to be simulated
+# with the intercept being -1.098612 (qlogis(0.25)) we assume a moderately large random intercept of 1.1.
+
+r.slope.int <- c(1.1)
+# with the estimate being -1.098612 (qlogis(0.25)-qlogis(0.5)) we assume a moderately large random slope of 1.1.
+
+r.slope.trial <- 0.2
+r.slope.session <- 0.2
+
+# create object to store the simulation parameters and results:
+all.res <- data.frame(expand.grid(
+  n.per.subject = n.per.subject, r.effect = r.effects,
+  r.slope.int = r.slope.int, r.slope.trial = r.slope.trial,
+  r.slope.session = r.slope.session,
+  fun.per = fun.per,
+  int.per = int.per,
+  simu = 1:n.simus
+))
+all.res$icpt <- NA
+all.res$conditionint <- NA
+all.res$re.sd <- NA
+all.res$warns.full <- NA
+all.res$warns.null <- NA
+all.res$lrt.p.con <- NA
+#all.res$lrt.p.age <- NA
+all.res$full.null.p <- NA
+
+all.ests <- matrix(NA, nrow = n.simus, ncol = 1)
+colnames(all.ests) <- c("lrt.p.con")
+
+# create data frame with design:
+## done above
+
+# load packages needed:
+library(lme4)
+# Loading required package: Matrix
+library(kyotil) # we want to store info about convergence issues
+
+# define control structure to make convergence more likely:
+contr <- glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 10000))
+
+xdata <- start.data
+m.mat <- model.matrix(object = ~condition + z.age + sex + z.trial + z.session , data = xdata) # create model martix
+
+# run simulation
+for (i in 1:nrow(all.res)) {
+
+  set.seed(i) # allows to later replicate individual simulations
+
+  # add age  (if it should be generated in each loop)
+  #age <- sample(x = age_range, size = length(unique(xdata$subj.id)), replace = T)
+  #xdata$age <- as.numeric(age[as.numeric(xdata$subj.id)])
+  #xdata$z.age <- scale(xdata$age)
+  #m.mat <- model.matrix(object = ~condition + z.age + sex + z.trial + z.session , data = xdata) # create model martix
+
+  coefs <- c(
+    "(Intercept)" = qlogis(all.res[i, "fun.per"]),
+    "conditionint" = log(all.res[i, "int.per"] / (1 - all.res[i, "int.per"])) - log(all.res[i, "fun.per"] / (1 - all.res[i, "fun.per"])),
+  "z.age" = 0,
+  "sexm" = 0,
+  "z.trial" = 0,
+  "z.session" = 0
+  )
+
+  LP <- m.mat[, names(coefs)] %*% coefs # LP wrt fixed effects
+
+  # add random effect to linear predictor:
+  LP <- LP + rnorm(n = n.subject, sd = all.res[i, "r.effect"])[as.numeric(xdata$subj.id)] +
+    rnorm(n = n.subject, sd = all.res[i, "r.slope.int"])[as.numeric(xdata$subj.id)] * xdata$condition.dummy +
+    rnorm(n = n.subject, sd = all.res[i, "r.slope.trial"])[as.numeric(xdata$subj.id)] * xdata$z.trial +
+    rnorm(n = n.subject, sd = all.res[i, "r.slope.session"])[as.numeric(xdata$subj.id)] * xdata$z.session 
+
+  # generate response:
+  xdata$correct <- rbinom(n = nrow(xdata), size = 1, prob = exp(LP) / (1 + exp(LP)))
+
+
+  # fit full model:
+  full <- keepWarnings(glmer(correct ~ condition + z.trial + z.session + (1 + condition.c + z.trial + z.session | subj.id),
+    data = xdata, family = binomial, control = contr
+  ))
+
+  # store results:
+  all.res[i, c("icpt", "conditionint", "z.trial", "z.session")] <- fixef(full$value)
+  all.res[i, "re.sd"] <- as.data.frame(summary(full$value)$varcor)[1, "sdcor"]
+  all.res[i, "warns.full"] <- nchar(paste(full$warnings, collapse = ""))
+  all.res[i, "lrt.p.con"] <- as.data.frame(drop1(full$value, test = "Chisq"))["condition", "Pr(Chi)"]
+    all.res[i, "lrt.trial.p"] <- as.data.frame(drop1(full$value, test = "Chisq"))["z.trial", "Pr(Chi)"]
+    print(i)
+}
+
+save.image("kea_explanation_seeking_sim_N16.RData")
+```
+
+## Evaluation of results 
+
+* number of warning per combinations of random effects (out of 1000 models per cell)  
+Full model:  
+```{r echo=FALSE}
+#full model
+tapply(X=all.res[, "warns.full"]>0, INDEX=all.res[, c("r.slope.int", "r.effect")],
+FUN=sum)
+#warning codes: 
+#363: unable to evaluate scaled gradient. Model failed to converge: degenerate  Hessian with 1 negative eigenvalues
+#205: Model is nearly unidentifiable: large eigenvalue ratio - Rescale variables?
+```
+
+
+## Only models that converged are evaluated from here on:  
+
+```{r include=FALSE}
+all.res2=subset(all.res, warns.full==0)
+```
+
+
+### How many models converged, have a significant full-null model comparison, and a significant LRT of condition?  
+```{r echo=FALSE}
+n.converged<- all.res2%>%
+    group_by(int.per,fun.per, r.effect, r.slope.int ) %>%
+  summarise(n.converged=length(lrt.p.con))
+
+
+lrt.data2 <- all.res2 %>%
+  #filter(full.null.p<0.05)%>%
+  group_by(int.per, fun.per, r.effect, r.slope.int ) %>%
+  summarise(lrt.p.con.median = median(lrt.p.con), 
+            lrt.p.trial.median = median(lrt.trial.p),
+            n.sign.lrt.con = length(lrt.p.con[lrt.p.con < 0.05]),
+            n.sign.lrt.trial = length(lrt.trial.p[lrt.trial.p < 0.05]),
+            n.lrt = n.simus,
+            proportion.sign.lrt.con = length(lrt.p.con[lrt.p.con < 0.05]) / n.simus,
+            proportion.sign.lrt.trial = length(lrt.trial.p[lrt.trial.p < 0.05]) / n.simus)%>%
+  full_join(n.converged)
+
+lrt.data2
+```
+
+#### Plotting the proportion of significant LRTs for the predictor variable condition ONLY based on models that converged and with a significant full-null model comparison
+
+```{r echo=FALSE}
+p.con.power <- ggplot(data = lrt.data2, aes(x= as.factor(int.per),y = proportion.sign.lrt.con, fill=as.factor(fun.per))) +
+  geom_bar(stat="identity", color="black", position=position_dodge())+
+  scale_y_continuous(breaks=seq(0,1,0.2), limits=c(0, 1))+
+  geom_hline(yintercept = 0.8, colour = "black", lwd = 1.1, lty = 2) +
+   # geom_hline(yintercept = 0.05, colour = "darkgrey", lwd = 1.1, lty = 4) +
+  scale_fill_manual(values=c("dodgerblue", "darkorange", "darkgrey"))+
+  labs(fill = "Functional condition", y="Power", x= "Intrinsic condition") +
+  theme_few()#+
+  #theme(legend.position="none")
+p.con.power
+
+ggsave(p.con.power, filename = "graphics/kea_explanation_seeking_power.png", scale = 0.7, height = 5, width = 8)
+```
+
+#### Plotting the intercepts
+
+
+```{r echo=FALSE}
+ggplot(data = all.res2, aes(x=as.factor(r.effect), y=icpt))+
+  geom_jitter( alpha=0.5, col="grey")+
+  geom_boxplot(aes(x=as.factor(r.effect), y=icpt, group=r.effect), alpha=0.1, outlier.colour="white")+
+  geom_hline(yintercept=coefs["(Intercept)"], colour="red", lty=2)
+```
+
+
+
+#### Plotting the fixed effect of condition
+
+```{r echo=FALSE}
+p.con <- ggplot(data = all.res2, aes(x= as.factor(int.per), fill=as.factor(fun.per)))  +
+  geom_jitter(data = all.res2, aes(x = as.factor(int.per), y = conditionint, color = as.factor(fun.per)), size = 1.5, position = position_jitterdodge(dodge.width = 0.8, jitter.width = 0.5), alpha = .1) +
+  scale_color_manual(values = c("dodgerblue", "darkorange")) +
+    geom_boxplot(data = all.res2 %>% filter(fun.per == "0.15"), aes(x = as.factor(int.per), y = conditionint), position = position_nudge(x = -.2), width = 0.3, alpha = 0.15, outlier.colour = "white") +
+  geom_boxplot(data = all.res2 %>% filter(fun.per == "0.25"), aes(x = as.factor(int.per), y = conditionint), position = position_nudge(x = .2), width = 0.3, alpha = 0.15, outlier.colour = "white") +
+  geom_hline(data = data.frame(int.per = "0.5"), aes(yintercept = coefs["conditionint"]), colour = "black", lwd = 1.1, lty = 2, alpha = 0.7) +
+  geom_hline(data = data.frame(int.per = "0.4"), aes(yintercept = qlogis(0.4) - qlogis(0.15)), colour = "darkgrey", lwd = 1.1, lty = 4, alpha = 0.7) +
+  ylab("Condition (fixed effect)") +
+  xlab("Intrinsic condition") +
+  theme_few() #+
+ # theme(legend.position = "none")
+
+p.con 
+```
+
+
+```{r echo=FALSE}
+p.legend <- ggplot(data = lrt.data2, aes(x= as.factor(int.per),y = proportion.sign.lrt.con, fill=as.factor(fun.per))) +
+  geom_bar(stat="identity", color="black", position=position_dodge())+
+  scale_y_continuous(breaks=seq(0,1,0.2), limits=c(0, 1))+
+  geom_hline(yintercept = 0.95, colour = "black", lwd = 1, lty = 2) +
+    geom_hline(yintercept = 0.05, colour = "darkgrey", lwd = 1, lty = 4) +
+  scale_fill_manual(values=c("dodgerblue", "darkorange"))+
+  labs(fill = "Intrinsic condition", y="Power", x= "Strategic condition") +
+  theme_few()+
+  theme(legend.position="top")
+
+p.leg <- get_legend(p.legend)
+
+p.con <- plot_grid(perf.plot, p.con.power, p.con.str, p.con.intr, labels = c("A", "B", "C", "D"), rel_widths = c(1, 1, 1, 1), nrow=2)
+p.con2 <- ggdraw(plot_grid(p.con, p.leg, ncol = 1, nrow = 2, rel_heights = c(1, 0.1)))
+
+p.con2
+ggsave(p.con2, filename = "graphics/Explanation seeking_children simulation.png", scale = 0.65, height = 12, width = 12)
+```
