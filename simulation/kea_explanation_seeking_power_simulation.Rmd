@@ -57,12 +57,12 @@ start.data$subj.id<-sort(rep(subj.id, n.per.subject))
 start.data$trial <- rep(1:n.per.subject,n.subject)
 #start.data$sex <- rep(c(rep("m", n.per.subject), rep("f", n.per.subject)), n.subject/2)
 
-demo.data<-read.csv(file="data/demo_data.csv")
+demo.data<-read.csv(file="data/demo_data.csv", sep=";")
 start.data$sex <- rep(demo.data$sex,each=n.per.subject)
 start.data$age <- rep(demo.data$age,each=n.per.subject)
 
 # z-transformation of covariates
-xdata$z.age <- as.vector((scale(xdata$age))
+start.data$z.age <- as.vector(scale(start.data$age))
 
 start.data$z.trial <- as.vector(scale(as.numeric(start.data$trial_w_session)))
 start.data$z.session <- as.vector(scale(as.numeric(start.data$session)))
