@@ -223,18 +223,20 @@ lrt.data2
 #### Plotting the proportion of significant LRTs for the predictor variable condition ONLY based on models that converged and with a significant full-null model comparison
 
 ```{r echo=FALSE}
-p.con.power <- ggplot(data = lrt.data2, aes(x= as.factor(int.per),y = proportion.sign.lrt.con, fill=as.factor(fun.per))) +
+p.con.power_4tr <- ggplot(data = lrt.data2, aes(x= as.factor(int.per),y = proportion.sign.lrt.con, fill=as.factor(fun.per))) +
   geom_bar(stat="identity", color="black", position=position_dodge())+
   scale_y_continuous(breaks=seq(0,1,0.2), limits=c(0, 1))+
-  geom_hline(yintercept = 0.8, colour = "black", lwd = 1.1, lty = 2) +
+  geom_hline(yintercept = 0.8, colour = "black", lwd = 1, lty = 2) +
    # geom_hline(yintercept = 0.05, colour = "darkgrey", lwd = 1.1, lty = 4) +
   scale_fill_manual(values=c("dodgerblue", "darkorange", "darkgrey"))+
   labs(fill = "Functional condition", y="Power", x= "Intrinsic condition") +
-  theme_few()#+
-  #theme(legend.position="none")
-p.con.power
+  theme_few()+
+  ggtitle("4 trials per condition")+
+  theme(legend.position="none")+
+    geom_text(aes(label=round(proportion.sign.lrt.con,2)), position=position_dodge(width=0.9), vjust=-0.25)
+p.con.power_4tr
 
-ggsave(p.con.power, filename = "graphics/kea_explanation_seeking_power_8trials_16subj.png", scale = 0.7, height = 5, width = 8)
+ggsave(p.con.power_4tr, filename = "graphics/kea_explanation_seeking_power_8trials_16subj.png", scale = 0.7, height = 5, width = 8)
 ```
 
 #### Plotting the intercepts
