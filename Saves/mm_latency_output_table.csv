@@ -1,0 +1,5 @@
+"","Estimate","SE","Chi2","df","p"
+"(Intercept)",21.69,1.42,NA,NA,NA
+"ConditionNon-functional",-1.62,1.96,0.99,1,"0.32"
+"z.trial",0.19,0.81,0.17,1,"0.678"
+"z.session",0.28,1.02,0.25,1,"0.62"

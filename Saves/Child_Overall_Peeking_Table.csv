@@ -1,0 +1,249 @@
+"","subject","condition","Behavior","mean.peeking","count"
+"1","ES101","Functional","Peek on top",0,0
+"2","ES101","Functional","Peephole peek",0,0
+"3","ES101","Functional","Right box (side)",0,0
+"4","ES101","Functional","Right side peek",1.64325,1
+"5","ES101","Non-functional","Peek on top",0,0
+"6","ES101","Non-functional","Peephole peek",0,0
+"7","ES101","Non-functional","Right box (side)",0,0
+"8","ES101","Non-functional","Right side peek",0,0
+"9","ES102","Functional","Peek on top",0,0
+"10","ES102","Functional","Peephole peek",0,0
+"11","ES102","Functional","Right box (side)",0,0
+"12","ES102","Functional","Right side peek",0,0
+"13","ES102","Non-functional","Peek on top",0,0
+"14","ES102","Non-functional","Peephole peek",0,0
+"15","ES102","Non-functional","Right box (side)",0,0
+"16","ES102","Non-functional","Right side peek",1.18725,1
+"17","ES103","Functional","Peek on top",0,0
+"18","ES103","Functional","Peephole peek",0,0
+"19","ES103","Functional","Right box (side)",0,0
+"20","ES103","Functional","Right side peek",0,0
+"21","ES103","Non-functional","Peek on top",0,0
+"22","ES103","Non-functional","Peephole peek",0,0
+"23","ES103","Non-functional","Right box (side)",0,0
+"24","ES103","Non-functional","Right side peek",0,0
+"25","ES104","Functional","Peek on top",0,0
+"26","ES104","Functional","Peephole peek",0,0
+"27","ES104","Functional","Right box (side)",0,0
+"28","ES104","Functional","Right side peek",0,0
+"29","ES104","Non-functional","Peek on top",0,0
+"30","ES104","Non-functional","Peephole peek",0,0
+"31","ES104","Non-functional","Right box (side)",0,0
+"32","ES104","Non-functional","Right side peek",0,0
+"33","ES106","Functional","Peek on top",0,0
+"34","ES106","Functional","Peephole peek",0,0
+"35","ES106","Functional","Right box (side)",0,0
+"36","ES106","Functional","Right side peek",0,0
+"37","ES106","Non-functional","Peek on top",0,0
+"38","ES106","Non-functional","Peephole peek",0,0
+"39","ES106","Non-functional","Right box (side)",0,0
+"40","ES106","Non-functional","Right side peek",0,0
+"41","ES108","Functional","Peek on top",5.06025,2
+"42","ES108","Functional","Peephole peek",2.124,1
+"43","ES108","Functional","Right box (side)",0,0
+"44","ES108","Functional","Right side peek",0,0
+"45","ES108","Non-functional","Peek on top",0,0
+"46","ES108","Non-functional","Peephole peek",0,0
+"47","ES108","Non-functional","Right box (side)",0,0
+"48","ES108","Non-functional","Right side peek",0,0
+"49","ES110","Functional","Peek on top",0,0
+"50","ES110","Functional","Peephole peek",0,0
+"51","ES110","Functional","Right box (side)",0,0
+"52","ES110","Functional","Right side peek",0,0
+"53","ES110","Non-functional","Peek on top",0,0
+"54","ES110","Non-functional","Peephole peek",0,0
+"55","ES110","Non-functional","Right box (side)",0,0
+"56","ES110","Non-functional","Right side peek",0,0
+"57","ES111","Functional","Peek on top",0,0
+"58","ES111","Functional","Peephole peek",0,0
+"59","ES111","Functional","Right box (side)",0,0
+"60","ES111","Functional","Right side peek",0,0
+"61","ES111","Non-functional","Peek on top",0,0
+"62","ES111","Non-functional","Peephole peek",0,0
+"63","ES111","Non-functional","Right box (side)",0,0
+"64","ES111","Non-functional","Right side peek",0.37325,1
+"65","ES112","Functional","Peek on top",0,0
+"66","ES112","Functional","Peephole peek",0,0
+"67","ES112","Functional","Right box (side)",0,0
+"68","ES112","Functional","Right side peek",0,0
+"69","ES112","Non-functional","Peek on top",0,0
+"70","ES112","Non-functional","Peephole peek",0,0
+"71","ES112","Non-functional","Right box (side)",1.03875,1
+"72","ES112","Non-functional","Right side peek",0.20425,1
+"73","ES113","Functional","Peek on top",0,0
+"74","ES113","Functional","Peephole peek",0,0
+"75","ES113","Functional","Right box (side)",27.06425,4
+"76","ES113","Functional","Right side peek",0,0
+"77","ES113","Non-functional","Peek on top",0,0
+"78","ES113","Non-functional","Peephole peek",0,0
+"79","ES113","Non-functional","Right box (side)",6.5315,1
+"80","ES113","Non-functional","Right side peek",0.81325,2
+"81","ES114","Functional","Peek on top",0,0
+"82","ES114","Functional","Peephole peek",0,0
+"83","ES114","Functional","Right box (side)",4.542,1
+"84","ES114","Functional","Right side peek",0,0
+"85","ES114","Non-functional","Peek on top",0,0
+"86","ES114","Non-functional","Peephole peek",0,0
+"87","ES114","Non-functional","Right box (side)",0,0
+"88","ES114","Non-functional","Right side peek",0,0
+"89","ES115","Functional","Peek on top",0,0
+"90","ES115","Functional","Peephole peek",0,0
+"91","ES115","Functional","Right box (side)",2.1605,1
+"92","ES115","Functional","Right side peek",0,0
+"93","ES115","Non-functional","Peek on top",0,0
+"94","ES115","Non-functional","Peephole peek",0,0
+"95","ES115","Non-functional","Right box (side)",1.856,2
+"96","ES115","Non-functional","Right side peek",0,0
+"97","ES116","Functional","Peek on top",0,0
+"98","ES116","Functional","Peephole peek",0,0
+"99","ES116","Functional","Right box (side)",0,0
+"100","ES116","Functional","Right side peek",0,0
+"101","ES116","Non-functional","Peek on top",1.03875,1
+"102","ES116","Non-functional","Peephole peek",0,0
+"103","ES116","Non-functional","Right box (side)",0.39625,1
+"104","ES116","Non-functional","Right side peek",0,0
+"105","ES117","Functional","Peek on top",0,0
+"106","ES117","Functional","Peephole peek",0,0
+"107","ES117","Functional","Right box (side)",0,0
+"108","ES117","Functional","Right side peek",0,0
+"109","ES117","Non-functional","Peek on top",0,0
+"110","ES117","Non-functional","Peephole peek",0,0
+"111","ES117","Non-functional","Right box (side)",0,0
+"112","ES117","Non-functional","Right side peek",0,0
+"113","ES118","Functional","Peek on top",0,0
+"114","ES118","Functional","Peephole peek",0,0
+"115","ES118","Functional","Right box (side)",0.62975,1
+"116","ES118","Functional","Right side peek",0,0
+"117","ES118","Non-functional","Peek on top",0,0
+"118","ES118","Non-functional","Peephole peek",0,0
+"119","ES118","Non-functional","Right box (side)",7.2865,1
+"120","ES118","Non-functional","Right side peek",0,0
+"121","ES119","Functional","Peek on top",0,0
+"122","ES119","Functional","Peephole peek",0,0
+"123","ES119","Functional","Right box (side)",0,0
+"124","ES119","Functional","Right side peek",0,0
+"125","ES119","Non-functional","Peek on top",0,0
+"126","ES119","Non-functional","Peephole peek",0,0
+"127","ES119","Non-functional","Right box (side)",0,0
+"128","ES119","Non-functional","Right side peek",0,0
+"129","ES120","Functional","Peek on top",0,0
+"130","ES120","Functional","Peephole peek",0,0
+"131","ES120","Functional","Right box (side)",0,0
+"132","ES120","Functional","Right side peek",0,0
+"133","ES120","Non-functional","Peek on top",0,0
+"134","ES120","Non-functional","Peephole peek",0,0
+"135","ES120","Non-functional","Right box (side)",0,0
+"136","ES120","Non-functional","Right side peek",0,0
+"137","ES122","Functional","Peek on top",0,0
+"138","ES122","Functional","Peephole peek",0,0
+"139","ES122","Functional","Right box (side)",0,0
+"140","ES122","Functional","Right side peek",0,0
+"141","ES122","Non-functional","Peek on top",0,0
+"142","ES122","Non-functional","Peephole peek",0,0
+"143","ES122","Non-functional","Right box (side)",0,0
+"144","ES122","Non-functional","Right side peek",0,0
+"145","ES123","Functional","Peek on top",0,0
+"146","ES123","Functional","Peephole peek",0,0
+"147","ES123","Functional","Right box (side)",0,0
+"148","ES123","Functional","Right side peek",0,0
+"149","ES123","Non-functional","Peek on top",0,0
+"150","ES123","Non-functional","Peephole peek",0,0
+"151","ES123","Non-functional","Right box (side)",0,0
+"152","ES123","Non-functional","Right side peek",0,0
+"153","ES124","Functional","Peek on top",0,0
+"154","ES124","Functional","Peephole peek",0,0
+"155","ES124","Functional","Right box (side)",0,0
+"156","ES124","Functional","Right side peek",0.188,1
+"157","ES124","Non-functional","Peek on top",0,0
+"158","ES124","Non-functional","Peephole peek",0,0
+"159","ES124","Non-functional","Right box (side)",0,0
+"160","ES124","Non-functional","Right side peek",0.50025,1
+"161","ES126","Functional","Peek on top",0,0
+"162","ES126","Functional","Peephole peek",0,0
+"163","ES126","Functional","Right box (side)",0,0
+"164","ES126","Functional","Right side peek",0,0
+"165","ES126","Non-functional","Peek on top",0,0
+"166","ES126","Non-functional","Peephole peek",0,0
+"167","ES126","Non-functional","Right box (side)",0,0
+"168","ES126","Non-functional","Right side peek",0,0
+"169","ES127","Functional","Peek on top",0,0
+"170","ES127","Functional","Peephole peek",0,0
+"171","ES127","Functional","Right box (side)",0,0
+"172","ES127","Functional","Right side peek",0,0
+"173","ES127","Non-functional","Peek on top",0,0
+"174","ES127","Non-functional","Peephole peek",0,0
+"175","ES127","Non-functional","Right box (side)",0,0
+"176","ES127","Non-functional","Right side peek",0,0
+"177","ES128","Functional","Peek on top",0,0
+"178","ES128","Functional","Peephole peek",0,0
+"179","ES128","Functional","Right box (side)",0,0
+"180","ES128","Functional","Right side peek",0,0
+"181","ES128","Non-functional","Peek on top",0,0
+"182","ES128","Non-functional","Peephole peek",0,0
+"183","ES128","Non-functional","Right box (side)",0,0
+"184","ES128","Non-functional","Right side peek",0,0
+"185","ES129","Functional","Peek on top",0,0
+"186","ES129","Functional","Peephole peek",0,0
+"187","ES129","Functional","Right box (side)",0,0
+"188","ES129","Functional","Right side peek",0,0
+"189","ES129","Non-functional","Peek on top",0,0
+"190","ES129","Non-functional","Peephole peek",0,0
+"191","ES129","Non-functional","Right box (side)",0,0
+"192","ES129","Non-functional","Right side peek",1.437,1
+"193","ES130","Functional","Peek on top",0,0
+"194","ES130","Functional","Peephole peek",0,0
+"195","ES130","Functional","Right box (side)",0,0
+"196","ES130","Functional","Right side peek",0,0
+"197","ES130","Non-functional","Peek on top",0,0
+"198","ES130","Non-functional","Peephole peek",0,0
+"199","ES130","Non-functional","Right box (side)",0,0
+"200","ES130","Non-functional","Right side peek",0,0
+"201","ES132","Functional","Peek on top",0,0
+"202","ES132","Functional","Peephole peek",0,0
+"203","ES132","Functional","Right box (side)",0,0
+"204","ES132","Functional","Right side peek",0,0
+"205","ES132","Non-functional","Peek on top",0,0
+"206","ES132","Non-functional","Peephole peek",0,0
+"207","ES132","Non-functional","Right box (side)",0,0
+"208","ES132","Non-functional","Right side peek",0,0
+"209","ES133","Functional","Peek on top",0,0
+"210","ES133","Functional","Peephole peek",0,0
+"211","ES133","Functional","Right box (side)",0,0
+"212","ES133","Functional","Right side peek",0,0
+"213","ES133","Non-functional","Peek on top",0,0
+"214","ES133","Non-functional","Peephole peek",0,0
+"215","ES133","Non-functional","Right box (side)",0,0
+"216","ES133","Non-functional","Right side peek",0,0
+"217","ES134","Functional","Peek on top",0,0
+"218","ES134","Functional","Peephole peek",0,0
+"219","ES134","Functional","Right box (side)",0,0
+"220","ES134","Functional","Right side peek",0,0
+"221","ES134","Non-functional","Peek on top",0,0
+"222","ES134","Non-functional","Peephole peek",0,0
+"223","ES134","Non-functional","Right box (side)",0,0
+"224","ES134","Non-functional","Right side peek",0,0
+"225","ES135","Functional","Peek on top",0,0
+"226","ES135","Functional","Peephole peek",0,0
+"227","ES135","Functional","Right box (side)",0,0
+"228","ES135","Functional","Right side peek",0.62925,1
+"229","ES135","Non-functional","Peek on top",0,0
+"230","ES135","Non-functional","Peephole peek",0,0
+"231","ES135","Non-functional","Right box (side)",0,0
+"232","ES135","Non-functional","Right side peek",0.934,1
+"233","ES136","Functional","Peek on top",0,0
+"234","ES136","Functional","Peephole peek",0,0
+"235","ES136","Functional","Right box (side)",0,0
+"236","ES136","Functional","Right side peek",0,0
+"237","ES136","Non-functional","Peek on top",0,0
+"238","ES136","Non-functional","Peephole peek",0.55725,1
+"239","ES136","Non-functional","Right box (side)",0,0
+"240","ES136","Non-functional","Right side peek",0.624,1
+"241","Es125","Functional","Peek on top",0,0
+"242","Es125","Functional","Peephole peek",0,0
+"243","Es125","Functional","Right box (side)",0,0
+"244","Es125","Functional","Right side peek",0,0
+"245","Es125","Non-functional","Peek on top",0,0
+"246","Es125","Non-functional","Peephole peek",0.24975,1
+"247","Es125","Non-functional","Right box (side)",0,0
+"248","Es125","Non-functional","Right side peek",0,0
