@@ -1,0 +1,189 @@
+---
+title: "Kea Explanation Seeking Analysis Rmd"
+output:
+  pdf_document: default
+  html_document: default
+date: "2023-02-07"
+---
+## Libraries
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(lme4)
+library(tidyverse)
+library(summarytools)
+
+
+source("./functions/diagnostic_fcns.r")
+source("./functions/glmm_stability.r")
+source("./functions/boot_glmm.r")
+source("./functions/boot_glmm2.r")
+source("./functions/glmmTMB_stability.r")
+source("./functions/drop1_para_glmmtmb.r")
+source("./functions/extract_ranef_gmmTMB.r")
+```
+
+# original
+## Read in data
+```{r}
+raw.data<-read.csv("data/ALL SUBJECTS Explanation Seeking Coding 17.1.2023 csv.csv")
+cb.data<-read.csv("data/counter balancing trials.csv")%>%
+  select(-Date)%>%
+  filter(Condition != "Refresher")
+cb.data2<-expand.grid(Subject=levels(as.factor(cb.data$Subject)), Trial=c(4,5), Session=c(1:8), Behavior=c("Right side peek", "Peek on top", "Peephole peek"))
+```
+
+## Calculate duration of each trial
+```{r}
+trialdurationdata<-raw.data %>%
+  filter(Behavior == "Food to end of trial") %>%
+  rename(Condition = Subject.1, Trial_Duration = Duration..s.) %>%
+  mutate(Trial = as.numeric(ifelse(Trial.Order == 1 & Condition == "Functional", 4, 
+                                   ifelse(Trial.Order == 2 & Condition == "Functional", 5,
+                                          ifelse(Trial.Order == 1 & Condition == "Non-functional", 5,
+                                                 ifelse(Trial.Order == 2 & Condition == "Non-functional", 4,""))))))%>%
+  select(Subject, Condition, Session, Trial,  Trial_Duration)
+
+table(trialdurationdata$Subject,trialdurationdata$Condition)
+table(cb.data$Subject,cb.data$Condition)
+```
+## Subset the raw data to the exploration period
+first we determine when the food hit the ground and then we filter the data such that we only keep the peeks following the food release
+```{r}
+solution.data<-raw.data %>%
+  filter( Behavior =="Food to end of trial") %>%
+  rename(Condition = Subject.1) %>%
+  mutate(Trial = as.numeric(ifelse(Trial.Order == 1 & Condition == "Functional", 4, 
+                        ifelse(Trial.Order == 2 & Condition == "Functional", 5,
+                               ifelse(Trial.Order == 1 & Condition == "Non-functional", 5,
+                                      ifelse(Trial.Order == 2 & Condition == "Non-functional", 4,""))))))%>%
+  group_by(Subject, Session, Trial, Condition)%>% #Subject.1 means trial type (func or non func)
+  summarise(solution_time=min(Start..s.))
+
+
+raw.data.after.solution <- raw.data %>%
+  rename(Condition = Subject.1) %>%
+  mutate(Trial = as.numeric(ifelse(Trial.Order == 1 & Condition == "Functional", 4, 
+                        ifelse(Trial.Order == 2 & Condition == "Functional", 5,
+                               ifelse(Trial.Order == 1 & Condition == "Non-functional", 5,
+                                      ifelse(Trial.Order == 2 & Condition == "Non-functional", 4,""))))))%>%
+  full_join(solution.data) %>%
+  filter(Start..s.>=solution_time)
+```
+
+
+## Data preparation (summed up peeks, trial duration, added 0s, proportion peeking)
+```{r}
+xdata<-raw.data.after.solution %>%
+  filter(Behavioral.category == "Peeking" | (Behavioral.category == "Proximity" & Behavior == "Right box (side)")) %>%
+  group_by(Subject, Session, Trial, Condition)%>% #Subject.1 means trial type (func or non func)
+  summarise(sum_peeking=sum(Duration..s.))%>% #aggregating durations per behavioral category within each session
+  ungroup()%>%
+  full_join(cb.data)%>%
+  complete(Subject, Session, Trial,  fill=list(sum_peeking=0))%>% #fill in 0s
+  full_join(trialdurationdata)%>%
+  mutate(Proportionpeeking = sum_peeking / Trial_Duration,
+         peeking_binary= as.numeric(ifelse(sum_peeking > 0, 1, 0)))
+```
+# reli data
+## Read in data
+```{r}
+reli_data <- raw.data_reli %>%
+  group_by(Subject, Session) %>%
+  summarise(min(Date))%>%
+  select(-"min(Date)")
+
+```
+
+```{r}
+raw.data_reli<-read.csv("data/Reli SUBJECTS Explanation Seeking Reli Coding.csv")
+```
+
+## Calculate duration of each trial
+```{r}
+trialdurationdata_reli<-raw.data_reli %>%
+  filter(Behavior == "Food to end of trial") %>%
+  rename(Condition = Subject.1, Trial_Duration = Duration..s.) %>%
+  mutate(Trial = as.numeric(ifelse(Trial.Order == 1 & Condition == "Functional", 4, 
+                                   ifelse(Trial.Order == 2 & Condition == "Functional", 5,
+                                          ifelse(Trial.Order == 1 & Condition == "Non-functional", 5,
+                                                 ifelse(Trial.Order == 2 & Condition == "Non-functional", 4,""))))))%>%
+  select(Subject, Condition, Session, Trial,  Trial_Duration)
+
+```
+## Subset the raw data to the exploration period
+first we determine when the food hit the ground and then we filter the data such that we only keep the peeks following the food release
+```{r}
+solution.data_reli<-raw.data_reli %>%
+  filter( Behavior =="Food to end of trial") %>%
+  rename(Condition = Subject.1) %>%
+  mutate(Trial = as.numeric(ifelse(Trial.Order == 1 & Condition == "Functional", 4, 
+                        ifelse(Trial.Order == 2 & Condition == "Functional", 5,
+                               ifelse(Trial.Order == 1 & Condition == "Non-functional", 5,
+                                      ifelse(Trial.Order == 2 & Condition == "Non-functional", 4,""))))))%>%
+  group_by(Subject, Session, Trial, Condition)%>% #Subject.1 means trial type (func or non func)
+  summarise(solution_time=min(Start..s.))
+
+
+raw.data.after.solution_reli <- raw.data_reli %>%
+  rename(Condition = Subject.1) %>%
+  mutate(Trial = as.numeric(ifelse(Trial.Order == 1 & Condition == "Functional", 4, 
+                        ifelse(Trial.Order == 2 & Condition == "Functional", 5,
+                               ifelse(Trial.Order == 1 & Condition == "Non-functional", 5,
+                                      ifelse(Trial.Order == 2 & Condition == "Non-functional", 4,""))))))%>%
+  full_join(solution.data_reli) %>%
+  filter(Start..s.>=solution_time)
+```
+
+
+## Data preparation (summed up peeks, trial duration, added 0s, proportion peeking)
+```{r}
+xdata_reli<-raw.data.after.solution_reli %>%
+  filter(Behavioral.category == "Peeking" | (Behavioral.category == "Proximity" & Behavior == "Right box (side)")) %>%
+  group_by(Subject, Session, Trial, Condition)%>% #Subject.1 means trial type (func or non func)
+  summarise(sum_peeking=sum(Duration..s.))%>% #aggregating durations per behavioral category within each session
+  ungroup()%>%
+  full_join(cb.data)%>%
+  right_join(trialdurationdata_reli)%>%
+  complete(Subject, Session, Trial,  fill=list(sum_peeking=0))%>% #fill in 0s
+  inner_join(reli_data)%>%
+  mutate(Proportionpeeking = sum_peeking / Trial_Duration,
+         peeking_binary= as.numeric(ifelse(sum_peeking > 0, 1, 0)))%>%
+  filter(!is.na(Condition))%>%
+  select(Subject, Session, Trial, Condition, Prop_peeking_reli = Proportionpeeking, Peeking_binary_reli = peeking_binary)
+
+```
+# join original and reli data
+
+```{r}
+
+joined_reli_data <- xdata %>%
+  full_join(xdata_reli)
+
+write.csv(joined_reli_data, "data/joined_reli_data.csv")
+```
+
+```{r}
+joined_reli_data<-read.csv("data/joined_reli_data.csv") %>%
+  filter(!is.na(peeking_binary), !is.na(Peeking_binary_reli))
+```
+
+# Cohen's kappa
+```{r}
+library(psych)
+
+#calculate Cohen's Kappa
+cohen.kappa(x=cbind(joined_reli_data$peeking_binary,joined_reli_data$Peeking_binary_reli))
+
+
+joined_reli_data %>% summarise(match = sum(peeking_binary == Peeking_binary_reli), non_match = sum(peeking_binary != Peeking_binary_reli))
+
+```
+
+#Intraclass correlation coefficients
+```{r}
+ICC(joined_reli_data%>%dplyr::select(Proportionpeeking, Prop_peeking_reli), missing=TRUE)
+```
+
+
+

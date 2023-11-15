@@ -62,7 +62,7 @@
 "61","ES111","Non-functional","Peek on top",0,0
 "62","ES111","Non-functional","Peephole peek",0,0
 "63","ES111","Non-functional","Right box (side)",0,0
-"64","ES111","Non-functional","Right side peek",0.37325,1
+"64","ES111","Non-functional","Right side peek",0.81025,2
 "65","ES112","Functional","Peek on top",0,0
 "66","ES112","Functional","Peephole peek",0,0
 "67","ES112","Functional","Right box (side)",0,0
@@ -70,7 +70,7 @@
 "69","ES112","Non-functional","Peek on top",0,0
 "70","ES112","Non-functional","Peephole peek",0,0
 "71","ES112","Non-functional","Right box (side)",1.03875,1
-"72","ES112","Non-functional","Right side peek",0.20425,1
+"72","ES112","Non-functional","Right side peek",4.3375,1
 "73","ES113","Functional","Peek on top",0,0
 "74","ES113","Functional","Peephole peek",0,0
 "75","ES113","Functional","Right box (side)",27.06425,4
@@ -89,11 +89,11 @@
 "88","ES114","Non-functional","Right side peek",0,0
 "89","ES115","Functional","Peek on top",0,0
 "90","ES115","Functional","Peephole peek",0,0
-"91","ES115","Functional","Right box (side)",2.1605,1
+"91","ES115","Functional","Right box (side)",5.50975,2
 "92","ES115","Functional","Right side peek",0,0
 "93","ES115","Non-functional","Peek on top",0,0
 "94","ES115","Non-functional","Peephole peek",0,0
-"95","ES115","Non-functional","Right box (side)",1.856,2
+"95","ES115","Non-functional","Right box (side)",2.298,3
 "96","ES115","Non-functional","Right side peek",0,0
 "97","ES116","Functional","Peek on top",0,0
 "98","ES116","Functional","Peephole peek",0,0
@@ -234,11 +234,11 @@
 "233","ES136","Functional","Peek on top",0,0
 "234","ES136","Functional","Peephole peek",0,0
 "235","ES136","Functional","Right box (side)",0,0
-"236","ES136","Functional","Right side peek",0,0
+"236","ES136","Functional","Right side peek",0.68675,1
 "237","ES136","Non-functional","Peek on top",0,0
 "238","ES136","Non-functional","Peephole peek",0.55725,1
 "239","ES136","Non-functional","Right box (side)",0,0
-"240","ES136","Non-functional","Right side peek",0.624,1
+"240","ES136","Non-functional","Right side peek",1.50175,2
 "241","Es125","Functional","Peek on top",0,0
 "242","Es125","Functional","Peephole peek",0,0
 "243","Es125","Functional","Right box (side)",0,0

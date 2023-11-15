@@ -1,0 +1,821 @@
+---
+title: "Kea Explanation Seeking Analysis Rmd"
+output:
+  pdf_document: default
+  html_document: default
+date: "2023-02-07"
+---
+## Libraries
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(lme4)
+library(tidyverse)
+library(summarytools)
+
+
+source("./functions/diagnostic_fcns.r")
+source("./functions/glmm_stability.r")
+source("./functions/boot_glmm.r")
+source("./functions/boot_glmm2.r")
+source("./functions/glmmTMB_stability.r")
+source("./functions/drop1_para_glmmtmb.r")
+source("./functions/extract_ranef_gmmTMB.r")
+```
+##Data preparation
+### Read in data
+```{r}
+raw.data<-read.csv("data/ALL SUBJECTS Explanation Seeking Coding 17.1.2023 csv.csv")
+cb.data<-read.csv("data/counter balancing trials.csv")%>%
+  select(-Date)%>%
+  filter(Condition != "Refresher")
+cb.data2<-expand.grid(Subject=levels(as.factor(cb.data$Subject)), Trial=c(4,5), Session=c(1:8), Behavior=c("Right side peek", "Peek on top", "Peephole peek"))
+```
+
+### Calculate duration of each trial
+```{r}
+trialdurationdata<-raw.data %>%
+  filter(Behavior == "Food to end of trial") %>%
+  rename(Condition = Subject.1, Trial_Duration = Duration..s.) %>%
+  mutate(Trial = as.numeric(ifelse(Trial.Order == 1 & Condition == "Functional", 4, 
+                                   ifelse(Trial.Order == 2 & Condition == "Functional", 5,
+                                          ifelse(Trial.Order == 1 & Condition == "Non-functional", 5,
+                                                 ifelse(Trial.Order == 2 & Condition == "Non-functional", 4,""))))))%>%
+  select(Subject, Condition, Session, Trial,  Trial_Duration)
+
+table(trialdurationdata$Subject,trialdurationdata$Condition)
+table(cb.data$Subject,cb.data$Condition)
+```
+### Subset the raw data to the exploration period
+first we determine when the food hit the ground and then we filter the data such that we only keep the peeks following the food release
+```{r}
+solution.data<-raw.data %>%
+  filter( Behavior =="Food to end of trial") %>%
+  rename(Condition = Subject.1) %>%
+  mutate(Trial = as.numeric(ifelse(Trial.Order == 1 & Condition == "Functional", 4, 
+                        ifelse(Trial.Order == 2 & Condition == "Functional", 5,
+                               ifelse(Trial.Order == 1 & Condition == "Non-functional", 5,
+                                      ifelse(Trial.Order == 2 & Condition == "Non-functional", 4,""))))))%>%
+  group_by(Subject, Session, Trial, Condition)%>% #Subject.1 means trial type (func or non func)
+  summarise(solution_time=min(Start..s.))
+
+
+raw.data.after.solution <- raw.data %>%
+  rename(Condition = Subject.1) %>%
+  mutate(Trial = as.numeric(ifelse(Trial.Order == 1 & Condition == "Functional", 4, 
+                        ifelse(Trial.Order == 2 & Condition == "Functional", 5,
+                               ifelse(Trial.Order == 1 & Condition == "Non-functional", 5,
+                                      ifelse(Trial.Order == 2 & Condition == "Non-functional", 4,""))))))%>%
+  full_join(solution.data) %>%
+  filter(Start..s.>=solution_time)
+```
+
+
+### Data preparation (summed up peeks, trial duration, added 0s, proportion peeking)
+```{r}
+xdata<-raw.data.after.solution %>%
+  filter(Behavioral.category == "Peeking" | (Behavioral.category == "Proximity" & Behavior == "Right box (side)")) %>%
+  group_by(Subject, Session, Trial, Condition)%>% #Subject.1 means trial type (func or non func)
+  summarise(sum_peeking=sum(Duration..s.))%>% #aggregating durations per behavioral category within each session
+  ungroup()%>%
+  full_join(cb.data)%>%
+  complete(Subject, Session, Trial,  fill=list(sum_peeking=0))%>% #fill in 0s
+  full_join(trialdurationdata)%>%
+  mutate(Proportionpeeking = sum_peeking / Trial_Duration,
+         peeking_binary= as.numeric(ifelse(sum_peeking > 0, 1, 0)))
+```
+
+### Data frame (types of peeking split up)
+```{r}
+peekingdata<-raw.data %>%
+  filter(Behavioral.category == "Peeking" | (Behavioral.category == "Proximity" & Behavior == "Right box (side)")) %>%
+rename(Condition = Subject.1) %>%
+  mutate(Trial = as.numeric(ifelse(Trial.Order == 1 & Condition == "Functional", 4,
+                                   ifelse(Trial.Order == 2 & Condition == "Functional", 5,
+                                          ifelse(Trial.Order == 1 & Condition == "Non-functional", 5,
+                                                 ifelse(Trial.Order == 2 & Condition == "Non-functional", 4,""))))))%>%
+  group_by(Subject, Session, Trial, Condition, Behavior)%>%
+  summarise(sum_peeking=sum(Duration..s.))%>% #aggregating durations per behavioral category within each session
+  ungroup()%>%
+  full_join(cb.data2)%>%
+  complete(Subject, Session, Trial, Behavior,  fill=list(sum_peeking=0))%>% #fill in 0s
+  select(-Condition)%>%
+  full_join(cb.data)%>%
+  full_join(trialdurationdata)%>%
+  mutate(Proportionpeeking = sum_peeking / Trial_Duration,
+         peeking_binary= as.numeric(ifelse(sum_peeking > 0, 1, 0)))
+
+view(dfSummary(peekingdata)) #data frame summary of peeking data
+
+xdata%>%filter(is.na(Proportionpeeking))
+view(dfSummary(xdata)) #data frame summary of xdata
+```
+##Plotting
+### Plot of mean peeking
+```{r}
+xdata.agg2<-xdata %>%
+  group_by(Subject, Condition) %>%
+  summarise(mean.peeking = mean(Proportionpeeking), count = sum(Proportionpeeking > 0))
+
+write.csv(xdata.agg2, file = "Saves/Overall Peeking Table.csv")
+
+xdata.agg<-xdata %>%
+  group_by(Subject, Condition) %>%
+  summarise(mean.peeking = mean(sum_peeking), count = sum(Proportionpeeking > 0), mean.prop.peeking = mean(Proportionpeeking))
+
+xdata.agg%>%
+  group_by(Condition)%>%
+  summarise(sum(count>0), sum(count==0))
+
+xdata.agg$condition2 <- jitter(as.numeric(as.factor(xdata.agg$Condition), amount = .0001))
+
+#overall performance
+ggplot(data = xdata.agg, aes(x = Condition, y = mean.peeking)) +
+  geom_boxplot(outlier.colour = "white")+ 
+  geom_line(aes(x = condition2, group = Subject), color = "darkgray", lty = 1, alpha = .3) +
+  geom_point(aes(x = condition2))+
+  theme_classic()#+
+
+
+ggplot(data = xdata.agg, aes(x = Condition, y = count)) +
+  geom_boxplot(outlier.colour = "white")+ 
+  geom_line(aes(x = condition2, group = Subject), color = "darkgray", lty = 1, alpha = .3) +
+  geom_point(aes(x = condition2))+
+  theme_classic()+
+  facet_wrap(~Subject)
+
+
+#tool users
+
+ggplot(data = xdata.agg%>%filter(Subject=="Paul" | Subject=="John" | Subject=="Kermit" | Subject=="Frowin" | Subject =="Pick"), aes(x = Condition, y = mean.peeking)) +
+  geom_boxplot(outlier.colour = "white")+ 
+  geom_line(aes(x = condition2, group = Subject), color = "darkgray", lty = 1, alpha = .3) +
+  geom_point(aes(x = condition2))+
+  theme_classic()#+
+
+
+
+```
+### Mean peeking duration
+```{r}
+#xdata.agg$condition<-fct_relevel(as.factor(xdata.agg$condition), "blocked", "teasing", "clumsy")
+xdata.agg$condition2 <- jitter(as.numeric(as.factor(xdata.agg$Condition), amount = .0001))
+
+library(gghalves)
+
+
+sum_peeking_plot <-
+  ggplot(data = xdata.agg, aes(x = Condition, y = mean.peeking, group = Condition)) +
+  geom_line(
+    aes(x = condition2, group = Subject),
+    color = "darkgray",
+    lty = 1,
+    alpha = .3
+  ) +
+  geom_point(
+    data = xdata.agg %>% filter(Condition == "Functional"),
+    aes(x = condition2),
+    color = "dodgerblue",
+    size = 1.5,
+    alpha = .5
+  ) +
+  geom_point(
+    data = xdata.agg %>% filter(Condition == "Non-functional"),
+    aes(x = condition2),
+    color = "darkorange",
+    size = 1.5,
+    alpha = .5,
+    
+  ) +
+  geom_half_boxplot(
+    data = xdata.agg %>% filter(Condition == "Functional"),
+    aes(x = condition2, y = mean.peeking),
+    position = position_nudge(x = -0.3),
+    side = "l",
+    outlier.shape = NA,
+    center = TRUE,
+    errorbar.draw = TRUE,
+    width = .05,
+    fill = 'dodgerblue',
+    alpha = .5
+  ) +
+  
+  geom_half_boxplot(
+    data = xdata.agg %>% filter(Condition == "Non-functional"),
+    aes(x = condition2, y = mean.peeking),
+    position = position_nudge(x = 0.3),
+    side = "r",
+    outlier.shape = NA,
+    center = TRUE,
+    errorbar.draw = TRUE,
+    width = .05,
+    fill = 'darkorange',
+    alpha = .5
+  ) +
+  
+  # Define additional settings
+  xlab("") +
+  ylab("Mean peeking duration (s)") +
+  scale_x_continuous(
+    breaks = c(1, 2),
+    labels = c("Functional", "Non-functional"),
+    limits = c(0.5, 2.5)
+  ) +
+  #ylim(0, 1) +
+  theme_classic()
+
+sum_peeking_plot 
+
+ggsave(sum_peeking_plot , filename = "Graphics/sum_peeking_plot.png", width = 6, height = 6, scale = 0.6)
+
+```
+### Plot: Mean proportion peeking duration
+```{r}
+#xdata.agg$condition<-fct_relevel(as.factor(xdata.agg$condition), "blocked", "teasing", "clumsy")
+xdata.agg$condition2 <- jitter(as.numeric(as.factor(xdata.agg$Condition), amount = .0001))
+
+library(gghalves)
+
+
+sum_prop_peeking_plot <-
+  ggplot(data = xdata.agg, aes(x = Condition, y = mean.prop.peeking, group = Condition)) +
+  geom_line(
+    aes(x = condition2, group = Subject),
+    color = "darkgray",
+    lty = 1,
+    alpha = .3
+  ) +
+  geom_point(
+    data = xdata.agg %>% filter(Condition == "Functional"),
+    aes(x = condition2),
+    color = "dodgerblue",
+    size = 1.5,
+    alpha = .5
+  ) +
+  geom_point(
+    data = xdata.agg %>% filter(Condition == "Non-functional"),
+    aes(x = condition2),
+    color = "darkorange",
+    size = 1.5,
+    alpha = .5,
+    
+  ) +
+  geom_half_boxplot(
+    data = xdata.agg %>% filter(Condition == "Functional"),
+    aes(x = condition2, y = mean.prop.peeking),
+    position = position_nudge(x = -0.3),
+    side = "l",
+    outlier.shape = NA,
+    center = TRUE,
+    errorbar.draw = TRUE,
+    width = .05,
+    fill = 'dodgerblue',
+    alpha = .5
+  ) +
+  
+  geom_half_boxplot(
+    data = xdata.agg %>% filter(Condition == "Non-functional"),
+    aes(x = condition2, y = mean.prop.peeking),
+    position = position_nudge(x = 0.3),
+    side = "r",
+    outlier.shape = NA,
+    center = TRUE,
+    errorbar.draw = TRUE,
+    width = .05,
+    fill = 'darkorange',
+    alpha = .5
+  ) +
+  
+  # Define additional settings
+  xlab("") +
+  ylab("Mean proportion peeking duration") +
+  scale_x_continuous(
+    breaks = c(1, 2),
+    labels = c("Functional", "Non-functional"),
+    limits = c(0.5, 2.5)
+  ) +
+  #ylim(0, 1) +
+  theme_classic()
+
+sum_prop_peeking_plot 
+
+ggsave(sum_prop_peeking_plot , filename = "Graphics/kea_sum_prop_peeking_plot.png", width = 6, height = 6, scale = 0.6)
+
+```
+
+### Plot of peeking count
+```{r}
+xdata.agg2$condition2 <- jitter(as.numeric(as.factor(xdata.agg2$Condition), amount = .0001))
+
+library(gghalves)
+
+
+plot_binary_peeking_boxplot <-
+  ggplot(data = xdata.agg2, aes(x = Condition, y = count, group = Condition)) +
+  geom_line(
+    aes(x = condition2, group = Subject),
+    color = "darkgray",
+    lty = 1,
+    alpha = .3
+  ) +
+  geom_point(
+    data = xdata.agg2 %>% filter(Condition == "Functional"),
+    aes(x = condition2),
+    color = "dodgerblue",
+    size = 1.5,
+    alpha = .5
+  ) +
+  geom_point(
+    data = xdata.agg2 %>% filter(Condition == "Non-functional"),
+    aes(x = condition2),
+    color = "darkorange",
+    size = 1.5,
+    alpha = .5,
+   
+  ) +
+  geom_half_boxplot(
+    data = xdata.agg2 %>% filter(Condition == "Functional"),
+    aes(x = condition2, y = count),
+    position = position_nudge(x = -0.3),
+    side = "l",
+    outlier.shape = NA,
+    center = TRUE,
+    errorbar.draw = TRUE,
+    width = .05,
+    fill = 'dodgerblue',
+    alpha = .5
+  ) +
+  
+  geom_half_boxplot(
+    data = xdata.agg2 %>% filter(Condition == "Non-functional"),
+    aes(x = condition2, y = count),
+    position = position_nudge(x = 0.3),
+    side = "r",
+    outlier.shape = NA,
+    center = TRUE,
+    errorbar.draw = TRUE,
+    width = .05,
+    fill = 'darkorange',
+    alpha = .5
+  ) +
+  
+  # Define additional settings
+  xlab("") +
+  ylab("Sum of trials with peeking") +
+  scale_x_continuous(
+    breaks = c(1, 2),
+    labels = c("Functional", "Non-functional"),
+    limits = c(0.5, 2.5)
+  ) +
+  ylim(0, 8) +
+  theme_classic()
+
+plot_binary_peeking_boxplot
+```
+```{r}
+ggsave(plot_binary_peeking_boxplot , filename = "Graphics/kea_binary_peeking_summed.png", width = 6, height = 6, scale = 0.7)
+
+```
+### Plot of peeking type by session
+```{r}
+xdata.agg.session<-xdata %>%
+  group_by(Condition, Session) %>%
+  summarise(mean.peeking = mean(Proportionpeeking), count = sum(Proportionpeeking > 0))
+
+plot_binary_peeking_over_sessions<-ggplot(data = xdata.agg.session, aes(x = as.factor(Session), y = count)) +
+  geom_bar(aes(fill=Condition), stat="identity", position = position_dodge(), color = "black")+
+  theme_classic()+
+  scale_fill_manual(values=c("Non-functional" = "darkorange", "Functional" = "dodgerblue"))+
+  theme(legend.title = element_blank(), legend.position = c(0.82, 0.9))+
+  labs(x = "Session", y = "Sum of peeking individuals")+
+  scale_y_continuous(breaks = seq(0, 12, 1))
+plot_binary_peeking_over_sessions
+```
+
+```{r}
+ggsave(plot_binary_peeking_over_sessions , filename = "Graphics/kea_binary_peeking_count_over_session.png", width = 8, height = 6, scale = 0.6)
+```
+
+### Plot of peeking type
+```{r}
+peekingdata.agg<-peekingdata %>%
+  group_by(Subject, Condition, Behavior) %>%
+  summarise(mean.peeking = mean(sum_peeking))%>%
+  mutate(Behavior = fct_recode(Behavior, "Time Spent on Right Side" = "Right box (side)"))
+
+peekingdataplot<-ggplot(data = peekingdata.agg, aes(x = Condition, y = mean.peeking)) +
+  geom_boxplot(outlier.colour = "white")+ 
+  geom_jitter(width=0.3)+
+  theme_bw()+
+  facet_wrap(~Behavior, scales = "free_y")+
+  ylab("Average Peeking Behavior")+
+  xlab("")
+
+peekingdataplot
+ggsave(peekingdataplot, file="Graphics/Overall Peeking Data Plot.png", width = 10, height = 10, scale = 0.6)
+```
+# Analysis all data
+### z-transformation of covariates (standardizes data)
+Centering (subtract mean) and scaling (divide by SD so it becomes 1) covariates. Makes it more likely model will converge (does not change p value).
+```{r}
+xdata$z.trial <- as.vector(scale(as.numeric(xdata$Trial), scale = TRUE, center = TRUE))
+xdata$z.session <- as.vector(scale(as.numeric(xdata$Session)))
+```
+
+### Dummy code factors (to prepare for centering below)
+makes first factor 0, second factor 1
+```{r}
+xdata$Condition <- as.factor(xdata$Condition)
+xdata$condition.dummy <- as.numeric(xdata$Condition == levels(xdata$Condition)[2])
+```
+
+### Center condition for random slopes (to avoid arbitrary effects of making first factor 0 and second factor 1)
+```{r}
+xdata$condition.c <- as.numeric(xdata$Condition) - mean(as.numeric(xdata$Condition))
+mean(xdata$condition.c)
+```
+
+### Define control structure to make convergence more likely:
+```{r}
+contr <- glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 10000))
+```
+
+## Analysis of binary peeking response (overall peeks, includes time spent on right side)
+```{r}
+mm_peeking_overall_model<-glmer(
+  peeking_binary ~ Condition + z.trial + z.session + (1 + condition.c + z.trial + z.session | Subject),
+  data = xdata,
+  family = binomial,
+  control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 10000))
+)
+
+drop1(mm_peeking_overall_model, test = "Chisq")
+summary(mm_peeking_overall_model)
+```
+
+
+```{r}
+
+mm1_peeking_overall_drop1 <- drop1(mm_peeking_overall_model, test="Chisq")%>% 
+  filter(!is.na(npar)) %>% 
+  add_row(npar = rep(NA,1),  .before = 1) 
+```
+
+Check for colinearity
+```{r}
+library(car)
+xx=lm(peeking_binary ~ Condition + z.trial + z.session, data=xdata)
+vif(xx)
+```
+
+```{r}
+mm_peeking_overall_model.ci=boot.glmm.pred(model.res=mm_peeking_overall_model, excl.warnings=F,
+nboots=1000, para=T, n.cores="all-1", resol=1000, level=0.95)
+
+```
+
+
+#### output table
+
+
+```{r}
+mm1_overall_peeking_output_table <-
+  bind_cols(as.data.frame(summary(mm_peeking_overall_model)$coeff),
+            mm1_peeking_overall_drop1,
+            mm_peeking_overall_model.ci$ci.estimates) %>%
+  select(
+    Estimate,
+    SE = `Std. Error`,
+    LowerCI = X2.5.,
+    UpperCI = X97.5.,
+    Chi2 = LRT,
+    df = npar,
+    p = `Pr(Chi)`,
+    z_wald = `z value`,
+    p_wald = `Pr(>|z|)`
+  ) %>% #
+  mutate(across(.cols = c(p), ~ format(round(.x, 3), nsmall = 3))) %>%
+  mutate(across(.cols = c(Estimate:Chi2), ~ format(round(.x, 2), nsmall = 2))) %>%
+  #mutate(across(Chi2:p, ~replace_na(.x, "")))%>%
+  mutate(p = replace(p, p == 0, "<0.001"))
+
+write.csv(mm1_overall_peeking_output_table, file = "saves/mm1_overall_peeking_output_table.csv")
+```
+
+
+
+
+## Analysis of proportional peeking response
+```{r}
+library(glmmTMB)
+library(car)
+
+source("./functions/diagnostic_fcns.r")
+source("./functions/glmm_stability.r")
+source("./functions/boot_glmmTMB.r")
+source("./functions/glmmTMB_stability.r")
+source("./functions/drop1_para_glmmtmb.r")
+source("./functions/extract_ranef_gmmTMB.r")
+```
+
+### Transformation check of ALL PEEKS proportion 
+```{r}
+contr<-glmmTMBControl(optCtrl=list(iter.max=100000000, eval.max=100000000))
+xdata$Proportionpeeking_scaled <- (xdata$Proportionpeeking*(length(xdata$Proportionpeeking) - 1) + 0.5)/length(xdata$Proportionpeeking)
+```
+
+### check that ALL PEEKS proportional data is within bounds of 0 and 1 (and doesn't include 0s and 1s)
+```{r}
+min(xdata$Proportionpeeking_scaled)
+max(xdata$Proportionpeeking_scaled)
+max(xdata$Proportionpeeking)
+```
+
+## Analysis of proportional ALL peeking response
+```{r}
+peekingmodel_beta<-glmmTMB(
+  Proportionpeeking_scaled ~ Condition + z.trial + z.session + 
+    (1| Subject)+
+    (0 + condition.c | Subject)+(0 +z.trial | Subject)+(0 +  z.session | Subject), #the correlation between random intercepts and random slopes were removed due to convergence issues.
+  data = xdata,
+  family = beta_family,
+  control = contr
+)
+```
+
+### check if model is overdispersed or not (assumption check for proportion models)
+```{r}
+overdisp.test(peekingmodel_beta)
+```
+
+
+```{r}
+summary(peekingmodel_beta)
+
+drop1(peekingmodel_beta, test="Chisq")
+```
+LRT
+```{r}
+peekingmodel_beta_drop1 <- drop1(peekingmodel_beta, test="Chisq")%>% 
+  filter(!is.na(Df)) %>% 
+  add_row(Df = rep(NA,1),  .before = 1) 
+```
+ 
+
++ Collinearity checks
+```{r}
+library(car)
+xx=lm(Proportionpeeking_scaled ~ Condition + z.trial + z.session, data=xdata)
+vif(xx)
+```
+confidence intervals
+```{r eval=FALSE}
+peekingmodel_beta.ci=boot.glmmtmb(peekingmodel_beta, 
+nboots=1000, para=T, n.cores="all-1", resol=1000, level=0.95, data=xdata)
+```
+
+### output table
+
+```{r}
+peekingmodel_beta_table <- bind_cols(as.data.frame(summary(peekingmodel_beta)$coefficients$cond),
+                                      peekingmodel_beta_drop1)%>%#,
+                                    # mm1_area_tail.ci$ci.estimates$fe[1:7,]) %>%
+  dplyr::select(Estimate, SE = `Std. Error`, Chi2 = LRT, df = Df, p = `Pr(>Chi)`, z_wald=`z value`, p_wald=`Pr(>|z|)`) %>% #LowerCI = X2.5., UpperCI = X97.5., 
+  mutate(across(.cols = c(p), ~ format(round(.x, 3), nsmall=3))) %>% 
+  mutate(across(.cols = c(Estimate:Chi2), ~ format(round(.x, 2), nsmall=2))) %>% 
+  #mutate(across(Chi2:p, ~replace_na(.x, "")))%>%
+  mutate(p=replace(p, p==0, "<0.001"))
+
+write.csv(peekingmodel_beta_table , file = "saves/peekingmodel_beta_table.csv")
+```
+
+
+
+
+
+
+# First session 
+```{r}
+first_session_data <- xdata %>%
+  filter(Session == 1) %>%
+  mutate(order_condition = ifelse(
+    Trial == 4 & Condition == "Functional",
+    "functional_first",
+    ifelse(
+      Trial == 4 & Condition == "Non-functional",
+      "non-functional_first",
+      ifelse(
+        Trial == 5 & Condition == "Functional",
+        "non-functional_first",
+        ifelse(Trial == 5 &
+                 Condition == "Non-functional", "functional_first", "")
+      )
+    )
+  ))
+  
+table(first_session_data$Condition, first_session_data$Subject) 
+table(first_session_data$order_condition, first_session_data$Subject) 
+```
+
+```{r}
+xdata_session <- xdata %>%
+  group_by(Condition, Session) %>%
+  summarise(mean_prop_peeking = mean(Proportionpeeking), se = sd(Proportionpeeking) / sqrt(length(Proportionpeeking)))
+
+peeking_session_plot <-
+  ggplot(xdata_session,
+         aes(
+           x = as.factor(Session),
+           y = mean_prop_peeking,
+           fill = Condition
+         )) +
+  geom_bar(
+    data = xdata_session,
+    aes(
+      x = as.factor(Session),
+      y = mean_prop_peeking,
+      group = interaction(Session, Condition),
+      fill = Condition
+    ),
+    stat = "identity",
+    position = position_dodge(width = 0.9)
+  ) +
+  geom_errorbar(
+    data = xdata_session,
+    aes(
+      x = as.factor(Session),
+      ymin = mean_prop_peeking - se,
+      ymax = mean_prop_peeking + se
+    ),
+    position = position_dodge(width = 1),
+    width = 0.4
+  ) +
+  
+  #geom_boxplot(data = xdata, aes(x = Session, y = Proportionpeeking, group=interaction(Session, Condition), fill=Condition), position = position_dodge(width = .9))+
+  #geom_count(position = position_dodge(width = .9), alpha=0.3)+
+  # geom_line(aes(group = Condition)) +
+  theme_bw() +
+  ylim(0, 0.20) +
+  scale_fill_manual(values = c("dodgerblue", "darkorange")) +
+  ylab("Average Proportion Peeking Behavior") +
+  xlab("Session")
+#facet_wrap(~Condition)
+
+ggsave(peeking_session_plot, file = "Graphics/peeking_session_plot.png", width = 9, height= 5, scale=0.65)
+```
+
+
+
+## S1 - Analysis of binary peeking response (overall peeks, includes time spent on right side) in first session
+order of condition instead of trial number
+```{r}
+mm_peeking_overall_model_session1<-glmer(
+  peeking_binary ~ Condition + order_condition + (1| Subject) + (0 + condition.c  | Subject),
+  data = first_session_data,
+  family = binomial,
+  control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 10000))
+)
+
+drop1(mm_peeking_overall_model_session1, test = "Chisq")
+summary(mm_peeking_overall_model_session1)
+```
+LRT
+```{r}
+mm_peeking_overall_model_session1_drop1 <- drop1(mm_peeking_overall_model_session1, test="Chisq")%>% 
+  filter(!is.na(npar)) %>% 
+  add_row(npar = rep(NA,1),  .before = 1) 
+```
+ 
+
++ Collinearity checks
+```{r}
+library(car)
+xx=lm(peeking_binary ~ Condition + order_condition, data=first_session_data)
+vif(xx)
+```
+
+```{r}
+mm_peeking_overall_model_session1.ci=boot.glmm.pred(model.res=mm_peeking_overall_model_session1, excl.warnings=F,
+nboots=1000, para=T, n.cores="all-1", resol=1000, level=0.95)
+
+```
+fix CI estimation
+
+### output table
+```{r}
+mm_overall_peeking_output_table_s1 <-
+  bind_cols(as.data.frame(summary(mm_peeking_overall_model_session1)$coeff),
+            mm_peeking_overall_model_session1_drop1,
+            #mm_peeking_overall_model_session1.ci$ci.estimates
+            ) %>%
+  select(
+    Estimate,
+    SE = `Std. Error`,
+    #LowerCI = X2.5.,
+    #UpperCI = X97.5.,
+    Chi2 = LRT,
+    df = npar,
+    p = `Pr(Chi)`,
+    z_wald = `z value`,
+    p_wald = `Pr(>|z|)`
+  ) %>% #
+  mutate(across(.cols = c(p), ~ format(round(.x, 3), nsmall = 3))) %>%
+  mutate(across(.cols = c(Estimate:Chi2), ~ format(round(.x, 2), nsmall = 2))) %>%
+  #mutate(across(Chi2:p, ~replace_na(.x, "")))%>%
+  mutate(p = replace(p, p == 0, "<0.001"))
+
+write.csv(mm_overall_peeking_output_table_s1, file = "saves/mm1_overall_peeking_output_table_first_session.csv")
+```
+
+
+## S1 - Analysis of proportional peeking response
+```{r}
+library(glmmTMB)
+library(car)
+
+source("./functions/diagnostic_fcns.r")
+source("./functions/glmm_stability.r")
+source("./functions/boot_glmmTMB.r")
+source("./functions/glmmTMB_stability.r")
+source("./functions/drop1_para_glmmtmb.r")
+source("./functions/extract_ranef_gmmTMB.r")
+```
+
+### Transformation check of ALL PEEKS proportion 
+```{r}
+contr<-glmmTMBControl(optCtrl=list(iter.max=100000000, eval.max=100000000))
+first_session_data$Proportionpeeking_scaled <- (first_session_data$Proportionpeeking*(length(first_session_data$Proportionpeeking) - 1) + 0.5)/length(first_session_data$Proportionpeeking)
+```
+
+### check that ALL PEEKS proportional data is within bounds of 0 and 1 (and doesn't include 0s and 1s)
+```{r}
+min(first_session_data$Proportionpeeking_scaled)
+max(first_session_data$Proportionpeeking_scaled)
+max(first_session_data$Proportionpeeking)
+```
+
+### Analysis of proportional ALL peeking response
+```{r}
+peekingmodel_beta_s1<-glmmTMB(
+  Proportionpeeking_scaled ~ Condition + order_condition + 
+    (1| Subject), #the random slope of condition was removed due to convergence issues.
+  data = first_session_data,
+  family = beta_family,
+  control = contr
+)
+```
+
+### check if model is overdispersed or not (assumption check for proportion models)
+```{r}
+overdisp.test(peekingmodel_beta_s1)
+```
+
+
+```{r}
+summary(peekingmodel_beta_s1)
+
+drop1(peekingmodel_beta_s1, test="Chisq")
+```
+LRT
+```{r}
+peekingmodel_beta_s1_drop1 <- drop1(peekingmodel_beta_s1, test="Chisq")%>% 
+  filter(!is.na(Df)) %>% 
+  add_row(Df = rep(NA,1),  .before = 1) 
+```
+ 
+
++ Collinearity checks
+```{r}
+library(car)
+xx=lm(Proportionpeeking_scaled ~ Condition + order_condition, data=first_session_data)
+vif(xx)
+```
+confidence intervals
+```{r eval=FALSE}
+peekingmodel_beta_s1.ci=boot.glmmtmb(peekingmodel_beta_s1, 
+nboots=1000, para=T, n.cores="all-1", resol=1000, level=0.95, data=xdata)
+```
+
+### output table
+
+```{r}
+peekingmodel_beta_s1_table <- bind_cols(as.data.frame(summary(peekingmodel_beta_s1)$coefficients$cond),
+                                      peekingmodel_beta_s1_drop1)%>%#,
+                                    # mm1_area_tail.ci$ci.estimates$fe[1:7,]) %>%
+  dplyr::select(Estimate, SE = `Std. Error`, Chi2 = LRT, df = Df, p = `Pr(>Chi)`, z_wald=`z value`, p_wald=`Pr(>|z|)`) %>% #LowerCI = X2.5., UpperCI = X97.5., 
+  mutate(across(.cols = c(p), ~ format(round(.x, 3), nsmall=3))) %>% 
+  mutate(across(.cols = c(Estimate:Chi2), ~ format(round(.x, 2), nsmall=2))) %>% 
+  #mutate(across(Chi2:p, ~replace_na(.x, "")))%>%
+  mutate(p=replace(p, p==0, "<0.001"))
+
+write.csv(peekingmodel_beta_s1_table , file = "saves/peekingmodel_beta_S1_table.csv")
+```
+
+# combine plots
+```{r}
+library(cowplot)
+pg_kea<-plot_grid(plot_binary_peeking_boxplot,sum_prop_peeking_plot, labels=c("a", "b"))
+ggsave(pg_kea, filename = "Graphics/kea_peeking_plot_grid.png", width = 13, height = 6, scale = 0.6)
+```
+
+
