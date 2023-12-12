@@ -373,7 +373,7 @@ kea_plot_binary_peeking_boxplot <-
 kea_plot_binary_peeking_boxplot
 ```
 ```{r}
-ggsave(plot_binary_peeking_boxplot , filename = "Graphics/kea_binary_peeking_summed.png", width = 6, height = 6, scale = 0.7)
+ggsave(kea_plot_binary_peeking_boxplot , filename = "Graphics/kea_binary_peeking_summed.png", width = 6, height = 6, scale = 0.7)
 
 ```
 ### Plot of peeking type by session
@@ -472,6 +472,7 @@ vif(xx)
 mm_peeking_overall_model.ci=boot.glmm.pred(model.res=mm_peeking_overall_model, excl.warnings=F,
 nboots=1000, para=T, n.cores="all-1", resol=1000, level=0.95)
 
+mm_peeking_overall_model.ci$ci.estimates
 ```
 
 
@@ -570,17 +571,19 @@ vif(xx)
 ```
 confidence intervals
 ```{r eval=FALSE}
-peekingmodel_beta.ci=boot.glmmtmb(peekingmodel_beta, 
+peekingmodel_beta.ci=boot.glmmTMB(peekingmodel_beta, 
 nboots=1000, para=T, n.cores="all-1", resol=1000, level=0.95, data=xdata)
+
+peekingmodel_beta.ci$ci.estimates$fe
 ```
 
 ### output table
 
 ```{r}
 peekingmodel_beta_table <- bind_cols(as.data.frame(summary(peekingmodel_beta)$coefficients$cond),
-                                      peekingmodel_beta_drop1)%>%#,
-                                    # mm1_area_tail.ci$ci.estimates$fe[1:7,]) %>%
-  dplyr::select(Estimate, SE = `Std. Error`, Chi2 = LRT, df = Df, p = `Pr(>Chi)`, z_wald=`z value`, p_wald=`Pr(>|z|)`) %>% #LowerCI = X2.5., UpperCI = X97.5., 
+                                      peekingmodel_beta_drop1,
+                                     peekingmodel_beta.ci$ci.estimates$fe[1:4,]) %>%
+  dplyr::select(Estimate, SE = `Std. Error`, LowerCI = X2.5., UpperCI = X97.5., Chi2 = LRT, df = Df, p = `Pr(>Chi)`, z_wald=`z value`, p_wald=`Pr(>|z|)`) %>% #
   mutate(across(.cols = c(p), ~ format(round(.x, 3), nsmall=3))) %>% 
   mutate(across(.cols = c(Estimate:Chi2), ~ format(round(.x, 2), nsmall=2))) %>% 
   #mutate(across(Chi2:p, ~replace_na(.x, "")))%>%
@@ -706,13 +709,13 @@ fix CI estimation
 mm_overall_peeking_output_table_s1 <-
   bind_cols(as.data.frame(summary(mm_peeking_overall_model_session1)$coeff),
             mm_peeking_overall_model_session1_drop1,
-            #mm_peeking_overall_model_session1.ci$ci.estimates
+            mm_peeking_overall_model_session1.ci$ci.estimates
             ) %>%
   select(
     Estimate,
     SE = `Std. Error`,
-    #LowerCI = X2.5.,
-    #UpperCI = X97.5.,
+    LowerCI = X2.5.,
+    UpperCI = X97.5.,
     Chi2 = LRT,
     df = npar,
     p = `Pr(Chi)`,
@@ -792,17 +795,19 @@ vif(xx)
 ```
 confidence intervals
 ```{r eval=FALSE}
-peekingmodel_beta_s1.ci=boot.glmmtmb(peekingmodel_beta_s1, 
-nboots=1000, para=T, n.cores="all-1", resol=1000, level=0.95, data=xdata)
+peekingmodel_beta_s1.ci=boot.glmmTMB(peekingmodel_beta_s1, 
+nboots=1000, para=T, n.cores="all-1", resol=1000, level=0.95, data=first_session_data)
+
+peekingmodel_beta_s1.ci$ci.estimates$fe
 ```
 
 ### output table
 
 ```{r}
 peekingmodel_beta_s1_table <- bind_cols(as.data.frame(summary(peekingmodel_beta_s1)$coefficients$cond),
-                                      peekingmodel_beta_s1_drop1)%>%#,
-                                    # mm1_area_tail.ci$ci.estimates$fe[1:7,]) %>%
-  dplyr::select(Estimate, SE = `Std. Error`, Chi2 = LRT, df = Df, p = `Pr(>Chi)`, z_wald=`z value`, p_wald=`Pr(>|z|)`) %>% #LowerCI = X2.5., UpperCI = X97.5., 
+                                      peekingmodel_beta_s1_drop1,
+                                     peekingmodel_beta_s1.ci$ci.estimates$fe[1:3,]) %>%
+  dplyr::select(Estimate, SE = `Std. Error`, LowerCI = X2.5., UpperCI = X97.5., Chi2 = LRT, df = Df, p = `Pr(>Chi)`, z_wald=`z value`, p_wald=`Pr(>|z|)`) %>% # 
   mutate(across(.cols = c(p), ~ format(round(.x, 3), nsmall=3))) %>% 
   mutate(across(.cols = c(Estimate:Chi2), ~ format(round(.x, 2), nsmall=2))) %>% 
   #mutate(across(Chi2:p, ~replace_na(.x, "")))%>%
@@ -846,7 +851,7 @@ ggsave(pg_proportion_plots2, filename = "Graphics/proportion_duration_peeking_pl
 
 ```{r}
 library(cowplot)
-pg_kea<-plot_grid(plot_binary_peeking_boxplot,sum_prop_peeking_plot, labels=c("a", "b"))
+pg_kea<-plot_grid(kea_plot_binary_peeking_boxplot,kea_sum_prop_peeking_plot, labels=c("a", "b"))
 ggsave(pg_kea, filename = "Graphics/kea_peeking_plot_grid.png", width = 13, height = 6, scale = 0.6)
 ```
 

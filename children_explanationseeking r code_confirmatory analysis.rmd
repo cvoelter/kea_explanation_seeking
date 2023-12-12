@@ -424,13 +424,13 @@ mm1_peeking_overall_model.ci$ci.estimates
 mm1_overall_peeking_output_table <-
   bind_cols(as.data.frame(summary(mm1_peeking_overall_model)$coeff),
             mm1_peeking_overall_drop1,
-            #mm1_peeking_overall_model.ci$ci.estimates
+            mm1_peeking_overall_model.ci$ci.estimates
             ) %>%
   select(
     Estimate,
     SE = `Std. Error`,
-   # LowerCI = X2.5.,
-  #  UpperCI = X97.5.,
+    LowerCI = X2.5.,
+    UpperCI = X97.5.,
     Chi2 = LRT,
     df = npar,
     p = `Pr(Chi)`,
@@ -537,17 +537,19 @@ vif(xx)
 ```
 confidence intervals
 ```{r eval=FALSE}
-peekingmodel_beta.ci=boot.glmmtmb(peekingmodel_beta, 
+peekingmodel_beta.ci=boot.glmmTMB(peekingmodel_beta, 
                                   nboots=1000, para=T, n.cores="all-1", resol=1000, level=0.95, data=peeking_data_proportion)
+
+peekingmodel_beta.ci$ci.estimates$fe
 ```
 
 #### output table
 
 ```{r}
 peekingmodel_beta_table <- bind_cols(as.data.frame(summary(peekingmodel_beta)$coefficients$cond),
-                                     peekingmodel_beta_drop1)%>%#,
-  # mm1_area_tail.ci$ci.estimates$fe[1:7,]) %>%
-  dplyr::select(Estimate, SE = `Std. Error`, Chi2 = LRT, df = Df, p = `Pr(>Chi)`, z_wald=`z value`, p_wald=`Pr(>|z|)`) %>% #LowerCI = X2.5., UpperCI = X97.5., 
+                                     peekingmodel_beta_drop1,
+                                     peekingmodel_beta.ci$ci.estimates$fe[1:3,]) %>%
+  dplyr::select(Estimate, SE = `Std. Error`, LowerCI = X2.5., UpperCI = X97.5., Chi2 = LRT, df = Df, p = `Pr(>Chi)`, z_wald=`z value`, p_wald=`Pr(>|z|)`) %>% #
   mutate(across(.cols = c(p), ~ format(round(.x, 3), nsmall=3))) %>% 
   mutate(across(.cols = c(Estimate:Chi2), ~ format(round(.x, 2), nsmall=2))) %>% 
   #mutate(across(Chi2:p, ~replace_na(.x, "")))%>%
@@ -639,7 +641,7 @@ child_sum_peeking_plot
 
 
 ```{r}
-ggsave(sum_peeking_plot , filename = "Graphics/children_binary_peeking_plot_toy_to_end_of_trial.png", width = 6, height = 6, scale = 0.7)
+ggsave(child_sum_peeking_plot , filename = "Graphics/children_binary_peeking_plot_toy_to_end_of_trial.png", width = 6, height = 6, scale = 0.7)
 
 ```
 
@@ -720,9 +722,9 @@ child_sum_peeking_plot <-
   #ylim(0, 1) +
   theme_classic()
 
-sum_peeking_plot 
+child_sum_peeking_plot 
 
-ggsave(sum_peeking_plot , filename = "Graphics/children_sum_peeking_plot.png", width = 6, height = 6, scale = 0.6)
+ggsave(child_sum_peeking_plot , filename = "Graphics/children_sum_peeking_plot.png", width = 6, height = 6, scale = 0.6)
 
 ```
 ### Plot: Mean proportion peeking duration
@@ -911,13 +913,13 @@ mm1_communication_model.ci$ci.estimates
 mm1_communication_model_output_table <-
   bind_cols(as.data.frame(summary(mm1_communication_model)$coeff),
             mm1_communication_model_drop1,
-            #mm1_peeking_overall_model.ci$ci.estimates
+            mm1_communication_model.ci$ci.estimates
             ) %>%
   select(
     Estimate,
     SE = `Std. Error`,
-   # LowerCI = X2.5.,
-  #  UpperCI = X97.5.,
+    LowerCI = X2.5.,
+    UpperCI = X97.5.,
     Chi2 = LRT,
     df = npar,
     p = `Pr(Chi)`,
