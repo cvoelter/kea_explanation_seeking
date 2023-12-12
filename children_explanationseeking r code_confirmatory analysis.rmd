@@ -270,7 +270,7 @@ peeking_data_agg_trial4$condition2 <- jitter(as.numeric(as.factor(peeking_data_a
 library(gghalves)
 
 
-plot_binary_peeking_boxplot <-
+child_plot_binary_peeking_boxplot <-
   ggplot(data = peeking_data_agg_trial4, aes(x = condition, y = peeking_response_binary_summed, group = condition)) +
   geom_line(
     aes(x = condition2, group = subject),
@@ -321,7 +321,7 @@ plot_binary_peeking_boxplot <-
   
   # Define additional settings
   xlab("") +
-  ylab("Sum of trial with peeking") +
+  ylab("Sum of trials with peeking") +
   scale_x_continuous(
     breaks = c(1, 2),
     labels = c("Functional", "Non-functional"),
@@ -330,7 +330,7 @@ plot_binary_peeking_boxplot <-
   #ylim(0, 1) +
   theme_classic()
 
-plot_binary_peeking_boxplot
+child_plot_binary_peeking_boxplot
 ```
 ```{r}
 ggsave(plot_binary_peeking_boxplot , filename = "Graphics/children_binary_peeking_summed.png", width = 6, height = 6, scale = 0.7)
@@ -574,7 +574,7 @@ peeking_data_agg_trial2.plot$condition2 <- jitter(as.numeric(as.factor(peeking_d
 library(gghalves)
 
 
-sum_peeking_plot <-
+child_sum_peeking_plot <-
   ggplot(data = peeking_data_agg_trial2.plot, aes(x = condition, y = mean_binary_peek, group = condition)) +
   geom_line(
     aes(x = condition2, group = subject),
@@ -634,7 +634,7 @@ sum_peeking_plot <-
   #ylim(0, 1) +
   theme_classic()
 
-sum_peeking_plot
+child_sum_peeking_plot
 ```
 
 
@@ -660,7 +660,7 @@ peeking_data.plot$condition2 <- jitter(as.numeric(as.factor(peeking_data.plot$co
 library(gghalves)
 
 
-sum_peeking_plot <-
+child_sum_peeking_plot <-
   ggplot(data = peeking_data.plot, aes(x = condition, y = mean_duration_peeking, group = condition)) +
   geom_line(
     aes(x = condition2, group = subject),
@@ -733,7 +733,7 @@ peeking_data.plot$condition2 <- jitter(as.numeric(as.factor(peeking_data.plot$co
 library(gghalves)
 
 
-sum_prop_peeking_plot <-
+child_sum_prop_peeking_plot <-
   ggplot(data = peeking_data.plot, aes(x = condition, y = mean_prop_duration_peeking, group = condition)) +
   geom_line(
     aes(x = condition2, group = subject),
@@ -793,9 +793,9 @@ sum_prop_peeking_plot <-
   #ylim(0, 1) +
   theme_classic()
 
-sum_prop_peeking_plot 
+child_sum_prop_peeking_plot 
 
-ggsave(sum_prop_peeking_plot , filename = "Graphics/children_sum_prop_peeking_plot.png", width = 6, height = 6, scale = 0.6)
+ggsave(child_sum_prop_peeking_plot , filename = "Graphics/children_sum_prop_peeking_plot.png", width = 6, height = 6, scale = 0.6)
 
 ```
 
@@ -808,6 +808,9 @@ question_data <- orig.data2 %>%
   summarise(count_why_questions = length(Behavior))%>%
   arrange(Behavior)
 
+question_data3 <- orig.data2 %>%
+  filter(behavioral_category %in% c("Asking", "Communication" ))
+
 levels(as.factor(orig.data2$Behavior))
 levels(as.factor(orig.data2$behavioral_category))
 ```
@@ -817,6 +820,130 @@ levels(as.factor(orig.data2$behavioral_category))
 
 
 
+
+```{r}
+all_combinations2 <-
+  expand.grid(
+    subject = levels(as.factor(orig.data2$subject)),
+    condition = levels(as.factor(orig.data2$condition)),
+    behavioral_category2 = c("communication")
+  )
+
+table(orig.data2$IP, orig.data2$subject)
+```
+
+
+```{r}
+question_data2 <- orig.data2 %>%
+  filter(behavioral_category %in% c("Asking", "Communication" )) %>%
+  mutate(behavioral_category2 = "communication")%>%
+  group_by(subject, condition, behavioral_category2) %>%
+  summarise(communication_count = length(behavioral_category2), communication_binary = sum(length(behavioral_category2)>0))%>%
+  full_join((all_combinations2)) %>%
+  complete(fill=list(communication_binary=0)) 
+
+```
+
+### Combined communication analysis
+
+
+
+Dummy code factors (to prepare for centering below)
+makes first factor 0, second factor 1
+```{r}
+question_data2$condition <-
+  as.factor(question_data2$condition)
+question_data2$condition.dummy <-
+  as.numeric(question_data2$condition == levels(question_data2$condition)[2])
+```
+
+Center condition for random slopes (to avoid arbitrary effects of making first factor 0 and second factor 1)
+```{r}
+question_data2$condition.c <- as.numeric(question_data2$condition) - mean(as.numeric(question_data2$condition))
+mean(question_data2$condition.c)
+```
+
+Define control structure to make convergence more likely:
+```{r}
+contr <- glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 10000))
+```
+
+Analysis of binary peeking response (overall peeks, includes time spent on right side)
+```{r}
+mm1_communication_model<-glmer(
+  communication_binary ~ condition + (1 + condition.c | subject),
+  data = question_data2,
+  family = binomial,
+  control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 10000))
+)
+
+drop1(mm1_communication_model, test = "Chisq")
+summary(mm1_communication_model)
+```
+
+
+```{r}
+
+mm1_communication_model_drop1 <- drop1(mm1_communication_model, test="Chisq")%>% 
+  filter(!is.na(npar)) %>% 
+  add_row(npar = rep(NA,1),  .before = 1) 
+```
+
+
+```{r}
+mm1_communication_model.ci = boot.glmm.pred(
+  model.res = mm1_communication_model,
+  excl.warnings = F,
+  nboots = 1000,
+  para = T,
+  n.cores = "all-1",
+  resol = 1000,
+  level = 0.95
+)
+mm1_communication_model.ci$ci.estimates
+```
+
+
+#### output table
+
+
+```{r}
+mm1_communication_model_output_table <-
+  bind_cols(as.data.frame(summary(mm1_communication_model)$coeff),
+            mm1_communication_model_drop1,
+            #mm1_peeking_overall_model.ci$ci.estimates
+            ) %>%
+  select(
+    Estimate,
+    SE = `Std. Error`,
+   # LowerCI = X2.5.,
+  #  UpperCI = X97.5.,
+    Chi2 = LRT,
+    df = npar,
+    p = `Pr(Chi)`,
+    z_wald = `z value`,
+    p_wald = `Pr(>|z|)`
+  ) %>% #
+  mutate(across(.cols = c(p), ~ format(round(.x, 3), nsmall = 3))) %>%
+  mutate(across(.cols = c(Estimate:Chi2), ~ format(round(.x, 2), nsmall = 2))) %>%
+  #mutate(across(Chi2:p, ~replace_na(.x, "")))%>%
+  mutate(p = replace(p, p == 0, "<0.001"))
+
+write.csv(mm1_communication_model_output_table, file = "Saves/Child_mm1_communication_model_output_table.csv")
+```
+
+
+### Out of the children that communicate when do they do it the first time
+binomial test
+
+
+```{r}
+binom.test(9, 9, p =0.5)
+```
+
+```{r}
+save.image("Child_explanation_seeking.RData")
+```
 
 
 

@@ -237,7 +237,7 @@ xdata.agg$condition2 <- jitter(as.numeric(as.factor(xdata.agg$Condition), amount
 library(gghalves)
 
 
-sum_prop_peeking_plot <-
+kea_sum_prop_peeking_plot <-
   ggplot(data = xdata.agg, aes(x = Condition, y = mean.prop.peeking, group = Condition)) +
   geom_line(
     aes(x = condition2, group = Subject),
@@ -294,12 +294,12 @@ sum_prop_peeking_plot <-
     labels = c("Functional", "Non-functional"),
     limits = c(0.5, 2.5)
   ) +
-  #ylim(0, 1) +
+  ylim(0, .2) +
   theme_classic()
 
-sum_prop_peeking_plot 
+kea_sum_prop_peeking_plot 
 
-ggsave(sum_prop_peeking_plot , filename = "Graphics/kea_sum_prop_peeking_plot.png", width = 6, height = 6, scale = 0.6)
+ggsave(kea_sum_prop_peeking_plot , filename = "Graphics/kea_sum_prop_peeking_plot.png", width = 6, height = 6, scale = 0.6)
 
 ```
 
@@ -310,7 +310,7 @@ xdata.agg2$condition2 <- jitter(as.numeric(as.factor(xdata.agg2$Condition), amou
 library(gghalves)
 
 
-plot_binary_peeking_boxplot <-
+kea_plot_binary_peeking_boxplot <-
   ggplot(data = xdata.agg2, aes(x = Condition, y = count, group = Condition)) +
   geom_line(
     aes(x = condition2, group = Subject),
@@ -370,7 +370,7 @@ plot_binary_peeking_boxplot <-
   ylim(0, 8) +
   theme_classic()
 
-plot_binary_peeking_boxplot
+kea_plot_binary_peeking_boxplot
 ```
 ```{r}
 ggsave(plot_binary_peeking_boxplot , filename = "Graphics/kea_binary_peeking_summed.png", width = 6, height = 6, scale = 0.7)
@@ -811,7 +811,39 @@ peekingmodel_beta_s1_table <- bind_cols(as.data.frame(summary(peekingmodel_beta_
 write.csv(peekingmodel_beta_s1_table , file = "saves/peekingmodel_beta_S1_table.csv")
 ```
 
+```{r}
+save.image("Kea_explanation_seeking.RData")
+```
 # combine plots
+
+```{r}
+load("Child_explanation_seeking.RData")
+```
+
+```{r}
+library(cowplot)
+pg_binary_plots<-plot_grid(kea_plot_binary_peeking_boxplot, child_plot_binary_peeking_boxplot, child_sum_peeking_plot_researcher_absent, labels=c("a", "b", "c"), nrow=1)
+pg_binary_plots
+ggsave(pg_binary_plots, filename = "Graphics/binary_peeking_plot_grid.png", width = 16, height = 6, scale = 0.6)
+
+```
+
+```{r}
+library(cowplot)
+pg_binary_plots2<-plot_grid(kea_plot_binary_peeking_boxplot, child_plot_binary_peeking_boxplot, labels=c("a", "b"), nrow=1)
+pg_binary_plots2
+ggsave(pg_binary_plots2, filename = "Graphics/binary_peeking_plot_grid.png", width = 11, height = 6, scale = 0.6)
+
+```
+```{r}
+library(cowplot)
+pg_proportion_plots2<-plot_grid(kea_sum_prop_peeking_plot, child_sum_prop_peeking_plot, labels=c("a", "b"), nrow=1)
+pg_proportion_plots2
+ggsave(pg_proportion_plots2, filename = "Graphics/proportion_duration_peeking_plot_grid.png", width = 11, height = 6, scale = 0.6)
+
+```
+
+
 ```{r}
 library(cowplot)
 pg_kea<-plot_grid(plot_binary_peeking_boxplot,sum_prop_peeking_plot, labels=c("a", "b"))

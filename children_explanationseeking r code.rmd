@@ -1004,7 +1004,7 @@ write.csv(peekingmodel_beta_researcher_absent_table , file = "saves/Children_pee
 
 peeking_data_agg_trial2.plot <- peeking_data_agg_trial2 %>%
   group_by(subject, condition)%>%
-  summarise(mean_binary_peek = mean(peeking_response_binary))
+  summarise(mean_binary_peek = mean(peeking_response_binary), peeking_response_binary_summed  = sum(peeking_response_binary))
 
 peeking_data_agg_trial2.plot$condition2 <- jitter(as.numeric(as.factor(peeking_data_agg_trial2.plot$condition), amount = .0001))
 
@@ -1012,7 +1012,7 @@ library(gghalves)
 
 
 sum_peeking_plot <-
-  ggplot(data = peeking_data_agg_trial2.plot, aes(x = condition, y = mean_binary_peek, group = condition)) +
+  ggplot(data = peeking_data_agg_trial2.plot, aes(x = condition, y = peeking_response_binary_summed, group = condition)) +
   geom_line(
     aes(x = condition2, group = subject),
     color = "darkgray",
@@ -1088,15 +1088,15 @@ ggsave(sum_peeking_plot , filename = "Graphics/children_binary_peeking_plot_toy_
 
 peeking_data_agg_trial2_researcher_absent.plot <- peeking_data_agg_trial2_researcher_absent %>%
   group_by(subject, condition)%>%
-  summarise(mean_binary_peek = mean(peeking_response_binary))
+  summarise(mean_binary_peek = mean(peeking_response_binary), peeking_response_binary_summed  = sum(peeking_response_binary))
 
 peeking_data_agg_trial2_researcher_absent.plot$condition2 <- jitter(as.numeric(as.factor(peeking_data_agg_trial2_researcher_absent.plot$condition), amount = .0001))
 
 library(gghalves)
 
 
-sum_peeking_plot_researcher_absent <-
-  ggplot(data = peeking_data_agg_trial2_researcher_absent.plot, aes(x = condition, y = mean_binary_peek, group = condition)) +
+child_sum_peeking_plot_researcher_absent <-
+  ggplot(data = peeking_data_agg_trial2_researcher_absent.plot, aes(x = condition, y = peeking_response_binary_summed, group = condition)) +
   geom_line(
     aes(x = condition2, group = subject),
     color = "darkgray",
@@ -1120,7 +1120,7 @@ sum_peeking_plot_researcher_absent <-
   ) +
   geom_half_boxplot(
     data = peeking_data_agg_trial2_researcher_absent.plot %>% filter(condition == "Functional"),
-    aes(x = condition2, y = mean_binary_peek),
+    aes(x = condition2, y = peeking_response_binary_summed),
     position = position_nudge(x = -0.3),
     side = "l",
     outlier.shape = NA,
@@ -1133,7 +1133,7 @@ sum_peeking_plot_researcher_absent <-
   
   geom_half_boxplot(
     data = peeking_data_agg_trial2_researcher_absent.plot %>% filter(condition == "Non-functional"),
-    aes(x = condition2, y = mean_binary_peek),
+    aes(x = condition2, y = peeking_response_binary_summed),
     position = position_nudge(x = 0.3),
     side = "r",
     outlier.shape = NA,
@@ -1146,7 +1146,7 @@ sum_peeking_plot_researcher_absent <-
   
   # Define additional settings
   xlab("") +
-  ylab("Proportion of trial with peeking") +
+  ylab("Sum of trials with peeking") +
   scale_x_continuous(
     breaks = c(1, 2),
     labels = c("Functional", "Non-functional"),
@@ -1155,7 +1155,7 @@ sum_peeking_plot_researcher_absent <-
   #ylim(0, 1) +
   theme_classic()
 
-sum_peeking_plot_researcher_absent
+child_sum_peeking_plot_researcher_absent
 ```
 ```{r}
 ggsave(sum_peeking_plot_researcher_absent , filename = "Graphics/children_binary_peeking_plot_researcher_absent.png", width = 6, height = 6, scale = 0.7)
