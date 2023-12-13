@@ -21,6 +21,7 @@ source("./functions/boot_glmm2.r")
 source("./functions/glmmTMB_stability.r")
 source("./functions/drop1_para_glmmtmb.r")
 source("./functions/extract_ranef_gmmTMB.r")
+load("Kea_explanation_seeking.RData")
 ```
 ##Data preparation
 ### Read in data
@@ -504,6 +505,38 @@ write.csv(mm1_overall_peeking_output_table, file = "saves/mm1_overall_peeking_ou
 ```
 
 
+### Descriptives
+```{r}
+peeking_data_binary_descriptive <- xdata.agg2 %>%
+  mutate(prop_peeking = count / 8) %>%
+  group_by(Condition) %>%
+  summarise(
+    mean_prop_trials_w_peeking = mean(prop_peeking),
+    se = sd(prop_peeking) / sqrt(length(prop_peeking)),
+    average_number_peeking_trials = mean(count),
+    se_number_peeking_trials = sd(count) / sqrt(length(count)),
+    min_number_peeking_trials = min(count),
+    max_number_peeking_trials = max(count),
+    proportion_individuals_w_peeking = sum(count > 0) / length(count)
+  )
+
+write.csv(peeking_data_binary_descriptive, file = "kea_peeking_proportion_data_binary_descriptive.csv")
+
+
+
+xdata.agg2 %>%
+  group_by(Subject) %>%
+  summarise(count = mean(count))%>%
+  ungroup()%>%
+  summarise(proportion_individuals_w_peeking = sum(count>0)/length(count))
+```
+```{r}
+peeking_data_proportion_time_descriptive <- xdata.agg2 %>%
+  group_by(Condition) %>%
+  summarise(mean_prop_duration_peeking = mean(mean.peeking), se = sd(mean.peeking)/sqrt(length(mean.peeking)), min=min(mean.peeking), max=max(mean.peeking))
+
+write.csv(peeking_data_proportion_time_descriptive, file = "kea_peeking_proportion_time_descriptive.csv")
+```
 
 
 ## Analysis of proportional peeking response

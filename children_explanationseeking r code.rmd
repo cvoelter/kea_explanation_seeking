@@ -861,13 +861,13 @@ mm1_peeking_overall_model_researcher_absent.ci$ci.estimates
 mm1_overall_peeking_researcher_absent_output_table <-
   bind_cols(as.data.frame(summary(mm1_peeking_overall_model_researcher_absent)$coeff),
             mm1_peeking_overall_researcher_absent_drop1,
-            #mm1_peeking_overall_model.ci$ci.estimates
+            mm1_peeking_overall_model_researcher_absent.ci$ci.estimates
             ) %>%
   select(
     Estimate,
     SE = `Std. Error`,
-   # LowerCI = X2.5.,
-  #  UpperCI = X97.5.,
+    LowerCI = X2.5.,
+    UpperCI = X97.5.,
     Chi2 = LRT,
     df = npar,
     p = `Pr(Chi)`,
@@ -879,7 +879,7 @@ mm1_overall_peeking_researcher_absent_output_table <-
   #mutate(across(Chi2:p, ~replace_na(.x, "")))%>%
   mutate(p = replace(p, p == 0, "<0.001"))
 
-write.csv(mm1_overall_peeking_researcher_absent_output_table, file = "Saves/Child_mm1_overall_peeking_researcher_absent_output_table.csv")
+write.csv(mm1_overall_peeking_researcher_absent_output_table, file = "Saves/Child_mm1_overall_peeking_researcher_absent_S9output_table.csv")
 ```
 
 ## Proportion analysis

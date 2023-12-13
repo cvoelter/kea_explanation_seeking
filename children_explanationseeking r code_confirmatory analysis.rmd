@@ -21,6 +21,7 @@ source("./functions/boot_glmm2.r")
 source("./functions/glmmTMB_stability.r")
 source("./functions/drop1_para_glmmtmb.r")
 source("./functions/extract_ranef_gmmTMB.r")
+load("Child_explanation_seeking.RData")
 ```
 
 ## Data preparation
@@ -445,6 +446,23 @@ mm1_overall_peeking_output_table <-
 write.csv(mm1_overall_peeking_output_table, file = "Saves/Child_mm1_overall_peeking_output_table.csv")
 ```
 
+### Descriptives
+```{r}
+peeking_data_binary_descriptive <- peeking_data_agg_trial4 %>%
+  mutate(prop_peeking = peeking_response_binary_summed/4)%>%
+  group_by(condition) %>%
+  summarise(mean_prop_trials_w_peeking = mean(prop_peeking), se = sd(prop_peeking)/sqrt(length(prop_peeking)), average_number_peeking_trials = mean(peeking_response_binary_summed),  se_number_peeking_trials = sd(peeking_response_binary_summed)/sqrt(length(peeking_response_binary_summed)), min_number_peeking_trials=min(peeking_response_binary_summed), max_number_peeking_trials = max(peeking_response_binary_summed), proportion_individuals_w_peeking = sum(peeking_response_binary_summed>0)/length(peeking_response_binary_summed))
+
+write.csv(peeking_data_binary_descriptive, file = "children_peeking_proportion_data_binary_descriptive.csv")
+
+
+
+peeking_data_agg_trial4 %>%
+  group_by(subject) %>%
+  summarise(peeking_response_binary_summed = mean(peeking_response_binary_summed))%>%
+  ungroup()%>%
+  summarise(proportion_individuals_w_peeking = sum(peeking_response_binary_summed>0)/length(peeking_response_binary_summed))
+```
 
 
 ## Proportion analysis
@@ -558,7 +576,14 @@ peekingmodel_beta_table <- bind_cols(as.data.frame(summary(peekingmodel_beta)$co
 write.csv(peekingmodel_beta_table , file = "saves/Children_peekingmodel_beta_table.csv")
 ```
 
+### Descriptives
+```{r}
+peeking_data_proportion_time_descriptive <- peeking_data_proportion %>%
+  group_by(condition) %>%
+  summarise(mean_prop_duration_peeking = mean(prop_peeking), se = sd(prop_peeking)/sqrt(length(prop_peeking)), min=min(prop_peeking), max=max(prop_peeking))
 
+write.csv(peeking_data_proportion_time_descriptive, file = "children_peeking_proportion_time_descriptive.csv")
+```
 
 
 # Plotting
