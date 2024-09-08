@@ -1,0 +1,433 @@
+---
+title: "Children Explanation Seeking Analysis Rmd"
+output:
+  pdf_document: default
+html_document: default
+date: "2023-06-13"
+---
+  ## Libraries
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(lme4)
+library(tidyverse)
+library(summarytools)
+library(glmmTMB)
+
+source("./functions/diagnostic_fcns.r")
+source("./functions/glmm_stability.r")
+source("./functions/boot_glmm.r")
+source("./functions/boot_glmm2.r")
+source("./functions/glmmTMB_stability.r")
+source("./functions/drop1_para_glmmtmb.r")
+source("./functions/extract_ranef_gmmTMB.r")
+
+```
+#Original data
+## Data preparation
+Read in the individual data files
+```{r}
+#Extract file names
+list_csv_files <- list.files(path = "./data/children_individual_data_files/", 
+               pattern = "*.xlsx", 
+               full.names = T)
+library("readxl")
+test<-read_excel("./data/children_individual_data_files/ES_Child_101.xlsx")
+orig.data <- NULL
+#Read in all csv files and add the file name as variable
+for(f in list_csv_files){  
+  ReadInFile <- read_excel(path=f)%>%rename("file_name"=1)
+  ReadInFile$child_file <- f
+  orig.data <- rbind(orig.data, ReadInFile)
+}
+
+orig.data<-orig.data %>%
+  rename(subject = Subject...7,
+         condition = Subject...11,
+         trial_order = `Trial Order`,
+         behavioral_category = `Behavioral category`,
+         start = `Start (s)`,
+         stop= `Stop (s)`,
+         duration= `Duration (s)`) %>%
+  mutate(start = as.integer(start))%>%
+  arrange(subject, start) %>%
+  mutate(behavioral_category = fct_recode(as.factor(behavioral_category), "Time spent" = "Time Spent", "Researcher status" = "Researcher Status"))%>%
+  mutate(Behavior = fct_recode(as.factor(Behavior), "Researcher absent" = "Researcher Absent", "Researcher present" = "Researcher Present"))%>%
+  filter(!(stop=="235.969"& Behavior=="Right box (side)"& subject=="ES101"), !(duration=="4.749"& Behavior=="Right box (side)"& subject=="ES102"))
+
+levels(orig.data$behavioral_category)
+levels(as.factor(orig.data$Behavior))
+```
+data checks
+```{r}
+
+n.subj<-length(levels(as.factor(orig.data$subject)))
+levels(as.factor(orig.data$child_file))
+
+#add trial number
+trial_data <- orig.data %>%
+  filter(behavioral_category == "Trial type")
+
+table(trial_data$subject, trial_data$FPS)
+
+trial_data$Trial = rep(c(1:4), n.subj*2)
+trial_data <- trial_data %>% select(subject, condition, behavioral_category, start, Trial)
+
+table(trial_data$subject, trial_data$Trial)
+levels(as.factor(orig.data$behavioral_category))
+
+#add researcher status
+researcher_status_data <- orig.data %>%
+  filter(behavioral_category == "Researcher status")%>%
+  mutate(researcher_status = Behavior) %>%
+  select(subject, condition, researcher_status, behavioral_category, start)%>%
+  droplevels()
+table(researcher_status_data$subject, researcher_status_data$researcher_status)
+
+#add peeking interest period 
+peeking_IP_data <- orig.data %>%
+  filter(Behavior == "Toy to end of trial" | Behavior == "Functional" | Behavior == "Non-functional")%>%
+  mutate(IP = Behavior) %>%
+  select(subject, condition, IP,start)%>%
+  droplevels()
+
+table(peeking_IP_data$subject, peeking_IP_data$IP)
+
+
+orig.data2<-orig.data%>%
+  full_join(trial_data)%>%
+  fill(Trial) %>%
+  full_join(researcher_status_data)%>%
+  fill(researcher_status) %>%
+  full_join(peeking_IP_data)%>%
+  fill(IP)%>%
+  mutate(Block = as.numeric(ifelse(
+    trial_order == 1 & condition == "Functional",
+    1,
+    ifelse(
+      trial_order == 2 & condition == "Functional",
+      2,
+      ifelse(
+        trial_order == 1 & condition == "Non-functional",
+        2,
+        ifelse(trial_order == 2 &
+                 condition == "Non-functional", 1, "")
+      )
+    )
+  )))
+levels(as.factor(orig.data2$Behavior))
+orig.data2 %>% filter(Behavior == "Asking why") 
+#happened only three times in two subjects
+
+table(orig.data2$behavioral_category, orig.data2$Behavior)
+table(orig.data2$researcher_status, orig.data2$Behavior)
+table(orig.data2$subject, orig.data2$Trial)
+```
+
+### Calculate duration of each trial
+```{r}
+trialdurationdata <- orig.data2 %>%
+  filter(Behavior == "Toy to end of trial") %>% #time chunk in which peeking should happen # old "Researcher absent"
+  rename(Trial_duration = duration) %>%
+  select(subject, condition, Block, Trial,  trial_order, Trial_duration)%>%
+  mutate(Trial_duration = as.numeric(Trial_duration))#%>%
+  # filter(!(subject=="ES117" & condition == "Non-functional" & Trial == 3))%>%#filter out two trials because the experimenter absent duration is shorter (<15 sec) or longer than expected (>40 sec)
+  # filter(!(subject=="ES135" & condition == "Non-functional" & Trial == 4))
+
+hist(trialdurationdata$Trial_duration)
+mean(trialdurationdata$Trial_duration)
+min(trialdurationdata$Trial_duration)
+
+table(trialdurationdata$subject,trialdurationdata$condition)
+trialdurationdata %>% group_by(condition)%>% summarise(mean_trial_duration = mean(Trial_duration), sd_trial_duration = sd(Trial_duration), se_trial_duration = sd(Trial_duration)/sqrt(length(Trial_duration)))
+```
+
+### peeking data
+create dataframe just with the peeking categories and add the zeros and the trial duration
+
+```{r}
+all_combinations <-
+  expand.grid(
+    subject = levels(as.factor(orig.data2$subject)),
+    condition = levels(as.factor(orig.data2$condition)),
+    Trial = as.numeric(levels(as.factor(orig.data2$Trial))),
+    Behavior = c("Peek on top", "Peephole peek", "Right side peek", "Right box (side)")
+  )
+
+table(orig.data2$IP, orig.data2$subject)
+```
+
+# Interest period: toy to end of trial
+```{r}
+peeking_data <- orig.data2 %>%
+  #filter(researcher_status == "Researcher absent") %>%
+  filter(IP == "Toy to end of trial") %>%
+  filter(Behavior %in% c("Peek on top", "Peephole peek", "Right side peek", "Right box (side)")) %>%
+  mutate(duration = as.numeric(duration))%>%
+  group_by(subject, condition, trial_order, Block, Trial, Behavior) %>%
+  summarise(sum_duration = sum(duration), count_peeking = sum(duration>0))%>%
+  ungroup()%>%
+  select(-trial_order, -Block) %>%
+  full_join((all_combinations)) %>%
+  inner_join(trialdurationdata, by = c("subject", "condition", "Trial")) %>%
+  complete(fill=list(sum_duration=0, count_peeking=0)) %>%
+  mutate(trial_overall = as.numeric(ifelse(Block == 1, Trial,
+                                           ifelse(Block == 2, Trial+4, ""))),
+         proportion_peeking = sum_duration / Trial_duration)
+
+
+
+
+table(peeking_data$subject, peeking_data$Trial)
+
+write.csv(peeking_data, file = "data/child_explanation_seeking_peeking_data.csv")
+
+
+
+```
+
+
+### Plot of mean peeking
+```{r}
+peeking_data_agg<-peeking_data %>%
+  group_by(subject, condition, Behavior) %>%
+  summarise(mean.peeking = mean(sum_duration), count = sum(count_peeking))
+
+peeking_data_agg_trial<-peeking_data %>%
+  group_by(subject, condition, Trial, Behavior) %>%
+  summarise(mean.peeking = mean(sum_duration), count = sum(count_peeking), proportion_peeking = sum(proportion_peeking))
+
+peeking_data_agg_trial2<-peeking_data_agg_trial %>%
+  group_by(subject, condition, Trial) %>%
+  summarise(peeking_count_response = sum(count), peeking_response_binary  = sum(peeking_count_response > 0))
+
+peeking_data_proportion<-peeking_data %>%
+  group_by(subject, condition, Trial) %>%
+  summarise(prop_peeking = sum(proportion_peeking), count = sum(sum_duration > 0))
+```
+
+# Reli data
+## Data preparation
+Read in the individual data files
+```{r}
+#Extract file names
+list_csv_files <- list.files(path = "./data/children_individual_data_files/reli_data", 
+               pattern = "*.xlsx", 
+               full.names = T)
+library("readxl")
+
+reli.raw.data <- NULL
+#Read in all csv files and add the file name as variable
+for(f in list_csv_files){  
+  ReadInFile <- read_excel(path=f)%>%rename("file_name"=1)
+  ReadInFile$child_file <- f
+  reli.raw.data <- rbind(reli.raw.data, ReadInFile)
+}
+
+reli.raw.data<-reli.raw.data %>%
+  mutate(file_name = str_remove(file_name, "_Child_")) %>%
+  mutate(file_name = str_remove(file_name, "_RC"))%>%
+  rename(subject = file_name,
+         condition = Subject...11,
+         trial_order = `Trial Order`,
+         behavioral_category = `Behavioral category`,
+         start = `Start (s)`,
+         stop= `Stop (s)`,
+         duration= `Duration (s)`) %>%
+  mutate(start = as.integer(start))%>%
+  arrange(subject, start) %>%
+  mutate(behavioral_category = fct_recode(as.factor(behavioral_category), "Time spent" = "Time Spent", "Researcher status" = "Researcher Status"))%>%
+  mutate(Behavior = fct_recode(as.factor(Behavior), "Researcher absent" = "Researcher Absent", "Researcher present" = "Researcher Present"))
+
+
+levels(reli.raw.data$behavioral_category)
+levels(as.factor(reli.raw.data$Behavior))
+```
+data checks
+```{r}
+
+n.subj<-length(levels(as.factor(reli.raw.data$subject)))
+levels(as.factor(reli.raw.data$child_file))
+
+#add trial number
+trial_data_reli <- reli.raw.data %>%
+  filter(behavioral_category == "Trial type")%>%
+    arrange(subject, start) 
+
+table(trial_data_reli$subject, trial_data_reli$FPS)
+
+trial_data_reli$Trial = rep(c(1:4), n.subj*2)
+trial_data_reli <- trial_data_reli %>% select(subject, condition, behavioral_category, start, Trial)
+
+table(trial_data_reli$subject, trial_data_reli$Trial)
+levels(as.factor(reli.raw.data$behavioral_category))
+
+#add researcher status
+researcher_status_data_reli <- reli.raw.data %>%
+  filter(behavioral_category == "Researcher status")%>%
+  mutate(researcher_status = Behavior) %>%
+  select(subject, condition, researcher_status, behavioral_category, start)%>%
+  droplevels()
+table(researcher_status_data_reli$subject, researcher_status_data_reli$researcher_status)
+
+#add peeking interest period 
+peeking_IP_data_reli <- reli.raw.data %>%
+  filter(Behavior == "Toy to end of trial" | Behavior == "Functional" | Behavior == "Non-functional")%>%
+  mutate(IP = Behavior) %>%
+  select(subject, condition, IP,start)%>%
+  droplevels()
+
+table(peeking_IP_data_reli$subject, peeking_IP_data_reli$IP)
+
+
+reli.raw.data2<-reli.raw.data%>%
+  full_join(trial_data_reli)%>%
+  fill(Trial) %>%
+  full_join(researcher_status_data_reli)%>%
+  fill(researcher_status) %>%
+  full_join(peeking_IP_data_reli)%>%
+  fill(IP)%>%
+  mutate(Block = as.numeric(ifelse(
+    trial_order == 1 & condition == "Functional",
+    1,
+    ifelse(
+      trial_order == 2 & condition == "Functional",
+      2,
+      ifelse(
+        trial_order == 1 & condition == "Non-functional",
+        2,
+        ifelse(trial_order == 2 &
+                 condition == "Non-functional", 1, "")
+      )
+    )
+  )))
+levels(as.factor(reli.raw.data2$Behavior))
+reli.raw.data2 %>% filter(Behavior == "Asking why") 
+#happened only three times in two subjects
+
+table(reli.raw.data2$behavioral_category, reli.raw.data2$Behavior)
+table(reli.raw.data2$researcher_status, reli.raw.data2$Behavior)
+table(reli.raw.data2$subject, reli.raw.data2$Trial)
+
+table(trial_data_reli$subject, trial_data_reli$condition, trial_data_reli$Trial)
+```
+
+### Calculate duration of each trial
+```{r}
+trialdurationdata_reli <- reli.raw.data2 %>%
+  filter(Behavior == "Toy to end of trial") %>% #time chunk in which peeking should happen # old "Researcher absent"
+  rename(Trial_duration = duration) %>%
+  select(subject, condition, Block, Trial,  trial_order, Trial_duration)%>%
+  mutate(Trial_duration = as.numeric(Trial_duration))#%>%
+  # filter(!(subject=="ES117" & condition == "Non-functional" & Trial == 3))%>%#filter out two trials because the experimenter absent duration is shorter (<15 sec) or longer than expected (>40 sec)
+  # filter(!(subject=="ES135" & condition == "Non-functional" & Trial == 4))
+
+hist(trialdurationdata_reli$Trial_duration)
+mean(trialdurationdata_reli$Trial_duration)
+min(trialdurationdata_reli$Trial_duration)
+
+table(trialdurationdata_reli$subject,trialdurationdata_reli$condition)
+trialdurationdata_reli %>% group_by(condition)%>% summarise(mean_trial_duration = mean(Trial_duration), sd_trial_duration = sd(Trial_duration), se_trial_duration = sd(Trial_duration)/sqrt(length(Trial_duration)))
+```
+
+### peeking data
+create dataframe just with the peeking categories and add the zeros and the trial duration
+
+```{r}
+all_combinations_reli <-
+  expand.grid(
+    subject = levels(as.factor(reli.raw.data2$subject)),
+    condition = levels(as.factor(reli.raw.data2$condition)),
+    Trial = as.numeric(levels(as.factor(reli.raw.data2$Trial))),
+    Behavior = c("Peek on top", "Peephole peek", "Right side peek", "Right box (side)")
+  )
+
+table(reli.raw.data2$IP, reli.raw.data2$subject)
+```
+
+# Interest period: toy to end of trial
+```{r}
+peeking_data_reli <- reli.raw.data2 %>%
+  #filter(researcher_status == "Researcher absent") %>%
+  filter(IP == "Toy to end of trial") %>%
+  filter(Behavior %in% c("Peek on top", "Peephole peek", "Right side peek", "Right box (side)")) %>%
+  mutate(duration = as.numeric(duration))%>%
+  group_by(subject, condition, trial_order, Block, Trial, Behavior) %>%
+  summarise(sum_duration = sum(duration), count_peeking = sum(duration>0))%>%
+  ungroup()%>%
+  select(-trial_order, -Block) %>%
+  full_join((all_combinations_reli)) %>%
+  inner_join(trialdurationdata_reli, by = c("subject", "condition", "Trial")) %>%
+  complete(fill=list(sum_duration=0, count_peeking=0)) %>%
+  mutate( proportion_peeking = sum_duration / Trial_duration)
+
+
+
+
+table(peeking_data_reli$subject, peeking_data_reli$Trial)
+
+write.csv(peeking_data_reli, file = "data/child_explanation_seeking_peeking_reli_data.csv")
+
+
+
+```
+
+
+### Plot of mean peeking
+```{r}
+peeking_data_agg_reli<-peeking_data_reli %>%
+  group_by(subject, condition, Behavior) %>%
+  summarise(mean.peeking = mean(sum_duration), count = sum(count_peeking))
+
+peeking_data_agg_trial_reli<-peeking_data_reli %>%
+  group_by(subject, condition, Trial, Behavior) %>%
+  summarise(mean.peeking = mean(sum_duration), count = sum(count_peeking), proportion_peeking = sum(proportion_peeking))
+
+peeking_data_agg_trial2_reli<-peeking_data_agg_trial_reli %>%
+  group_by(subject, condition, Trial) %>%
+  summarise(peeking_count_response = sum(count), peeking_response_binary  = sum(peeking_count_response > 0))
+
+```
+
+```{r}
+
+peeking_data_proportion_reli<-peeking_data_reli %>%
+  group_by(subject, condition, Trial) %>%
+  summarise(prop_peeking = sum(proportion_peeking), count = sum(sum_duration > 0))
+```
+```{r}
+reli_data<- peeking_data_agg_trial2_reli %>%
+  full_join(peeking_data_proportion_reli) %>%
+  select(-count)%>%
+  rename(peeking_count_response_reli = peeking_count_response,
+         peeking_response_binary_reli = peeking_response_binary,
+         prop_peeking_reli = prop_peeking)
+```
+```{r}
+merge_data<- peeking_data_agg_trial2 %>%
+  full_join(peeking_data_proportion) %>%
+  mutate(subject = recode(subject, "Es125" = "ES125")) %>%
+  inner_join(reli_data)
+```
+
+
+# Cohen's kappa
+```{r}
+library(psych)
+
+#calculate Cohen's Kappa
+cohen.kappa(x=cbind(merge_data$peeking_response_binary,merge_data$peeking_response_binary_reli))
+
+
+merge_data %>% summarise(match = sum(peeking_response_binary == peeking_response_binary_reli), non_match = sum(peeking_response_binary != peeking_response_binary_reli))
+
+```
+
+#Intraclass correlation coefficients
+```{r}
+merge_data2 <- as.data.frame(merge_data)
+ICC(merge_data2%>%dplyr::select(prop_peeking, prop_peeking_reli), missing=TRUE)
+```
+
+
+

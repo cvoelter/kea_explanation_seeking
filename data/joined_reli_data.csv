@@ -135,8 +135,8 @@
 134,Mali,3,5,Functional,0,42.93,0,0,NA,NA
 135,Mali,4,4,Functional,0,43.775,0,0,NA,NA
 136,Mali,4,5,Non-functional,0,35.425,0,0,NA,NA
-137,Mali,5,4,Functional,0,41.583,0,0,0,0
-138,Mali,5,5,Non-functional,0,35.761,0,0,0,0
+137,Mali,5,4,Functional,0,41.583,0,0,NA,NA
+138,Mali,5,5,Non-functional,0,35.761,0,0,NA,NA
 139,Mali,6,4,Non-functional,0,34.972,0,0,NA,NA
 140,Mali,6,5,Functional,0,42.65,0,0,NA,NA
 141,Mali,7,4,Non-functional,0.9,31.519,0.028554205,1,NA,NA
@@ -271,5 +271,5 @@
 270,Tai,7,5,Functional,0,43.007,0,0,NA,NA
 271,Tai,8,4,Non-functional,0,36.4,0,0,NA,NA
 272,Tai,8,5,Functional,4.6,42.315,0.108708496,1,NA,NA
-273,Mali,5,4,Non-functional,NA,NA,NA,NA,0,0
-274,Mali,5,5,Functional,NA,NA,NA,NA,0,0
+273,Mali,5,4,Non-functional,NA,NA,0,0,0,0
+274,Mali,5,5,Functional,NA,NA,0,0,0,0

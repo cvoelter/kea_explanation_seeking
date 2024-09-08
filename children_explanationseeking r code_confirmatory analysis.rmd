@@ -21,7 +21,7 @@ source("./functions/boot_glmm2.r")
 source("./functions/glmmTMB_stability.r")
 source("./functions/drop1_para_glmmtmb.r")
 source("./functions/extract_ranef_gmmTMB.r")
-load("Child_explanation_seeking.RData")
+load("Child_explanation_seeking_.RData")
 ```
 
 ## Data preparation
@@ -49,6 +49,7 @@ orig.data<-orig.data %>%
          start = `Start (s)`,
          stop= `Stop (s)`,
          duration= `Duration (s)`) %>%
+  mutate(start = as.integer(start))%>%
   arrange(subject, start) %>%
   mutate(behavioral_category = fct_recode(as.factor(behavioral_category), "Time spent" = "Time Spent", "Researcher status" = "Researcher Status"))%>%
   mutate(Behavior = fct_recode(as.factor(Behavior), "Researcher absent" = "Researcher Absent", "Researcher present" = "Researcher Present"))%>%
@@ -164,12 +165,12 @@ peeking_data <- orig.data2 %>%
   filter(Behavior %in% c("Peek on top", "Peephole peek", "Right side peek", "Right box (side)")) %>%
   mutate(duration = as.numeric(duration))%>%
   group_by(subject, condition, trial_order, Block, Trial, Behavior) %>%
-  summarise(sum_duration = sum(duration))%>%
+  summarise(sum_duration = sum(duration), count_peeking = sum(duration>0))%>%
   ungroup()%>%
   select(-trial_order, -Block) %>%
   full_join((all_combinations)) %>%
   inner_join(trialdurationdata, by = c("subject", "condition", "Trial")) %>%
-  complete(fill=list(sum_duration=0)) %>%
+  complete(fill=list(sum_duration=0, count_peeking=0)) %>%
   mutate(trial_overall = as.numeric(ifelse(Block == 1, Trial,
                                            ifelse(Block == 2, Trial+4, ""))),
          proportion_peeking = sum_duration / Trial_duration)
@@ -190,15 +191,15 @@ write.csv(peeking_data, file = "data/child_explanation_seeking_peeking_data.csv"
 ```{r}
 peeking_data_agg<-peeking_data %>%
   group_by(subject, condition, Behavior) %>%
-  summarise(mean.peeking = mean(sum_duration), count = sum(sum_duration > 0))
+  summarise(mean.peeking = mean(sum_duration), count = sum(count_peeking))
 
 peeking_data_agg_trial<-peeking_data %>%
   group_by(subject, condition, trial_overall, Behavior) %>%
-  summarise(mean.peeking = mean(sum_duration), count = sum(sum_duration > 0), proportion_peeking = sum(proportion_peeking))
+  summarise(mean.peeking = mean(sum_duration), count = sum(count_peeking), proportion_peeking = sum(proportion_peeking))
 
 peeking_data_agg_trial2<-peeking_data_agg_trial %>%
   group_by(subject, condition, trial_overall) %>%
-  summarise(peeking_response = sum(count > 0), peeking_response_binary  = sum(peeking_response > 0))
+  summarise(peeking_count_response = sum(count), peeking_response_binary  = sum(peeking_count_response > 0))
 
 write.csv(peeking_data_agg, file = "Saves/Child_Overall_Peeking_Table.csv")
 ```
@@ -328,8 +329,9 @@ child_plot_binary_peeking_boxplot <-
     labels = c("Functional", "Non-functional"),
     limits = c(0.5, 2.5)
   ) +
-  #ylim(0, 1) +
-  theme_classic()
+  ylim(0, 4) +
+  theme_classic()+
+  ggtitle("Children - Exploration Period")
 
 child_plot_binary_peeking_boxplot
 ```
@@ -585,6 +587,112 @@ peeking_data_proportion_time_descriptive <- peeking_data_proportion %>%
 write.csv(peeking_data_proportion_time_descriptive, file = "children_peeking_proportion_time_descriptive.csv")
 ```
 
+## Count peeking analysis: 
+
+z-transformation of covariates (standardizes data)
+Centering (subtract mean) and scaling (divide by SD so it becomes 1) covariates. Makes it more likely model will converge (does not change p value).
+```{r}
+peeking_data_agg_trial2$z.trial <-
+  as.vector(scale(
+    as.numeric(peeking_data_agg_trial2$trial_overall),
+    scale = TRUE,
+    center = TRUE
+  ))
+#peeking_data_agg_trial2$z.block <-
+#  as.vector(scale(as.numeric(peeking_data_agg_trial2$Block)))
+```
+
+Dummy code factors (to prepare for centering below)
+makes first factor 0, second factor 1
+```{r}
+peeking_data_agg_trial2$condition <-
+  as.factor(peeking_data_agg_trial2$condition)
+peeking_data_agg_trial2$condition.dummy <-
+  as.numeric(peeking_data_agg_trial2$condition == levels(peeking_data_agg_trial2$condition)[2])
+```
+
+Center condition for random slopes (to avoid arbitrary effects of making first factor 0 and second factor 1)
+```{r}
+peeking_data_agg_trial2$condition.c <- as.numeric(peeking_data_agg_trial2$condition) - mean(as.numeric(peeking_data_agg_trial2$condition))
+mean(peeking_data_agg_trial2$condition.c)
+```
+
+Define control structure to make convergence more likely:
+```{r}
+contr <- glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 10000))
+```
+
+Analysis of binary peeking response (overall peeks, includes time spent on right side)
+```{r}
+mm1_peeking_overall_count_model<-glmer(
+  peeking_count_response ~ condition + z.trial + (1 + condition.c + z.trial | subject),
+  data = peeking_data_agg_trial2,
+  family = poisson,
+  control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 10000))
+)
+overdisp.test(mm1_peeking_overall_count_model)
+drop1(mm1_peeking_overall_count_model, test = "Chisq")
+summary(mm1_peeking_overall_count_model)
+```
+
+
+```{r}
+
+mm1_peeking_overall_count_model_drop1 <- drop1(mm1_peeking_overall_count_model, test="Chisq")%>% 
+  filter(!is.na(npar)) %>% 
+  add_row(npar = rep(NA,1),  .before = 1) 
+```
+
+Check for colinearity
+```{r}
+library(car)
+xx=lm(peeking_count_response ~ condition + z.trial , data=peeking_data_agg_trial2)
+vif(xx)
+```
+
+```{r}
+mm1_peeking_overall_count_model.ci = boot.glmm.pred(
+  model.res = mm1_peeking_overall_count_model,
+  excl.warnings = F,
+  nboots = 1000,
+  para = T,
+  n.cores = "all-1",
+  resol = 1000,
+  level = 0.95
+)
+
+mm1_peeking_overall_count_model.ci$ci.estimates
+```
+
+
+#### output table
+
+
+```{r}
+mm1_peeking_overall_count_model_output_table <-
+  bind_cols(as.data.frame(summary(mm1_peeking_overall_count_model)$coeff),
+            mm1_peeking_overall_count_model_drop1,
+            mm1_peeking_overall_count_model.ci$ci.estimates
+            ) %>%
+  select(
+    Estimate,
+    SE = `Std. Error`,
+    LowerCI = X2.5.,
+    UpperCI = X97.5.,
+    Chi2 = LRT,
+    df = npar,
+    p = `Pr(Chi)`,
+    z_wald = `z value`,
+    p_wald = `Pr(>|z|)`
+  ) %>% #
+  mutate(across(.cols = c(p), ~ format(round(.x, 3), nsmall = 3))) %>%
+  mutate(across(.cols = c(Estimate:Chi2), ~ format(round(.x, 2), nsmall = 2))) %>%
+  #mutate(across(Chi2:p, ~replace_na(.x, "")))%>%
+  mutate(p = replace(p, p == 0, "<0.001"))
+
+write.csv(mm1_peeking_overall_count_model_output_table, file = "Saves/Child_mm1_overall_peeking_count_output_table.csv")
+```
+
 
 # Plotting
 
@@ -659,7 +767,8 @@ child_sum_peeking_plot <-
     limits = c(0.5, 2.5)
   ) +
   #ylim(0, 1) +
-  theme_classic()
+  theme_classic()+
+  ggtitle("Children - Exploration Period")
 
 child_sum_peeking_plot
 ```
@@ -673,85 +782,12 @@ ggsave(child_sum_peeking_plot , filename = "Graphics/children_binary_peeking_plo
 
 ### Plot: Mean peeking duration
 ```{r}
-peeking_data.plot <- peeking_data %>%
+peeking_data.plot <- peeking_data_proportion %>%
   group_by(subject, condition) %>%
-  summarise(mean_duration_peeking = mean(sum_duration, na.rm=TRUE),
-            mean_prop_duration_peeking = mean(proportion_peeking, na.rm=TRUE))
+  summarise(mean_prop_duration_peeking = mean(prop_peeking, na.rm=TRUE))
 ```
 
 
-```{r}
-#xdata.agg$condition<-fct_relevel(as.factor(xdata.agg$condition), "blocked", "teasing", "clumsy")
-peeking_data.plot$condition2 <- jitter(as.numeric(as.factor(peeking_data.plot$condition), amount = .0001))
-
-library(gghalves)
-
-
-child_sum_peeking_plot <-
-  ggplot(data = peeking_data.plot, aes(x = condition, y = mean_duration_peeking, group = condition)) +
-  geom_line(
-    aes(x = condition2, group = subject),
-    color = "darkgray",
-    lty = 1,
-    alpha = .3
-  ) +
-  geom_point(
-    data = peeking_data.plot %>% filter(condition == "Functional"),
-    aes(x = condition2),
-    color = "dodgerblue",
-    size = 1.5,
-    alpha = .5
-  ) +
-  geom_point(
-    data = peeking_data.plot %>% filter(condition == "Non-functional"),
-    aes(x = condition2),
-    color = "darkorange",
-    size = 1.5,
-    alpha = .5,
-    
-  ) +
-  geom_half_boxplot(
-    data = peeking_data.plot %>% filter(condition == "Functional"),
-    aes(x = condition2, y = mean_duration_peeking),
-    position = position_nudge(x = -0.3),
-    side = "l",
-    outlier.shape = NA,
-    center = TRUE,
-    errorbar.draw = TRUE,
-    width = .05,
-    fill = 'dodgerblue',
-    alpha = .5
-  ) +
-  
-  geom_half_boxplot(
-    data = peeking_data.plot %>% filter(condition == "Non-functional"),
-    aes(x = condition2, y = mean_duration_peeking),
-    position = position_nudge(x = 0.3),
-    side = "r",
-    outlier.shape = NA,
-    center = TRUE,
-    errorbar.draw = TRUE,
-    width = .05,
-    fill = 'darkorange',
-    alpha = .5
-  ) +
-  
-  # Define additional settings
-  xlab("") +
-  ylab("Mean peeking duration (s)") +
-  scale_x_continuous(
-    breaks = c(1, 2),
-    labels = c("Functional", "Non-functional"),
-    limits = c(0.5, 2.5)
-  ) +
-  #ylim(0, 1) +
-  theme_classic()
-
-child_sum_peeking_plot 
-
-ggsave(child_sum_peeking_plot , filename = "Graphics/children_sum_peeking_plot.png", width = 6, height = 6, scale = 0.6)
-
-```
 ### Plot: Mean proportion peeking duration
 ```{r}
 #xdata.agg$condition<-fct_relevel(as.factor(xdata.agg$condition), "blocked", "teasing", "clumsy")
@@ -818,7 +854,8 @@ child_sum_prop_peeking_plot <-
     limits = c(0.5, 2.5)
   ) +
   #ylim(0, 1) +
-  theme_classic()
+  theme_classic()+
+  ggtitle("Children")
 
 child_sum_prop_peeking_plot 
 
@@ -969,9 +1006,17 @@ binom.test(9, 9, p =0.5)
 ```
 
 ```{r}
-save.image("Child_explanation_seeking.RData")
+save.image("Child_explanation_seeking_.RData")
 ```
 
+### merging data for publication
+```{r}
+merge_data <- peeking_data_proportion %>%
+  select(1:4)%>%
+  full_join(peeking_data_agg_trial2)%>%
+  select(1:6)
+write.csv(merge_data, file = "suppl_data_exp2_children.csv")
+```
 
 
 

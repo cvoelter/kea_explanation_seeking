@@ -21,6 +21,7 @@ source("./functions/boot_glmm2.r")
 source("./functions/glmmTMB_stability.r")
 source("./functions/drop1_para_glmmtmb.r")
 source("./functions/extract_ranef_gmmTMB.r")
+load("Child_explanation_seeking_researcherabsent.RData")
 ```
 
 
@@ -48,6 +49,7 @@ orig.data<-orig.data %>%
          start = `Start (s)`,
          stop= `Stop (s)`,
          duration= `Duration (s)`) %>%
+  mutate(start = as.integer(start))%>%
   arrange(subject, start) %>%
   mutate(behavioral_category = fct_recode(as.factor(behavioral_category), "Time spent" = "Time Spent", "Researcher status" = "Researcher Status"))%>%
   mutate(Behavior = fct_recode(as.factor(Behavior), "Researcher absent" = "Researcher Absent", "Researcher present" = "Researcher Present"))%>%
@@ -784,7 +786,7 @@ Centering (subtract mean) and scaling (divide by SD so it becomes 1) covariates.
 ```{r}
 peeking_data_agg_trial2_researcher_absent$z.trial <-
   as.vector(scale(
-    as.numeric(peeking_data_agg_trial2$trial_overall),
+    as.numeric(peeking_data_agg_trial2_researcher_absent$trial_overall),
     scale = TRUE,
     center = TRUE
   ))
@@ -1152,13 +1154,14 @@ child_sum_peeking_plot_researcher_absent <-
     labels = c("Functional", "Non-functional"),
     limits = c(0.5, 2.5)
   ) +
-  #ylim(0, 1) +
-  theme_classic()
+  ylim(0, 4) +
+  theme_classic()+
+  ggtitle("Children - Researcher Absent Period")
 
 child_sum_peeking_plot_researcher_absent
 ```
 ```{r}
-ggsave(sum_peeking_plot_researcher_absent , filename = "Graphics/children_binary_peeking_plot_researcher_absent.png", width = 6, height = 6, scale = 0.7)
+ggsave(child_sum_peeking_plot_researcher_absent , filename = "Graphics/children_binary_peeking_plot_researcher_absent.png", width = 6, height = 6, scale = 0.7)
 
 ```
 
@@ -1325,13 +1328,24 @@ ggsave(sum_prop_peeking_plot , filename = "Graphics/children_sum_prop_peeking_pl
 ```
 
 
+```{r}
+save.image("Child_explanation_seeking_researcherabsent.RData")
+```
 
 
 
 
 
 
+## write pub data
+```{r}
+pub_data <- peeking_data_agg_trial2_researcher_absent %>%
+  select(1:3, peeking_count = peeking_response, 5)%>%
+  full_join(peeking_data_proportion_researcher_absent)%>%
+  select(-count)
 
+write.csv(pub_data, file = "suppl_data_exp2_children_researcher_absent.csv")
+```
 
 
 

@@ -77,10 +77,11 @@ raw.data.after.solution <- raw.data %>%
 xdata<-raw.data.after.solution %>%
   filter(Behavioral.category == "Peeking" | (Behavioral.category == "Proximity" & Behavior == "Right box (side)")) %>%
   group_by(Subject, Session, Trial, Condition)%>% #Subject.1 means trial type (func or non func)
-  summarise(sum_peeking=sum(Duration..s.))%>% #aggregating durations per behavioral category within each session
+  summarise(sum_peeking=sum(Duration..s.),
+            count_peeking = sum(Duration..s.>0))%>% #aggregating durations per behavioral category within each session
   ungroup()%>%
   full_join(cb.data)%>%
-  complete(Subject, Session, Trial,  fill=list(sum_peeking=0))%>% #fill in 0s
+  complete(Subject, Session, Trial,  fill=list(sum_peeking=0, count_peeking = 0))%>% #fill in 0s
   full_join(trialdurationdata)%>%
   mutate(Proportionpeeking = sum_peeking / Trial_Duration,
          peeking_binary= as.numeric(ifelse(sum_peeking > 0, 1, 0)))
@@ -295,8 +296,9 @@ kea_sum_prop_peeking_plot <-
     labels = c("Functional", "Non-functional"),
     limits = c(0.5, 2.5)
   ) +
-  ylim(0, .2) +
-  theme_classic()
+  ylim(0, .25) +
+  theme_classic()+
+  ggtitle("Kea")
 
 kea_sum_prop_peeking_plot 
 
@@ -369,7 +371,8 @@ kea_plot_binary_peeking_boxplot <-
     limits = c(0.5, 2.5)
   ) +
   ylim(0, 8) +
-  theme_classic()
+  theme_classic()+
+  ggtitle("Kea")
 
 kea_plot_binary_peeking_boxplot
 ```
@@ -626,7 +629,68 @@ write.csv(peekingmodel_beta_table , file = "saves/peekingmodel_beta_table.csv")
 ```
 
 
+# Analysis of count peeking data (overall peeks, includes time spent on right side)
+```{r}
+mm_peeking_count_model<-glmer(
+  count_peeking ~ Condition + z.trial + z.session + (1 + condition.c + z.trial + z.session | Subject),
+  data = xdata,
+  family = poisson,
+  control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 10000))
+)
+overdisp.test(mm_peeking_count_model)
+drop1(mm_peeking_count_model, test = "Chisq")
+summary(mm_peeking_count_model)
+```
 
+
+```{r}
+
+mm_peeking_count_model_drop1 <- drop1(mm_peeking_count_model, test="Chisq")%>% 
+  filter(!is.na(npar)) %>% 
+  add_row(npar = rep(NA,1),  .before = 1) 
+```
+
+Check for colinearity
+```{r}
+library(car)
+xx=lm(count_peeking ~ Condition + z.trial + z.session, data=xdata)
+vif(xx)
+```
+
+```{r}
+mm_peeking_count_model.ci=boot.glmm.pred(model.res=mm_peeking_count_model, excl.warnings=F,
+nboots=1000, para=T, n.cores="all-1", resol=1000, level=0.95)
+
+mm_peeking_count_model.ci$ci.estimates
+```
+
+
+#### output table
+
+
+```{r}
+mm_peeking_count_output_table <-
+  bind_cols(as.data.frame(summary(mm_peeking_count_model)$coeff),
+            mm_peeking_count_model_drop1,
+            mm_peeking_count_model.ci$ci.estimates) %>%
+  select(
+    Estimate,
+    SE = `Std. Error`,
+    LowerCI = X2.5.,
+    UpperCI = X97.5.,
+    Chi2 = LRT,
+    df = npar,
+    p = `Pr(Chi)`,
+    z_wald = `z value`,
+    p_wald = `Pr(>|z|)`
+  ) %>% #
+  mutate(across(.cols = c(p), ~ format(round(.x, 3), nsmall = 3))) %>%
+  mutate(across(.cols = c(Estimate:Chi2), ~ format(round(.x, 2), nsmall = 2))) %>%
+  #mutate(across(Chi2:p, ~replace_na(.x, "")))%>%
+  mutate(p = replace(p, p == 0, "<0.001"))
+
+write.csv(mm_peeking_count_output_table, file = "saves/mm_peeking_count_output_table.csv")
+```
 
 
 
@@ -849,20 +913,25 @@ peekingmodel_beta_s1_table <- bind_cols(as.data.frame(summary(peekingmodel_beta_
 write.csv(peekingmodel_beta_s1_table , file = "saves/peekingmodel_beta_S1_table.csv")
 ```
 
+
+
+
 ```{r}
 save.image("Kea_explanation_seeking.RData")
 ```
 # combine plots
 
 ```{r}
-load("Child_explanation_seeking.RData")
+load("Child_explanation_seeking_researcherabsent.RData")
+load("Child_explanation_seeking_.RData")
+
 ```
 
 ```{r}
 library(cowplot)
 pg_binary_plots<-plot_grid(kea_plot_binary_peeking_boxplot, child_plot_binary_peeking_boxplot, child_sum_peeking_plot_researcher_absent, labels=c("a", "b", "c"), nrow=1)
 pg_binary_plots
-ggsave(pg_binary_plots, filename = "Graphics/binary_peeking_plot_grid.png", width = 16, height = 6, scale = 0.6)
+ggsave(pg_binary_plots, filename = "Graphics/binary_peeking_plot_grid.png", width = 18, height = 6, scale = 0.6)
 
 ```
 
@@ -877,7 +946,7 @@ ggsave(pg_binary_plots2, filename = "Graphics/binary_peeking_plot_grid.png", wid
 library(cowplot)
 pg_proportion_plots2<-plot_grid(kea_sum_prop_peeking_plot, child_sum_prop_peeking_plot, labels=c("a", "b"), nrow=1)
 pg_proportion_plots2
-ggsave(pg_proportion_plots2, filename = "Graphics/proportion_duration_peeking_plot_grid.png", width = 11, height = 6, scale = 0.6)
+ggsave(pg_proportion_plots2, filename = "Graphics/proportion_duration_peeking_plot_grid.pdf", width = 11, height = 6, scale = 0.6)
 
 ```
 
@@ -888,4 +957,11 @@ pg_kea<-plot_grid(kea_plot_binary_peeking_boxplot,kea_sum_prop_peeking_plot, lab
 ggsave(pg_kea, filename = "Graphics/kea_peeking_plot_grid.png", width = 13, height = 6, scale = 0.6)
 ```
 
+##write data for publication
+```{r}
+pub_data <- xdata %>%
+  select(1:4, 6, 9, 8)
+
+write.csv(pub_data, file = "suppl_data_exp1_kea.csv")
+```
 

@@ -1,993 +1,993 @@
-"","subject","condition","Trial","Behavior","sum_duration","Block","trial_order","Trial_duration","trial_overall","proportion_peeking"
-"1","ES101","Functional",1,"Right side peek",6.573,1,"1",48.515,1,0.135483870967742
-"2","ES102","Non-functional",1,"Right side peek",4.749,1,"2",40.997,1,0.115837744225187
-"3","ES108","Functional",1,"Peek on top",8.492,2,"2",28.75,5,0.295373913043478
-"4","ES108","Functional",2,"Peek on top",11.749,2,"2",28.997,6,0.405179846190985
-"5","ES108","Functional",2,"Peephole peek",8.496,2,"2",28.997,6,0.292995827154533
-"6","ES111","Non-functional",1,"Right side peek",1.748,1,"2",34.842,1,0.0501693358590207
-"7","ES111","Non-functional",2,"Right side peek",1.493,1,"2",28.498,2,0.0523896413783423
-"8","ES112","Non-functional",1,"Right side peek",17.35,2,"1",32.032,5,0.541645854145854
-"9","ES112","Non-functional",3,"Right box (side)",4.155,2,"1",28.979,7,0.143379688740122
-"10","ES113","Functional",1,"Right box (side)",28.011,2,"2",35.686,5,0.784929664294121
-"11","ES113","Functional",2,"Right box (side)",26.76,2,"2",34.918,6,0.766366916776448
-"12","ES113","Functional",3,"Right box (side)",27.143,2,"2",35.085,7,0.773635456747898
-"13","ES113","Functional",4,"Right box (side)",26.343,2,"2",31.848,8,0.827147701582517
-"14","ES113","Non-functional",1,"Right side peek",2.035,1,"2",38.055,1,0.0534752332150834
-"15","ES113","Non-functional",2,"Right side peek",1.218,1,"2",36.77,2,0.0331248300244765
-"16","ES113","Non-functional",4,"Right box (side)",26.126,1,"2",32.666,4,0.799791832486377
-"17","ES114","Functional",1,"Right box (side)",18.168,1,"1",44.761,1,0.405889055204307
-"18","ES115","Functional",2,"Right box (side)",13.397,2,"2",33.083,6,0.404951183387238
-"19","ES115","Functional",3,"Right box (side)",8.642,2,"2",31.065,7,0.27819089006921
-"20","ES115","Non-functional",1,"Right box (side)",3.503,1,"2",37.905,1,0.0924152486479356
-"21","ES115","Non-functional",2,"Right box (side)",1.768,1,"2",33.867,2,0.0522042105884785
-"22","ES115","Non-functional",3,"Right box (side)",3.921,1,"2",26.16,3,0.149885321100917
-"23","ES116","Non-functional",1,"Right box (side)",1.585,2,"1",30.531,5,0.0519144476106253
-"24","ES116","Non-functional",4,"Peek on top",4.155,2,"1",28.012,8,0.148329287448236
-"25","ES118","Functional",3,"Right box (side)",2.519,2,"2",33.884,7,0.074341872270098
-"26","ES118","Non-functional",3,"Right box (side)",29.146,1,"2",38.171,3,0.763563962170234
-"27","ES124","Functional",4,"Right side peek",0.752,1,"1",44.999,4,0.0167114824773884
-"28","ES124","Non-functional",4,"Right side peek",2.001,2,"1",36.734,8,0.0544726955953612
-"29","ES129","Non-functional",1,"Right side peek",5.748,1,"2",40.501,1,0.141922421668601
-"30","ES135","Functional",1,"Right side peek",2.517,1,"1",45.761,1,0.055003168637049
-"31","ES135","Non-functional",1,"Right side peek",3.736,2,"1",27.76,5,0.134582132564841
-"32","ES136","Functional",4,"Right side peek",2.747,2,"2",28.56,8,0.0961834733893557
-"33","ES136","Non-functional",1,"Right side peek",2.496,1,"2",34.527,1,0.072291250325832
-"34","ES136","Non-functional",2,"Right side peek",3.511,1,"2",24.816,2,0.141481302385558
-"35","ES136","Non-functional",3,"Peephole peek",2.229,1,"2",26.004,3,0.0857175819104753
-"36","Es125","Non-functional",4,"Peephole peek",0.999,1,"2",31.999,4,0.0312197256164255
-"37","ES101","Functional",1,"Peek on top",0,1,"1",48.515,1,0
-"38","ES102","Functional",1,"Peek on top",0,2,"2",46,5,0
-"39","ES103","Functional",1,"Peek on top",0,1,"1",42.745,1,0
-"40","ES104","Functional",1,"Peek on top",0,2,"2",42.242,5,0
-"41","ES106","Functional",1,"Peek on top",0,2,"2",54.254,5,0
-"42","ES110","Functional",1,"Peek on top",0,1,"1",30.757,1,0
-"43","ES111","Functional",1,"Peek on top",0,2,"2",30.004,5,0
-"44","ES112","Functional",1,"Peek on top",0,1,"1",25.426,1,0
-"45","ES113","Functional",1,"Peek on top",0,2,"2",35.686,5,0
-"46","ES114","Functional",1,"Peek on top",0,1,"1",44.761,1,0
-"47","ES115","Functional",1,"Peek on top",0,2,"2",31.314,5,0
-"48","ES116","Functional",1,"Peek on top",0,1,"1",33.217,1,0
-"49","ES117","Functional",1,"Peek on top",0,1,"1",45.512,1,0
-"50","ES118","Functional",1,"Peek on top",0,2,"2",37.404,5,0
-"51","ES119","Functional",1,"Peek on top",0,1,"1",48.449,1,0
-"52","ES120","Functional",1,"Peek on top",0,1,"1",35.575,1,0
-"53","ES122","Functional",1,"Peek on top",0,1,"1",28.497,1,0
-"54","ES123","Functional",1,"Peek on top",0,1,"1",32.25,1,0
-"55","ES124","Functional",1,"Peek on top",0,1,"1",50.752,1,0
-"56","Es125","Functional",1,"Peek on top",0,2,"2",28.747,5,0
-"57","ES126","Functional",1,"Peek on top",0,1,"1",39.546,1,0
-"58","ES127","Functional",1,"Peek on top",0,1,"1",35.496,1,0
-"59","ES128","Functional",1,"Peek on top",0,1,"1",42.503,1,0
-"60","ES129","Functional",1,"Peek on top",0,2,"2",37.5,5,0
-"61","ES130","Functional",1,"Peek on top",0,1,"1",33.795,1,0
-"62","ES132","Functional",1,"Peek on top",0,1,"1",37.701,1,0
-"63","ES133","Functional",1,"Peek on top",0,1,"1",37.51,1,0
-"64","ES134","Functional",1,"Peek on top",0,2,"2",37.012,5,0
-"65","ES135","Functional",1,"Peek on top",0,1,"1",45.761,1,0
-"66","ES136","Functional",1,"Peek on top",0,2,"2",28.998,5,0
-"67","ES101","Non-functional",1,"Peek on top",0,2,"1",42.242,5,0
-"68","ES102","Non-functional",1,"Peek on top",0,1,"2",40.997,1,0
-"69","ES103","Non-functional",1,"Peek on top",0,2,"1",39.007,5,0
-"70","ES104","Non-functional",1,"Peek on top",0,1,"2",47.914,1,0
-"71","ES106","Non-functional",1,"Peek on top",0,1,"2",52.755,1,0
-"72","ES108","Non-functional",1,"Peek on top",0,1,"2",31.746,1,0
-"73","ES110","Non-functional",1,"Peek on top",0,2,"1",27.498,5,0
-"74","ES111","Non-functional",1,"Peek on top",0,1,"2",34.842,1,0
-"75","ES112","Non-functional",1,"Peek on top",0,2,"1",32.032,5,0
-"76","ES113","Non-functional",1,"Peek on top",0,1,"2",38.055,1,0
-"77","ES114","Non-functional",1,"Peek on top",0,2,"1",41.625,5,0
-"78","ES115","Non-functional",1,"Peek on top",0,1,"2",37.905,1,0
-"79","ES116","Non-functional",1,"Peek on top",0,2,"1",30.531,5,0
-"80","ES117","Non-functional",1,"Peek on top",0,2,"1",40.023,5,0
-"81","ES118","Non-functional",1,"Peek on top",0,1,"2",36.153,1,0
-"82","ES119","Non-functional",1,"Peek on top",0,2,"1",32.899,5,0
-"83","ES120","Non-functional",1,"Peek on top",0,2,"1",11.748,5,0
-"84","ES122","Non-functional",1,"Peek on top",0,2,"1",30.82,5,0
-"85","ES123","Non-functional",1,"Peek on top",0,2,"1",32.248,5,0
-"86","ES124","Non-functional",1,"Peek on top",0,2,"1",47.25,5,0
-"87","Es125","Non-functional",1,"Peek on top",0,1,"2",32.252,1,0
-"88","ES126","Non-functional",1,"Peek on top",0,2,"1",34.434,5,0
-"89","ES127","Non-functional",1,"Peek on top",0,2,"1",41.753,5,0
-"90","ES128","Non-functional",1,"Peek on top",0,2,"1",38.506,5,0
-"91","ES129","Non-functional",1,"Peek on top",0,1,"2",40.501,1,0
-"92","ES130","Non-functional",1,"Peek on top",0,2,"1",40.631,5,0
-"93","ES132","Non-functional",1,"Peek on top",0,2,"1",37.309,5,0
-"94","ES133","Non-functional",1,"Peek on top",0,2,"1",42.003,5,0
-"95","ES134","Non-functional",1,"Peek on top",0,1,"2",36.744,1,0
-"96","ES135","Non-functional",1,"Peek on top",0,2,"1",27.76,5,0
-"97","ES136","Non-functional",1,"Peek on top",0,1,"2",34.527,1,0
-"98","ES101","Functional",2,"Peek on top",0,1,"1",44.744,2,0
-"99","ES102","Functional",2,"Peek on top",0,2,"2",45.501,6,0
-"100","ES103","Functional",2,"Peek on top",0,1,"1",37.499,2,0
-"101","ES104","Functional",2,"Peek on top",0,2,"2",44.178,6,0
-"102","ES106","Functional",2,"Peek on top",0,2,"2",42.75,6,0
-"103","ES110","Functional",2,"Peek on top",0,1,"1",30.504,2,0
-"104","ES111","Functional",2,"Peek on top",0,2,"2",28.505,6,0
-"105","ES112","Functional",2,"Peek on top",0,1,"1",26.893,2,0
-"106","ES113","Functional",2,"Peek on top",0,2,"2",34.918,6,0
-"107","ES114","Functional",2,"Peek on top",0,1,"1",41.809,2,0
-"108","ES115","Functional",2,"Peek on top",0,2,"2",33.083,6,0
-"109","ES116","Functional",2,"Peek on top",0,1,"1",29.779,2,0
-"110","ES117","Functional",2,"Peek on top",0,1,"1",41.842,2,0
-"111","ES118","Functional",2,"Peek on top",0,2,"2",39.739,6,0
-"112","ES119","Functional",2,"Peek on top",0,1,"1",34.651,2,0
-"113","ES120","Functional",2,"Peek on top",0,1,"1",32.252,2,0
-"114","ES122","Functional",2,"Peek on top",0,1,"1",28.751,2,0
-"115","ES123","Functional",2,"Peek on top",0,1,"1",33.5,2,0
-"116","ES124","Functional",2,"Peek on top",0,1,"1",38.496,2,0
-"117","Es125","Functional",2,"Peek on top",0,2,"2",30.744,6,0
-"118","ES126","Functional",2,"Peek on top",0,1,"1",37.298,2,0
-"119","ES127","Functional",2,"Peek on top",0,1,"1",35.5,2,0
-"120","ES128","Functional",2,"Peek on top",0,1,"1",39.247,2,0
-"121","ES129","Functional",2,"Peek on top",0,2,"2",41.497,6,0
-"122","ES130","Functional",2,"Peek on top",0,1,"1",33.033,2,0
-"123","ES132","Functional",2,"Peek on top",0,1,"1",33.888,2,0
-"124","ES133","Functional",2,"Peek on top",0,1,"1",34.745,2,0
-"125","ES134","Functional",2,"Peek on top",0,2,"2",32.501,6,0
-"126","ES135","Functional",2,"Peek on top",0,1,"1",30.743,2,0
-"127","ES136","Functional",2,"Peek on top",0,2,"2",27.502,6,0
-"128","ES101","Non-functional",2,"Peek on top",0,2,"1",43.944,6,0
-"129","ES102","Non-functional",2,"Peek on top",0,1,"2",41.003,2,0
-"130","ES103","Non-functional",2,"Peek on top",0,2,"1",34.754,6,0
-"131","ES104","Non-functional",2,"Peek on top",0,1,"2",44.912,2,0
-"132","ES106","Non-functional",2,"Peek on top",0,1,"2",57.25,2,0
-"133","ES108","Non-functional",2,"Peek on top",0,1,"2",25.502,2,0
-"134","ES110","Non-functional",2,"Peek on top",0,2,"1",30.998,6,0
-"135","ES111","Non-functional",2,"Peek on top",0,1,"2",28.498,2,0
-"136","ES112","Non-functional",2,"Peek on top",0,2,"1",23.74,6,0
-"137","ES113","Non-functional",2,"Peek on top",0,1,"2",36.77,2,0
-"138","ES114","Non-functional",2,"Peek on top",0,2,"1",37.27,6,0
-"139","ES115","Non-functional",2,"Peek on top",0,1,"2",33.867,2,0
-"140","ES116","Non-functional",2,"Peek on top",0,2,"1",36.469,6,0
-"141","ES117","Non-functional",2,"Peek on top",0,2,"1",34.452,6,0
-"142","ES118","Non-functional",2,"Peek on top",0,1,"2",33.316,2,0
-"143","ES119","Non-functional",2,"Peek on top",0,2,"1",33.4,6,0
-"144","ES120","Non-functional",2,"Peek on top",0,2,"1",27.499,6,0
-"145","ES122","Non-functional",2,"Peek on top",0,2,"1",25.749,6,0
-"146","ES123","Non-functional",2,"Peek on top",0,2,"1",32,6,0
-"147","ES124","Non-functional",2,"Peek on top",0,2,"1",45.249,6,0
-"148","Es125","Non-functional",2,"Peek on top",0,1,"2",32.254,2,0
-"149","ES126","Non-functional",2,"Peek on top",0,2,"1",44.583,6,0
-"150","ES127","Non-functional",2,"Peek on top",0,2,"1",35.501,6,0
-"151","ES128","Non-functional",2,"Peek on top",0,2,"1",36.999,6,0
-"152","ES129","Non-functional",2,"Peek on top",0,1,"2",40.75,2,0
-"153","ES130","Non-functional",2,"Peek on top",0,2,"1",41.002,6,0
-"154","ES132","Non-functional",2,"Peek on top",0,2,"1",34.746,6,0
-"155","ES133","Non-functional",2,"Peek on top",0,2,"1",36.736,6,0
-"156","ES134","Non-functional",2,"Peek on top",0,1,"2",34.509,2,0
-"157","ES135","Non-functional",2,"Peek on top",0,2,"1",27.504,6,0
-"158","ES136","Non-functional",2,"Peek on top",0,1,"2",24.816,2,0
-"159","ES101","Functional",3,"Peek on top",0,1,"1",49.349,3,0
-"160","ES102","Functional",3,"Peek on top",0,2,"2",39.997,7,0
-"161","ES103","Functional",3,"Peek on top",0,1,"1",40.496,3,0
-"162","ES104","Functional",3,"Peek on top",0,2,"2",47.314,7,0
-"163","ES106","Functional",3,"Peek on top",0,2,"2",45.753,7,0
-"164","ES108","Functional",3,"Peek on top",0,2,"2",27.993,7,0
-"165","ES110","Functional",3,"Peek on top",0,1,"1",27.504,3,0
-"166","ES111","Functional",3,"Peek on top",0,2,"2",30.001,7,0
-"167","ES112","Functional",3,"Peek on top",0,1,"1",30.397,3,0
-"168","ES113","Functional",3,"Peek on top",0,2,"2",35.085,7,0
-"169","ES114","Functional",3,"Peek on top",0,1,"1",36.67,3,0
-"170","ES115","Functional",3,"Peek on top",0,2,"2",31.065,7,0
-"171","ES116","Functional",3,"Peek on top",0,1,"1",30.164,3,0
-"172","ES117","Functional",3,"Peek on top",0,1,"1",37.037,3,0
-"173","ES118","Functional",3,"Peek on top",0,2,"2",33.884,7,0
-"174","ES119","Functional",3,"Peek on top",0,1,"1",32.299,3,0
-"175","ES120","Functional",3,"Peek on top",0,1,"1",30,3,0
-"176","ES122","Functional",3,"Peek on top",0,1,"1",31.751,3,0
-"177","ES123","Functional",3,"Peek on top",0,1,"1",32.251,3,0
-"178","ES124","Functional",3,"Peek on top",0,1,"1",36.999,3,0
-"179","Es125","Functional",3,"Peek on top",0,2,"2",28.002,7,0
-"180","ES126","Functional",3,"Peek on top",0,1,"1",36.002,3,0
-"181","ES127","Functional",3,"Peek on top",0,1,"1",32.755,3,0
-"182","ES128","Functional",3,"Peek on top",0,1,"1",36.747,3,0
-"183","ES129","Functional",3,"Peek on top",0,2,"2",32.748,7,0
-"184","ES130","Functional",3,"Peek on top",0,1,"1",36.268,3,0
-"185","ES132","Functional",3,"Peek on top",0,1,"1",38.829,3,0
-"186","ES133","Functional",3,"Peek on top",0,1,"1",50.504,3,0
-"187","ES134","Functional",3,"Peek on top",0,2,"2",36.766,7,0
-"188","ES135","Functional",3,"Peek on top",0,1,"1",30.744,3,0
-"189","ES136","Functional",3,"Peek on top",0,2,"2",26.498,7,0
-"190","ES101","Non-functional",3,"Peek on top",0,2,"1",36.603,7,0
-"191","ES102","Non-functional",3,"Peek on top",0,1,"2",40.002,3,0
-"192","ES103","Non-functional",3,"Peek on top",0,2,"1",33.754,7,0
-"193","ES104","Non-functional",3,"Peek on top",0,1,"2",41.608,3,0
-"194","ES106","Non-functional",3,"Peek on top",0,1,"2",56.751,3,0
-"195","ES108","Non-functional",3,"Peek on top",0,1,"2",25.754,3,0
-"196","ES110","Non-functional",3,"Peek on top",0,2,"1",31.246,7,0
-"197","ES111","Non-functional",3,"Peek on top",0,1,"2",30.001,3,0
-"198","ES112","Non-functional",3,"Peek on top",0,2,"1",28.979,7,0
-"199","ES113","Non-functional",3,"Peek on top",0,1,"2",36.086,3,0
-"200","ES114","Non-functional",3,"Peek on top",0,2,"1",38.021,7,0
-"201","ES115","Non-functional",3,"Peek on top",0,1,"2",26.16,3,0
-"202","ES116","Non-functional",3,"Peek on top",0,2,"1",35.869,7,0
-"203","ES117","Non-functional",3,"Peek on top",0,2,"1",41.31,7,0
-"204","ES118","Non-functional",3,"Peek on top",0,1,"2",38.171,3,0
-"205","ES119","Non-functional",3,"Peek on top",0,2,"1",35.386,7,0
-"206","ES120","Non-functional",3,"Peek on top",0,2,"1",25.502,7,0
-"207","ES122","Non-functional",3,"Peek on top",0,2,"1",35.254,7,0
-"208","ES123","Non-functional",3,"Peek on top",0,2,"1",32.752,7,0
-"209","ES124","Non-functional",3,"Peek on top",0,2,"1",39.757,7,0
-"210","Es125","Non-functional",3,"Peek on top",0,1,"2",33.254,3,0
-"211","ES126","Non-functional",3,"Peek on top",0,2,"1",37.811,7,0
-"212","ES127","Non-functional",3,"Peek on top",0,2,"1",34.25,7,0
-"213","ES128","Non-functional",3,"Peek on top",0,2,"1",52.005,7,0
-"214","ES129","Non-functional",3,"Peek on top",0,1,"2",35.254,3,0
-"215","ES130","Non-functional",3,"Peek on top",0,2,"1",39.004,7,0
-"216","ES132","Non-functional",3,"Peek on top",0,2,"1",34.831,7,0
-"217","ES133","Non-functional",3,"Peek on top",0,2,"1",28.503,7,0
-"218","ES134","Non-functional",3,"Peek on top",0,1,"2",39.003,3,0
-"219","ES135","Non-functional",3,"Peek on top",0,2,"1",29.739,7,0
-"220","ES136","Non-functional",3,"Peek on top",0,1,"2",26.004,3,0
-"221","ES101","Functional",4,"Peek on top",0,1,"1",38.939,4,0
-"222","ES102","Functional",4,"Peek on top",0,2,"2",38.752,8,0
-"223","ES103","Functional",4,"Peek on top",0,1,"1",32.494,4,0
-"224","ES104","Functional",4,"Peek on top",0,2,"2",44.11,8,0
-"225","ES106","Functional",4,"Peek on top",0,2,"2",48.496,8,0
-"226","ES108","Functional",4,"Peek on top",0,2,"2",29.743,8,0
-"227","ES110","Functional",4,"Peek on top",0,1,"1",28,4,0
-"228","ES111","Functional",4,"Peek on top",0,2,"2",30.999,8,0
-"229","ES112","Functional",4,"Peek on top",0,1,"1",25.042,4,0
-"230","ES113","Functional",4,"Peek on top",0,2,"2",31.848,8,0
-"231","ES114","Functional",4,"Peek on top",0,1,"1",34.935,4,0
-"232","ES115","Functional",4,"Peek on top",0,2,"2",30.664,8,0
-"233","ES116","Functional",4,"Peek on top",0,1,"1",27.411,4,0
-"234","ES117","Functional",4,"Peek on top",0,1,"1",37.621,4,0
-"235","ES118","Functional",4,"Peek on top",0,2,"2",34.868,8,0
-"236","ES119","Functional",4,"Peek on top",0,1,"1",32.099,4,0
-"237","ES120","Functional",4,"Peek on top",0,1,"1",25.749,4,0
-"238","ES122","Functional",4,"Peek on top",0,1,"1",29.773,4,0
-"239","ES123","Functional",4,"Peek on top",0,1,"1",45.799,4,0
-"240","ES124","Functional",4,"Peek on top",0,1,"1",44.999,4,0
-"241","Es125","Functional",4,"Peek on top",0,2,"2",32.244,8,0
-"242","ES126","Functional",4,"Peek on top",0,1,"1",31.003,4,0
-"243","ES127","Functional",4,"Peek on top",0,1,"1",46.002,4,0
-"244","ES128","Functional",4,"Peek on top",0,1,"1",39.997,4,0
-"245","ES129","Functional",4,"Peek on top",0,2,"2",34.496,8,0
-"246","ES130","Functional",4,"Peek on top",0,1,"1",36.453,4,0
-"247","ES132","Functional",4,"Peek on top",0,1,"1",45.288,4,0
-"248","ES133","Functional",4,"Peek on top",0,1,"1",34.257,4,0
-"249","ES134","Functional",4,"Peek on top",0,2,"2",32.998,8,0
-"250","ES135","Functional",4,"Peek on top",0,1,"1",30.746,4,0
-"251","ES136","Functional",4,"Peek on top",0,2,"2",28.56,8,0
-"252","ES101","Non-functional",4,"Peek on top",0,2,"1",44.044,8,0
-"253","ES102","Non-functional",4,"Peek on top",0,1,"2",42.251,4,0
-"254","ES103","Non-functional",4,"Peek on top",0,2,"1",40.752,8,0
-"255","ES104","Non-functional",4,"Peek on top",0,1,"2",40.473,4,0
-"256","ES106","Non-functional",4,"Peek on top",0,1,"2",48.751,4,0
-"257","ES108","Non-functional",4,"Peek on top",0,1,"2",26.755,4,0
-"258","ES110","Non-functional",4,"Peek on top",0,2,"1",26.002,8,0
-"259","ES111","Non-functional",4,"Peek on top",0,1,"2",30.009,4,0
-"260","ES112","Non-functional",4,"Peek on top",0,2,"1",26.126,8,0
-"261","ES113","Non-functional",4,"Peek on top",0,1,"2",32.666,4,0
-"262","ES114","Non-functional",4,"Peek on top",0,2,"1",36.954,8,0
-"263","ES115","Non-functional",4,"Peek on top",0,1,"2",27.511,4,0
-"264","ES117","Non-functional",4,"Peek on top",0,2,"1",41.041,8,0
-"265","ES118","Non-functional",4,"Peek on top",0,1,"2",37.721,4,0
-"266","ES119","Non-functional",4,"Peek on top",0,2,"1",37.654,8,0
-"267","ES120","Non-functional",4,"Peek on top",0,2,"1",26.287,8,0
-"268","ES122","Non-functional",4,"Peek on top",0,2,"1",31.499,8,0
-"269","ES123","Non-functional",4,"Peek on top",0,2,"1",35.749,8,0
-"270","ES124","Non-functional",4,"Peek on top",0,2,"1",36.734,8,0
-"271","Es125","Non-functional",4,"Peek on top",0,1,"2",31.999,4,0
-"272","ES126","Non-functional",4,"Peek on top",0,2,"1",38.503,8,0
-"273","ES127","Non-functional",4,"Peek on top",0,2,"1",36.005,8,0
-"274","ES128","Non-functional",4,"Peek on top",0,2,"1",37.404,8,0
-"275","ES129","Non-functional",4,"Peek on top",0,1,"2",43.999,4,0
-"276","ES130","Non-functional",4,"Peek on top",0,2,"1",41.687,8,0
-"277","ES132","Non-functional",4,"Peek on top",0,2,"1",32.468,8,0
-"278","ES133","Non-functional",4,"Peek on top",0,2,"1",36.75,8,0
-"279","ES134","Non-functional",4,"Peek on top",0,1,"2",35.003,4,0
-"280","ES135","Non-functional",4,"Peek on top",0,2,"1",32.251,8,0
-"281","ES136","Non-functional",4,"Peek on top",0,1,"2",32.251,4,0
-"282","ES101","Functional",1,"Peephole peek",0,1,"1",48.515,1,0
-"283","ES102","Functional",1,"Peephole peek",0,2,"2",46,5,0
-"284","ES103","Functional",1,"Peephole peek",0,1,"1",42.745,1,0
-"285","ES104","Functional",1,"Peephole peek",0,2,"2",42.242,5,0
-"286","ES106","Functional",1,"Peephole peek",0,2,"2",54.254,5,0
-"287","ES108","Functional",1,"Peephole peek",0,2,"2",28.75,5,0
-"288","ES110","Functional",1,"Peephole peek",0,1,"1",30.757,1,0
-"289","ES111","Functional",1,"Peephole peek",0,2,"2",30.004,5,0
-"290","ES112","Functional",1,"Peephole peek",0,1,"1",25.426,1,0
-"291","ES113","Functional",1,"Peephole peek",0,2,"2",35.686,5,0
-"292","ES114","Functional",1,"Peephole peek",0,1,"1",44.761,1,0
-"293","ES115","Functional",1,"Peephole peek",0,2,"2",31.314,5,0
-"294","ES116","Functional",1,"Peephole peek",0,1,"1",33.217,1,0
-"295","ES117","Functional",1,"Peephole peek",0,1,"1",45.512,1,0
-"296","ES118","Functional",1,"Peephole peek",0,2,"2",37.404,5,0
-"297","ES119","Functional",1,"Peephole peek",0,1,"1",48.449,1,0
-"298","ES120","Functional",1,"Peephole peek",0,1,"1",35.575,1,0
-"299","ES122","Functional",1,"Peephole peek",0,1,"1",28.497,1,0
-"300","ES123","Functional",1,"Peephole peek",0,1,"1",32.25,1,0
-"301","ES124","Functional",1,"Peephole peek",0,1,"1",50.752,1,0
-"302","Es125","Functional",1,"Peephole peek",0,2,"2",28.747,5,0
-"303","ES126","Functional",1,"Peephole peek",0,1,"1",39.546,1,0
-"304","ES127","Functional",1,"Peephole peek",0,1,"1",35.496,1,0
-"305","ES128","Functional",1,"Peephole peek",0,1,"1",42.503,1,0
-"306","ES129","Functional",1,"Peephole peek",0,2,"2",37.5,5,0
-"307","ES130","Functional",1,"Peephole peek",0,1,"1",33.795,1,0
-"308","ES132","Functional",1,"Peephole peek",0,1,"1",37.701,1,0
-"309","ES133","Functional",1,"Peephole peek",0,1,"1",37.51,1,0
-"310","ES134","Functional",1,"Peephole peek",0,2,"2",37.012,5,0
-"311","ES135","Functional",1,"Peephole peek",0,1,"1",45.761,1,0
-"312","ES136","Functional",1,"Peephole peek",0,2,"2",28.998,5,0
-"313","ES101","Non-functional",1,"Peephole peek",0,2,"1",42.242,5,0
-"314","ES102","Non-functional",1,"Peephole peek",0,1,"2",40.997,1,0
-"315","ES103","Non-functional",1,"Peephole peek",0,2,"1",39.007,5,0
-"316","ES104","Non-functional",1,"Peephole peek",0,1,"2",47.914,1,0
-"317","ES106","Non-functional",1,"Peephole peek",0,1,"2",52.755,1,0
-"318","ES108","Non-functional",1,"Peephole peek",0,1,"2",31.746,1,0
-"319","ES110","Non-functional",1,"Peephole peek",0,2,"1",27.498,5,0
-"320","ES111","Non-functional",1,"Peephole peek",0,1,"2",34.842,1,0
-"321","ES112","Non-functional",1,"Peephole peek",0,2,"1",32.032,5,0
-"322","ES113","Non-functional",1,"Peephole peek",0,1,"2",38.055,1,0
-"323","ES114","Non-functional",1,"Peephole peek",0,2,"1",41.625,5,0
-"324","ES115","Non-functional",1,"Peephole peek",0,1,"2",37.905,1,0
-"325","ES116","Non-functional",1,"Peephole peek",0,2,"1",30.531,5,0
-"326","ES117","Non-functional",1,"Peephole peek",0,2,"1",40.023,5,0
-"327","ES118","Non-functional",1,"Peephole peek",0,1,"2",36.153,1,0
-"328","ES119","Non-functional",1,"Peephole peek",0,2,"1",32.899,5,0
-"329","ES120","Non-functional",1,"Peephole peek",0,2,"1",11.748,5,0
-"330","ES122","Non-functional",1,"Peephole peek",0,2,"1",30.82,5,0
-"331","ES123","Non-functional",1,"Peephole peek",0,2,"1",32.248,5,0
-"332","ES124","Non-functional",1,"Peephole peek",0,2,"1",47.25,5,0
-"333","Es125","Non-functional",1,"Peephole peek",0,1,"2",32.252,1,0
-"334","ES126","Non-functional",1,"Peephole peek",0,2,"1",34.434,5,0
-"335","ES127","Non-functional",1,"Peephole peek",0,2,"1",41.753,5,0
-"336","ES128","Non-functional",1,"Peephole peek",0,2,"1",38.506,5,0
-"337","ES129","Non-functional",1,"Peephole peek",0,1,"2",40.501,1,0
-"338","ES130","Non-functional",1,"Peephole peek",0,2,"1",40.631,5,0
-"339","ES132","Non-functional",1,"Peephole peek",0,2,"1",37.309,5,0
-"340","ES133","Non-functional",1,"Peephole peek",0,2,"1",42.003,5,0
-"341","ES134","Non-functional",1,"Peephole peek",0,1,"2",36.744,1,0
-"342","ES135","Non-functional",1,"Peephole peek",0,2,"1",27.76,5,0
-"343","ES136","Non-functional",1,"Peephole peek",0,1,"2",34.527,1,0
-"344","ES101","Functional",2,"Peephole peek",0,1,"1",44.744,2,0
-"345","ES102","Functional",2,"Peephole peek",0,2,"2",45.501,6,0
-"346","ES103","Functional",2,"Peephole peek",0,1,"1",37.499,2,0
-"347","ES104","Functional",2,"Peephole peek",0,2,"2",44.178,6,0
-"348","ES106","Functional",2,"Peephole peek",0,2,"2",42.75,6,0
-"349","ES110","Functional",2,"Peephole peek",0,1,"1",30.504,2,0
-"350","ES111","Functional",2,"Peephole peek",0,2,"2",28.505,6,0
-"351","ES112","Functional",2,"Peephole peek",0,1,"1",26.893,2,0
-"352","ES113","Functional",2,"Peephole peek",0,2,"2",34.918,6,0
-"353","ES114","Functional",2,"Peephole peek",0,1,"1",41.809,2,0
-"354","ES115","Functional",2,"Peephole peek",0,2,"2",33.083,6,0
-"355","ES116","Functional",2,"Peephole peek",0,1,"1",29.779,2,0
-"356","ES117","Functional",2,"Peephole peek",0,1,"1",41.842,2,0
-"357","ES118","Functional",2,"Peephole peek",0,2,"2",39.739,6,0
-"358","ES119","Functional",2,"Peephole peek",0,1,"1",34.651,2,0
-"359","ES120","Functional",2,"Peephole peek",0,1,"1",32.252,2,0
-"360","ES122","Functional",2,"Peephole peek",0,1,"1",28.751,2,0
-"361","ES123","Functional",2,"Peephole peek",0,1,"1",33.5,2,0
-"362","ES124","Functional",2,"Peephole peek",0,1,"1",38.496,2,0
-"363","Es125","Functional",2,"Peephole peek",0,2,"2",30.744,6,0
-"364","ES126","Functional",2,"Peephole peek",0,1,"1",37.298,2,0
-"365","ES127","Functional",2,"Peephole peek",0,1,"1",35.5,2,0
-"366","ES128","Functional",2,"Peephole peek",0,1,"1",39.247,2,0
-"367","ES129","Functional",2,"Peephole peek",0,2,"2",41.497,6,0
-"368","ES130","Functional",2,"Peephole peek",0,1,"1",33.033,2,0
-"369","ES132","Functional",2,"Peephole peek",0,1,"1",33.888,2,0
-"370","ES133","Functional",2,"Peephole peek",0,1,"1",34.745,2,0
-"371","ES134","Functional",2,"Peephole peek",0,2,"2",32.501,6,0
-"372","ES135","Functional",2,"Peephole peek",0,1,"1",30.743,2,0
-"373","ES136","Functional",2,"Peephole peek",0,2,"2",27.502,6,0
-"374","ES101","Non-functional",2,"Peephole peek",0,2,"1",43.944,6,0
-"375","ES102","Non-functional",2,"Peephole peek",0,1,"2",41.003,2,0
-"376","ES103","Non-functional",2,"Peephole peek",0,2,"1",34.754,6,0
-"377","ES104","Non-functional",2,"Peephole peek",0,1,"2",44.912,2,0
-"378","ES106","Non-functional",2,"Peephole peek",0,1,"2",57.25,2,0
-"379","ES108","Non-functional",2,"Peephole peek",0,1,"2",25.502,2,0
-"380","ES110","Non-functional",2,"Peephole peek",0,2,"1",30.998,6,0
-"381","ES111","Non-functional",2,"Peephole peek",0,1,"2",28.498,2,0
-"382","ES112","Non-functional",2,"Peephole peek",0,2,"1",23.74,6,0
-"383","ES113","Non-functional",2,"Peephole peek",0,1,"2",36.77,2,0
-"384","ES114","Non-functional",2,"Peephole peek",0,2,"1",37.27,6,0
-"385","ES115","Non-functional",2,"Peephole peek",0,1,"2",33.867,2,0
-"386","ES116","Non-functional",2,"Peephole peek",0,2,"1",36.469,6,0
-"387","ES117","Non-functional",2,"Peephole peek",0,2,"1",34.452,6,0
-"388","ES118","Non-functional",2,"Peephole peek",0,1,"2",33.316,2,0
-"389","ES119","Non-functional",2,"Peephole peek",0,2,"1",33.4,6,0
-"390","ES120","Non-functional",2,"Peephole peek",0,2,"1",27.499,6,0
-"391","ES122","Non-functional",2,"Peephole peek",0,2,"1",25.749,6,0
-"392","ES123","Non-functional",2,"Peephole peek",0,2,"1",32,6,0
-"393","ES124","Non-functional",2,"Peephole peek",0,2,"1",45.249,6,0
-"394","Es125","Non-functional",2,"Peephole peek",0,1,"2",32.254,2,0
-"395","ES126","Non-functional",2,"Peephole peek",0,2,"1",44.583,6,0
-"396","ES127","Non-functional",2,"Peephole peek",0,2,"1",35.501,6,0
-"397","ES128","Non-functional",2,"Peephole peek",0,2,"1",36.999,6,0
-"398","ES129","Non-functional",2,"Peephole peek",0,1,"2",40.75,2,0
-"399","ES130","Non-functional",2,"Peephole peek",0,2,"1",41.002,6,0
-"400","ES132","Non-functional",2,"Peephole peek",0,2,"1",34.746,6,0
-"401","ES133","Non-functional",2,"Peephole peek",0,2,"1",36.736,6,0
-"402","ES134","Non-functional",2,"Peephole peek",0,1,"2",34.509,2,0
-"403","ES135","Non-functional",2,"Peephole peek",0,2,"1",27.504,6,0
-"404","ES136","Non-functional",2,"Peephole peek",0,1,"2",24.816,2,0
-"405","ES101","Functional",3,"Peephole peek",0,1,"1",49.349,3,0
-"406","ES102","Functional",3,"Peephole peek",0,2,"2",39.997,7,0
-"407","ES103","Functional",3,"Peephole peek",0,1,"1",40.496,3,0
-"408","ES104","Functional",3,"Peephole peek",0,2,"2",47.314,7,0
-"409","ES106","Functional",3,"Peephole peek",0,2,"2",45.753,7,0
-"410","ES108","Functional",3,"Peephole peek",0,2,"2",27.993,7,0
-"411","ES110","Functional",3,"Peephole peek",0,1,"1",27.504,3,0
-"412","ES111","Functional",3,"Peephole peek",0,2,"2",30.001,7,0
-"413","ES112","Functional",3,"Peephole peek",0,1,"1",30.397,3,0
-"414","ES113","Functional",3,"Peephole peek",0,2,"2",35.085,7,0
-"415","ES114","Functional",3,"Peephole peek",0,1,"1",36.67,3,0
-"416","ES115","Functional",3,"Peephole peek",0,2,"2",31.065,7,0
-"417","ES116","Functional",3,"Peephole peek",0,1,"1",30.164,3,0
-"418","ES117","Functional",3,"Peephole peek",0,1,"1",37.037,3,0
-"419","ES118","Functional",3,"Peephole peek",0,2,"2",33.884,7,0
-"420","ES119","Functional",3,"Peephole peek",0,1,"1",32.299,3,0
-"421","ES120","Functional",3,"Peephole peek",0,1,"1",30,3,0
-"422","ES122","Functional",3,"Peephole peek",0,1,"1",31.751,3,0
-"423","ES123","Functional",3,"Peephole peek",0,1,"1",32.251,3,0
-"424","ES124","Functional",3,"Peephole peek",0,1,"1",36.999,3,0
-"425","Es125","Functional",3,"Peephole peek",0,2,"2",28.002,7,0
-"426","ES126","Functional",3,"Peephole peek",0,1,"1",36.002,3,0
-"427","ES127","Functional",3,"Peephole peek",0,1,"1",32.755,3,0
-"428","ES128","Functional",3,"Peephole peek",0,1,"1",36.747,3,0
-"429","ES129","Functional",3,"Peephole peek",0,2,"2",32.748,7,0
-"430","ES130","Functional",3,"Peephole peek",0,1,"1",36.268,3,0
-"431","ES132","Functional",3,"Peephole peek",0,1,"1",38.829,3,0
-"432","ES133","Functional",3,"Peephole peek",0,1,"1",50.504,3,0
-"433","ES134","Functional",3,"Peephole peek",0,2,"2",36.766,7,0
-"434","ES135","Functional",3,"Peephole peek",0,1,"1",30.744,3,0
-"435","ES136","Functional",3,"Peephole peek",0,2,"2",26.498,7,0
-"436","ES101","Non-functional",3,"Peephole peek",0,2,"1",36.603,7,0
-"437","ES102","Non-functional",3,"Peephole peek",0,1,"2",40.002,3,0
-"438","ES103","Non-functional",3,"Peephole peek",0,2,"1",33.754,7,0
-"439","ES104","Non-functional",3,"Peephole peek",0,1,"2",41.608,3,0
-"440","ES106","Non-functional",3,"Peephole peek",0,1,"2",56.751,3,0
-"441","ES108","Non-functional",3,"Peephole peek",0,1,"2",25.754,3,0
-"442","ES110","Non-functional",3,"Peephole peek",0,2,"1",31.246,7,0
-"443","ES111","Non-functional",3,"Peephole peek",0,1,"2",30.001,3,0
-"444","ES112","Non-functional",3,"Peephole peek",0,2,"1",28.979,7,0
-"445","ES113","Non-functional",3,"Peephole peek",0,1,"2",36.086,3,0
-"446","ES114","Non-functional",3,"Peephole peek",0,2,"1",38.021,7,0
-"447","ES115","Non-functional",3,"Peephole peek",0,1,"2",26.16,3,0
-"448","ES116","Non-functional",3,"Peephole peek",0,2,"1",35.869,7,0
-"449","ES117","Non-functional",3,"Peephole peek",0,2,"1",41.31,7,0
-"450","ES118","Non-functional",3,"Peephole peek",0,1,"2",38.171,3,0
-"451","ES119","Non-functional",3,"Peephole peek",0,2,"1",35.386,7,0
-"452","ES120","Non-functional",3,"Peephole peek",0,2,"1",25.502,7,0
-"453","ES122","Non-functional",3,"Peephole peek",0,2,"1",35.254,7,0
-"454","ES123","Non-functional",3,"Peephole peek",0,2,"1",32.752,7,0
-"455","ES124","Non-functional",3,"Peephole peek",0,2,"1",39.757,7,0
-"456","Es125","Non-functional",3,"Peephole peek",0,1,"2",33.254,3,0
-"457","ES126","Non-functional",3,"Peephole peek",0,2,"1",37.811,7,0
-"458","ES127","Non-functional",3,"Peephole peek",0,2,"1",34.25,7,0
-"459","ES128","Non-functional",3,"Peephole peek",0,2,"1",52.005,7,0
-"460","ES129","Non-functional",3,"Peephole peek",0,1,"2",35.254,3,0
-"461","ES130","Non-functional",3,"Peephole peek",0,2,"1",39.004,7,0
-"462","ES132","Non-functional",3,"Peephole peek",0,2,"1",34.831,7,0
-"463","ES133","Non-functional",3,"Peephole peek",0,2,"1",28.503,7,0
-"464","ES134","Non-functional",3,"Peephole peek",0,1,"2",39.003,3,0
-"465","ES135","Non-functional",3,"Peephole peek",0,2,"1",29.739,7,0
-"466","ES101","Functional",4,"Peephole peek",0,1,"1",38.939,4,0
-"467","ES102","Functional",4,"Peephole peek",0,2,"2",38.752,8,0
-"468","ES103","Functional",4,"Peephole peek",0,1,"1",32.494,4,0
-"469","ES104","Functional",4,"Peephole peek",0,2,"2",44.11,8,0
-"470","ES106","Functional",4,"Peephole peek",0,2,"2",48.496,8,0
-"471","ES108","Functional",4,"Peephole peek",0,2,"2",29.743,8,0
-"472","ES110","Functional",4,"Peephole peek",0,1,"1",28,4,0
-"473","ES111","Functional",4,"Peephole peek",0,2,"2",30.999,8,0
-"474","ES112","Functional",4,"Peephole peek",0,1,"1",25.042,4,0
-"475","ES113","Functional",4,"Peephole peek",0,2,"2",31.848,8,0
-"476","ES114","Functional",4,"Peephole peek",0,1,"1",34.935,4,0
-"477","ES115","Functional",4,"Peephole peek",0,2,"2",30.664,8,0
-"478","ES116","Functional",4,"Peephole peek",0,1,"1",27.411,4,0
-"479","ES117","Functional",4,"Peephole peek",0,1,"1",37.621,4,0
-"480","ES118","Functional",4,"Peephole peek",0,2,"2",34.868,8,0
-"481","ES119","Functional",4,"Peephole peek",0,1,"1",32.099,4,0
-"482","ES120","Functional",4,"Peephole peek",0,1,"1",25.749,4,0
-"483","ES122","Functional",4,"Peephole peek",0,1,"1",29.773,4,0
-"484","ES123","Functional",4,"Peephole peek",0,1,"1",45.799,4,0
-"485","ES124","Functional",4,"Peephole peek",0,1,"1",44.999,4,0
-"486","Es125","Functional",4,"Peephole peek",0,2,"2",32.244,8,0
-"487","ES126","Functional",4,"Peephole peek",0,1,"1",31.003,4,0
-"488","ES127","Functional",4,"Peephole peek",0,1,"1",46.002,4,0
-"489","ES128","Functional",4,"Peephole peek",0,1,"1",39.997,4,0
-"490","ES129","Functional",4,"Peephole peek",0,2,"2",34.496,8,0
-"491","ES130","Functional",4,"Peephole peek",0,1,"1",36.453,4,0
-"492","ES132","Functional",4,"Peephole peek",0,1,"1",45.288,4,0
-"493","ES133","Functional",4,"Peephole peek",0,1,"1",34.257,4,0
-"494","ES134","Functional",4,"Peephole peek",0,2,"2",32.998,8,0
-"495","ES135","Functional",4,"Peephole peek",0,1,"1",30.746,4,0
-"496","ES136","Functional",4,"Peephole peek",0,2,"2",28.56,8,0
-"497","ES101","Non-functional",4,"Peephole peek",0,2,"1",44.044,8,0
-"498","ES102","Non-functional",4,"Peephole peek",0,1,"2",42.251,4,0
-"499","ES103","Non-functional",4,"Peephole peek",0,2,"1",40.752,8,0
-"500","ES104","Non-functional",4,"Peephole peek",0,1,"2",40.473,4,0
-"501","ES106","Non-functional",4,"Peephole peek",0,1,"2",48.751,4,0
-"502","ES108","Non-functional",4,"Peephole peek",0,1,"2",26.755,4,0
-"503","ES110","Non-functional",4,"Peephole peek",0,2,"1",26.002,8,0
-"504","ES111","Non-functional",4,"Peephole peek",0,1,"2",30.009,4,0
-"505","ES112","Non-functional",4,"Peephole peek",0,2,"1",26.126,8,0
-"506","ES113","Non-functional",4,"Peephole peek",0,1,"2",32.666,4,0
-"507","ES114","Non-functional",4,"Peephole peek",0,2,"1",36.954,8,0
-"508","ES115","Non-functional",4,"Peephole peek",0,1,"2",27.511,4,0
-"509","ES116","Non-functional",4,"Peephole peek",0,2,"1",28.012,8,0
-"510","ES117","Non-functional",4,"Peephole peek",0,2,"1",41.041,8,0
-"511","ES118","Non-functional",4,"Peephole peek",0,1,"2",37.721,4,0
-"512","ES119","Non-functional",4,"Peephole peek",0,2,"1",37.654,8,0
-"513","ES120","Non-functional",4,"Peephole peek",0,2,"1",26.287,8,0
-"514","ES122","Non-functional",4,"Peephole peek",0,2,"1",31.499,8,0
-"515","ES123","Non-functional",4,"Peephole peek",0,2,"1",35.749,8,0
-"516","ES124","Non-functional",4,"Peephole peek",0,2,"1",36.734,8,0
-"517","ES126","Non-functional",4,"Peephole peek",0,2,"1",38.503,8,0
-"518","ES127","Non-functional",4,"Peephole peek",0,2,"1",36.005,8,0
-"519","ES128","Non-functional",4,"Peephole peek",0,2,"1",37.404,8,0
-"520","ES129","Non-functional",4,"Peephole peek",0,1,"2",43.999,4,0
-"521","ES130","Non-functional",4,"Peephole peek",0,2,"1",41.687,8,0
-"522","ES132","Non-functional",4,"Peephole peek",0,2,"1",32.468,8,0
-"523","ES133","Non-functional",4,"Peephole peek",0,2,"1",36.75,8,0
-"524","ES134","Non-functional",4,"Peephole peek",0,1,"2",35.003,4,0
-"525","ES135","Non-functional",4,"Peephole peek",0,2,"1",32.251,8,0
-"526","ES136","Non-functional",4,"Peephole peek",0,1,"2",32.251,4,0
-"527","ES102","Functional",1,"Right side peek",0,2,"2",46,5,0
-"528","ES103","Functional",1,"Right side peek",0,1,"1",42.745,1,0
-"529","ES104","Functional",1,"Right side peek",0,2,"2",42.242,5,0
-"530","ES106","Functional",1,"Right side peek",0,2,"2",54.254,5,0
-"531","ES108","Functional",1,"Right side peek",0,2,"2",28.75,5,0
-"532","ES110","Functional",1,"Right side peek",0,1,"1",30.757,1,0
-"533","ES111","Functional",1,"Right side peek",0,2,"2",30.004,5,0
-"534","ES112","Functional",1,"Right side peek",0,1,"1",25.426,1,0
-"535","ES113","Functional",1,"Right side peek",0,2,"2",35.686,5,0
-"536","ES114","Functional",1,"Right side peek",0,1,"1",44.761,1,0
-"537","ES115","Functional",1,"Right side peek",0,2,"2",31.314,5,0
-"538","ES116","Functional",1,"Right side peek",0,1,"1",33.217,1,0
-"539","ES117","Functional",1,"Right side peek",0,1,"1",45.512,1,0
-"540","ES118","Functional",1,"Right side peek",0,2,"2",37.404,5,0
-"541","ES119","Functional",1,"Right side peek",0,1,"1",48.449,1,0
-"542","ES120","Functional",1,"Right side peek",0,1,"1",35.575,1,0
-"543","ES122","Functional",1,"Right side peek",0,1,"1",28.497,1,0
-"544","ES123","Functional",1,"Right side peek",0,1,"1",32.25,1,0
-"545","ES124","Functional",1,"Right side peek",0,1,"1",50.752,1,0
-"546","Es125","Functional",1,"Right side peek",0,2,"2",28.747,5,0
-"547","ES126","Functional",1,"Right side peek",0,1,"1",39.546,1,0
-"548","ES127","Functional",1,"Right side peek",0,1,"1",35.496,1,0
-"549","ES128","Functional",1,"Right side peek",0,1,"1",42.503,1,0
-"550","ES129","Functional",1,"Right side peek",0,2,"2",37.5,5,0
-"551","ES130","Functional",1,"Right side peek",0,1,"1",33.795,1,0
-"552","ES132","Functional",1,"Right side peek",0,1,"1",37.701,1,0
-"553","ES133","Functional",1,"Right side peek",0,1,"1",37.51,1,0
-"554","ES134","Functional",1,"Right side peek",0,2,"2",37.012,5,0
-"555","ES136","Functional",1,"Right side peek",0,2,"2",28.998,5,0
-"556","ES101","Non-functional",1,"Right side peek",0,2,"1",42.242,5,0
-"557","ES103","Non-functional",1,"Right side peek",0,2,"1",39.007,5,0
-"558","ES104","Non-functional",1,"Right side peek",0,1,"2",47.914,1,0
-"559","ES106","Non-functional",1,"Right side peek",0,1,"2",52.755,1,0
-"560","ES108","Non-functional",1,"Right side peek",0,1,"2",31.746,1,0
-"561","ES110","Non-functional",1,"Right side peek",0,2,"1",27.498,5,0
-"562","ES114","Non-functional",1,"Right side peek",0,2,"1",41.625,5,0
-"563","ES115","Non-functional",1,"Right side peek",0,1,"2",37.905,1,0
-"564","ES116","Non-functional",1,"Right side peek",0,2,"1",30.531,5,0
-"565","ES117","Non-functional",1,"Right side peek",0,2,"1",40.023,5,0
-"566","ES118","Non-functional",1,"Right side peek",0,1,"2",36.153,1,0
-"567","ES119","Non-functional",1,"Right side peek",0,2,"1",32.899,5,0
-"568","ES120","Non-functional",1,"Right side peek",0,2,"1",11.748,5,0
-"569","ES122","Non-functional",1,"Right side peek",0,2,"1",30.82,5,0
-"570","ES123","Non-functional",1,"Right side peek",0,2,"1",32.248,5,0
-"571","ES124","Non-functional",1,"Right side peek",0,2,"1",47.25,5,0
-"572","Es125","Non-functional",1,"Right side peek",0,1,"2",32.252,1,0
-"573","ES126","Non-functional",1,"Right side peek",0,2,"1",34.434,5,0
-"574","ES127","Non-functional",1,"Right side peek",0,2,"1",41.753,5,0
-"575","ES128","Non-functional",1,"Right side peek",0,2,"1",38.506,5,0
-"576","ES130","Non-functional",1,"Right side peek",0,2,"1",40.631,5,0
-"577","ES132","Non-functional",1,"Right side peek",0,2,"1",37.309,5,0
-"578","ES133","Non-functional",1,"Right side peek",0,2,"1",42.003,5,0
-"579","ES134","Non-functional",1,"Right side peek",0,1,"2",36.744,1,0
-"580","ES101","Functional",2,"Right side peek",0,1,"1",44.744,2,0
-"581","ES102","Functional",2,"Right side peek",0,2,"2",45.501,6,0
-"582","ES103","Functional",2,"Right side peek",0,1,"1",37.499,2,0
-"583","ES104","Functional",2,"Right side peek",0,2,"2",44.178,6,0
-"584","ES106","Functional",2,"Right side peek",0,2,"2",42.75,6,0
-"585","ES108","Functional",2,"Right side peek",0,2,"2",28.997,6,0
-"586","ES110","Functional",2,"Right side peek",0,1,"1",30.504,2,0
-"587","ES111","Functional",2,"Right side peek",0,2,"2",28.505,6,0
-"588","ES112","Functional",2,"Right side peek",0,1,"1",26.893,2,0
-"589","ES113","Functional",2,"Right side peek",0,2,"2",34.918,6,0
-"590","ES114","Functional",2,"Right side peek",0,1,"1",41.809,2,0
-"591","ES115","Functional",2,"Right side peek",0,2,"2",33.083,6,0
-"592","ES116","Functional",2,"Right side peek",0,1,"1",29.779,2,0
-"593","ES117","Functional",2,"Right side peek",0,1,"1",41.842,2,0
-"594","ES118","Functional",2,"Right side peek",0,2,"2",39.739,6,0
-"595","ES119","Functional",2,"Right side peek",0,1,"1",34.651,2,0
-"596","ES120","Functional",2,"Right side peek",0,1,"1",32.252,2,0
-"597","ES122","Functional",2,"Right side peek",0,1,"1",28.751,2,0
-"598","ES123","Functional",2,"Right side peek",0,1,"1",33.5,2,0
-"599","ES124","Functional",2,"Right side peek",0,1,"1",38.496,2,0
-"600","Es125","Functional",2,"Right side peek",0,2,"2",30.744,6,0
-"601","ES126","Functional",2,"Right side peek",0,1,"1",37.298,2,0
-"602","ES127","Functional",2,"Right side peek",0,1,"1",35.5,2,0
-"603","ES128","Functional",2,"Right side peek",0,1,"1",39.247,2,0
-"604","ES129","Functional",2,"Right side peek",0,2,"2",41.497,6,0
-"605","ES130","Functional",2,"Right side peek",0,1,"1",33.033,2,0
-"606","ES132","Functional",2,"Right side peek",0,1,"1",33.888,2,0
-"607","ES133","Functional",2,"Right side peek",0,1,"1",34.745,2,0
-"608","ES134","Functional",2,"Right side peek",0,2,"2",32.501,6,0
-"609","ES135","Functional",2,"Right side peek",0,1,"1",30.743,2,0
-"610","ES136","Functional",2,"Right side peek",0,2,"2",27.502,6,0
-"611","ES101","Non-functional",2,"Right side peek",0,2,"1",43.944,6,0
-"612","ES102","Non-functional",2,"Right side peek",0,1,"2",41.003,2,0
-"613","ES103","Non-functional",2,"Right side peek",0,2,"1",34.754,6,0
-"614","ES104","Non-functional",2,"Right side peek",0,1,"2",44.912,2,0
-"615","ES106","Non-functional",2,"Right side peek",0,1,"2",57.25,2,0
-"616","ES108","Non-functional",2,"Right side peek",0,1,"2",25.502,2,0
-"617","ES110","Non-functional",2,"Right side peek",0,2,"1",30.998,6,0
-"618","ES112","Non-functional",2,"Right side peek",0,2,"1",23.74,6,0
-"619","ES114","Non-functional",2,"Right side peek",0,2,"1",37.27,6,0
-"620","ES115","Non-functional",2,"Right side peek",0,1,"2",33.867,2,0
-"621","ES116","Non-functional",2,"Right side peek",0,2,"1",36.469,6,0
-"622","ES117","Non-functional",2,"Right side peek",0,2,"1",34.452,6,0
-"623","ES118","Non-functional",2,"Right side peek",0,1,"2",33.316,2,0
-"624","ES119","Non-functional",2,"Right side peek",0,2,"1",33.4,6,0
-"625","ES120","Non-functional",2,"Right side peek",0,2,"1",27.499,6,0
-"626","ES122","Non-functional",2,"Right side peek",0,2,"1",25.749,6,0
-"627","ES123","Non-functional",2,"Right side peek",0,2,"1",32,6,0
-"628","ES124","Non-functional",2,"Right side peek",0,2,"1",45.249,6,0
-"629","Es125","Non-functional",2,"Right side peek",0,1,"2",32.254,2,0
-"630","ES126","Non-functional",2,"Right side peek",0,2,"1",44.583,6,0
-"631","ES127","Non-functional",2,"Right side peek",0,2,"1",35.501,6,0
-"632","ES128","Non-functional",2,"Right side peek",0,2,"1",36.999,6,0
-"633","ES129","Non-functional",2,"Right side peek",0,1,"2",40.75,2,0
-"634","ES130","Non-functional",2,"Right side peek",0,2,"1",41.002,6,0
-"635","ES132","Non-functional",2,"Right side peek",0,2,"1",34.746,6,0
-"636","ES133","Non-functional",2,"Right side peek",0,2,"1",36.736,6,0
-"637","ES134","Non-functional",2,"Right side peek",0,1,"2",34.509,2,0
-"638","ES135","Non-functional",2,"Right side peek",0,2,"1",27.504,6,0
-"639","ES101","Functional",3,"Right side peek",0,1,"1",49.349,3,0
-"640","ES102","Functional",3,"Right side peek",0,2,"2",39.997,7,0
-"641","ES103","Functional",3,"Right side peek",0,1,"1",40.496,3,0
-"642","ES104","Functional",3,"Right side peek",0,2,"2",47.314,7,0
-"643","ES106","Functional",3,"Right side peek",0,2,"2",45.753,7,0
-"644","ES108","Functional",3,"Right side peek",0,2,"2",27.993,7,0
-"645","ES110","Functional",3,"Right side peek",0,1,"1",27.504,3,0
-"646","ES111","Functional",3,"Right side peek",0,2,"2",30.001,7,0
-"647","ES112","Functional",3,"Right side peek",0,1,"1",30.397,3,0
-"648","ES113","Functional",3,"Right side peek",0,2,"2",35.085,7,0
-"649","ES114","Functional",3,"Right side peek",0,1,"1",36.67,3,0
-"650","ES115","Functional",3,"Right side peek",0,2,"2",31.065,7,0
-"651","ES116","Functional",3,"Right side peek",0,1,"1",30.164,3,0
-"652","ES117","Functional",3,"Right side peek",0,1,"1",37.037,3,0
-"653","ES118","Functional",3,"Right side peek",0,2,"2",33.884,7,0
-"654","ES119","Functional",3,"Right side peek",0,1,"1",32.299,3,0
-"655","ES120","Functional",3,"Right side peek",0,1,"1",30,3,0
-"656","ES122","Functional",3,"Right side peek",0,1,"1",31.751,3,0
-"657","ES123","Functional",3,"Right side peek",0,1,"1",32.251,3,0
-"658","ES124","Functional",3,"Right side peek",0,1,"1",36.999,3,0
-"659","Es125","Functional",3,"Right side peek",0,2,"2",28.002,7,0
-"660","ES126","Functional",3,"Right side peek",0,1,"1",36.002,3,0
-"661","ES127","Functional",3,"Right side peek",0,1,"1",32.755,3,0
-"662","ES128","Functional",3,"Right side peek",0,1,"1",36.747,3,0
-"663","ES129","Functional",3,"Right side peek",0,2,"2",32.748,7,0
-"664","ES130","Functional",3,"Right side peek",0,1,"1",36.268,3,0
-"665","ES132","Functional",3,"Right side peek",0,1,"1",38.829,3,0
-"666","ES133","Functional",3,"Right side peek",0,1,"1",50.504,3,0
-"667","ES134","Functional",3,"Right side peek",0,2,"2",36.766,7,0
-"668","ES135","Functional",3,"Right side peek",0,1,"1",30.744,3,0
-"669","ES136","Functional",3,"Right side peek",0,2,"2",26.498,7,0
-"670","ES101","Non-functional",3,"Right side peek",0,2,"1",36.603,7,0
-"671","ES102","Non-functional",3,"Right side peek",0,1,"2",40.002,3,0
-"672","ES103","Non-functional",3,"Right side peek",0,2,"1",33.754,7,0
-"673","ES104","Non-functional",3,"Right side peek",0,1,"2",41.608,3,0
-"674","ES106","Non-functional",3,"Right side peek",0,1,"2",56.751,3,0
-"675","ES108","Non-functional",3,"Right side peek",0,1,"2",25.754,3,0
-"676","ES110","Non-functional",3,"Right side peek",0,2,"1",31.246,7,0
-"677","ES111","Non-functional",3,"Right side peek",0,1,"2",30.001,3,0
-"678","ES112","Non-functional",3,"Right side peek",0,2,"1",28.979,7,0
-"679","ES113","Non-functional",3,"Right side peek",0,1,"2",36.086,3,0
-"680","ES114","Non-functional",3,"Right side peek",0,2,"1",38.021,7,0
-"681","ES115","Non-functional",3,"Right side peek",0,1,"2",26.16,3,0
-"682","ES116","Non-functional",3,"Right side peek",0,2,"1",35.869,7,0
-"683","ES117","Non-functional",3,"Right side peek",0,2,"1",41.31,7,0
-"684","ES118","Non-functional",3,"Right side peek",0,1,"2",38.171,3,0
-"685","ES119","Non-functional",3,"Right side peek",0,2,"1",35.386,7,0
-"686","ES120","Non-functional",3,"Right side peek",0,2,"1",25.502,7,0
-"687","ES122","Non-functional",3,"Right side peek",0,2,"1",35.254,7,0
-"688","ES123","Non-functional",3,"Right side peek",0,2,"1",32.752,7,0
-"689","ES124","Non-functional",3,"Right side peek",0,2,"1",39.757,7,0
-"690","Es125","Non-functional",3,"Right side peek",0,1,"2",33.254,3,0
-"691","ES126","Non-functional",3,"Right side peek",0,2,"1",37.811,7,0
-"692","ES127","Non-functional",3,"Right side peek",0,2,"1",34.25,7,0
-"693","ES128","Non-functional",3,"Right side peek",0,2,"1",52.005,7,0
-"694","ES129","Non-functional",3,"Right side peek",0,1,"2",35.254,3,0
-"695","ES130","Non-functional",3,"Right side peek",0,2,"1",39.004,7,0
-"696","ES132","Non-functional",3,"Right side peek",0,2,"1",34.831,7,0
-"697","ES133","Non-functional",3,"Right side peek",0,2,"1",28.503,7,0
-"698","ES134","Non-functional",3,"Right side peek",0,1,"2",39.003,3,0
-"699","ES135","Non-functional",3,"Right side peek",0,2,"1",29.739,7,0
-"700","ES136","Non-functional",3,"Right side peek",0,1,"2",26.004,3,0
-"701","ES101","Functional",4,"Right side peek",0,1,"1",38.939,4,0
-"702","ES102","Functional",4,"Right side peek",0,2,"2",38.752,8,0
-"703","ES103","Functional",4,"Right side peek",0,1,"1",32.494,4,0
-"704","ES104","Functional",4,"Right side peek",0,2,"2",44.11,8,0
-"705","ES106","Functional",4,"Right side peek",0,2,"2",48.496,8,0
-"706","ES108","Functional",4,"Right side peek",0,2,"2",29.743,8,0
-"707","ES110","Functional",4,"Right side peek",0,1,"1",28,4,0
-"708","ES111","Functional",4,"Right side peek",0,2,"2",30.999,8,0
-"709","ES112","Functional",4,"Right side peek",0,1,"1",25.042,4,0
-"710","ES113","Functional",4,"Right side peek",0,2,"2",31.848,8,0
-"711","ES114","Functional",4,"Right side peek",0,1,"1",34.935,4,0
-"712","ES115","Functional",4,"Right side peek",0,2,"2",30.664,8,0
-"713","ES116","Functional",4,"Right side peek",0,1,"1",27.411,4,0
-"714","ES117","Functional",4,"Right side peek",0,1,"1",37.621,4,0
-"715","ES118","Functional",4,"Right side peek",0,2,"2",34.868,8,0
-"716","ES119","Functional",4,"Right side peek",0,1,"1",32.099,4,0
-"717","ES120","Functional",4,"Right side peek",0,1,"1",25.749,4,0
-"718","ES122","Functional",4,"Right side peek",0,1,"1",29.773,4,0
-"719","ES123","Functional",4,"Right side peek",0,1,"1",45.799,4,0
-"720","Es125","Functional",4,"Right side peek",0,2,"2",32.244,8,0
-"721","ES126","Functional",4,"Right side peek",0,1,"1",31.003,4,0
-"722","ES127","Functional",4,"Right side peek",0,1,"1",46.002,4,0
-"723","ES128","Functional",4,"Right side peek",0,1,"1",39.997,4,0
-"724","ES129","Functional",4,"Right side peek",0,2,"2",34.496,8,0
-"725","ES130","Functional",4,"Right side peek",0,1,"1",36.453,4,0
-"726","ES132","Functional",4,"Right side peek",0,1,"1",45.288,4,0
-"727","ES133","Functional",4,"Right side peek",0,1,"1",34.257,4,0
-"728","ES134","Functional",4,"Right side peek",0,2,"2",32.998,8,0
-"729","ES135","Functional",4,"Right side peek",0,1,"1",30.746,4,0
-"730","ES101","Non-functional",4,"Right side peek",0,2,"1",44.044,8,0
-"731","ES102","Non-functional",4,"Right side peek",0,1,"2",42.251,4,0
-"732","ES103","Non-functional",4,"Right side peek",0,2,"1",40.752,8,0
-"733","ES104","Non-functional",4,"Right side peek",0,1,"2",40.473,4,0
-"734","ES106","Non-functional",4,"Right side peek",0,1,"2",48.751,4,0
-"735","ES108","Non-functional",4,"Right side peek",0,1,"2",26.755,4,0
-"736","ES110","Non-functional",4,"Right side peek",0,2,"1",26.002,8,0
-"737","ES111","Non-functional",4,"Right side peek",0,1,"2",30.009,4,0
-"738","ES112","Non-functional",4,"Right side peek",0,2,"1",26.126,8,0
-"739","ES113","Non-functional",4,"Right side peek",0,1,"2",32.666,4,0
-"740","ES114","Non-functional",4,"Right side peek",0,2,"1",36.954,8,0
-"741","ES115","Non-functional",4,"Right side peek",0,1,"2",27.511,4,0
-"742","ES116","Non-functional",4,"Right side peek",0,2,"1",28.012,8,0
-"743","ES117","Non-functional",4,"Right side peek",0,2,"1",41.041,8,0
-"744","ES118","Non-functional",4,"Right side peek",0,1,"2",37.721,4,0
-"745","ES119","Non-functional",4,"Right side peek",0,2,"1",37.654,8,0
-"746","ES120","Non-functional",4,"Right side peek",0,2,"1",26.287,8,0
-"747","ES122","Non-functional",4,"Right side peek",0,2,"1",31.499,8,0
-"748","ES123","Non-functional",4,"Right side peek",0,2,"1",35.749,8,0
-"749","Es125","Non-functional",4,"Right side peek",0,1,"2",31.999,4,0
-"750","ES126","Non-functional",4,"Right side peek",0,2,"1",38.503,8,0
-"751","ES127","Non-functional",4,"Right side peek",0,2,"1",36.005,8,0
-"752","ES128","Non-functional",4,"Right side peek",0,2,"1",37.404,8,0
-"753","ES129","Non-functional",4,"Right side peek",0,1,"2",43.999,4,0
-"754","ES130","Non-functional",4,"Right side peek",0,2,"1",41.687,8,0
-"755","ES132","Non-functional",4,"Right side peek",0,2,"1",32.468,8,0
-"756","ES133","Non-functional",4,"Right side peek",0,2,"1",36.75,8,0
-"757","ES134","Non-functional",4,"Right side peek",0,1,"2",35.003,4,0
-"758","ES135","Non-functional",4,"Right side peek",0,2,"1",32.251,8,0
-"759","ES136","Non-functional",4,"Right side peek",0,1,"2",32.251,4,0
-"760","ES101","Functional",1,"Right box (side)",0,1,"1",48.515,1,0
-"761","ES102","Functional",1,"Right box (side)",0,2,"2",46,5,0
-"762","ES103","Functional",1,"Right box (side)",0,1,"1",42.745,1,0
-"763","ES104","Functional",1,"Right box (side)",0,2,"2",42.242,5,0
-"764","ES106","Functional",1,"Right box (side)",0,2,"2",54.254,5,0
-"765","ES108","Functional",1,"Right box (side)",0,2,"2",28.75,5,0
-"766","ES110","Functional",1,"Right box (side)",0,1,"1",30.757,1,0
-"767","ES111","Functional",1,"Right box (side)",0,2,"2",30.004,5,0
-"768","ES112","Functional",1,"Right box (side)",0,1,"1",25.426,1,0
-"769","ES115","Functional",1,"Right box (side)",0,2,"2",31.314,5,0
-"770","ES116","Functional",1,"Right box (side)",0,1,"1",33.217,1,0
-"771","ES117","Functional",1,"Right box (side)",0,1,"1",45.512,1,0
-"772","ES118","Functional",1,"Right box (side)",0,2,"2",37.404,5,0
-"773","ES119","Functional",1,"Right box (side)",0,1,"1",48.449,1,0
-"774","ES120","Functional",1,"Right box (side)",0,1,"1",35.575,1,0
-"775","ES122","Functional",1,"Right box (side)",0,1,"1",28.497,1,0
-"776","ES123","Functional",1,"Right box (side)",0,1,"1",32.25,1,0
-"777","ES124","Functional",1,"Right box (side)",0,1,"1",50.752,1,0
-"778","Es125","Functional",1,"Right box (side)",0,2,"2",28.747,5,0
-"779","ES126","Functional",1,"Right box (side)",0,1,"1",39.546,1,0
-"780","ES127","Functional",1,"Right box (side)",0,1,"1",35.496,1,0
-"781","ES128","Functional",1,"Right box (side)",0,1,"1",42.503,1,0
-"782","ES129","Functional",1,"Right box (side)",0,2,"2",37.5,5,0
-"783","ES130","Functional",1,"Right box (side)",0,1,"1",33.795,1,0
-"784","ES132","Functional",1,"Right box (side)",0,1,"1",37.701,1,0
-"785","ES133","Functional",1,"Right box (side)",0,1,"1",37.51,1,0
-"786","ES134","Functional",1,"Right box (side)",0,2,"2",37.012,5,0
-"787","ES135","Functional",1,"Right box (side)",0,1,"1",45.761,1,0
-"788","ES136","Functional",1,"Right box (side)",0,2,"2",28.998,5,0
-"789","ES101","Non-functional",1,"Right box (side)",0,2,"1",42.242,5,0
-"790","ES102","Non-functional",1,"Right box (side)",0,1,"2",40.997,1,0
-"791","ES103","Non-functional",1,"Right box (side)",0,2,"1",39.007,5,0
-"792","ES104","Non-functional",1,"Right box (side)",0,1,"2",47.914,1,0
-"793","ES106","Non-functional",1,"Right box (side)",0,1,"2",52.755,1,0
-"794","ES108","Non-functional",1,"Right box (side)",0,1,"2",31.746,1,0
-"795","ES110","Non-functional",1,"Right box (side)",0,2,"1",27.498,5,0
-"796","ES111","Non-functional",1,"Right box (side)",0,1,"2",34.842,1,0
-"797","ES112","Non-functional",1,"Right box (side)",0,2,"1",32.032,5,0
-"798","ES113","Non-functional",1,"Right box (side)",0,1,"2",38.055,1,0
-"799","ES114","Non-functional",1,"Right box (side)",0,2,"1",41.625,5,0
-"800","ES117","Non-functional",1,"Right box (side)",0,2,"1",40.023,5,0
-"801","ES118","Non-functional",1,"Right box (side)",0,1,"2",36.153,1,0
-"802","ES119","Non-functional",1,"Right box (side)",0,2,"1",32.899,5,0
-"803","ES120","Non-functional",1,"Right box (side)",0,2,"1",11.748,5,0
-"804","ES122","Non-functional",1,"Right box (side)",0,2,"1",30.82,5,0
-"805","ES123","Non-functional",1,"Right box (side)",0,2,"1",32.248,5,0
-"806","ES124","Non-functional",1,"Right box (side)",0,2,"1",47.25,5,0
-"807","Es125","Non-functional",1,"Right box (side)",0,1,"2",32.252,1,0
-"808","ES126","Non-functional",1,"Right box (side)",0,2,"1",34.434,5,0
-"809","ES127","Non-functional",1,"Right box (side)",0,2,"1",41.753,5,0
-"810","ES128","Non-functional",1,"Right box (side)",0,2,"1",38.506,5,0
-"811","ES129","Non-functional",1,"Right box (side)",0,1,"2",40.501,1,0
-"812","ES130","Non-functional",1,"Right box (side)",0,2,"1",40.631,5,0
-"813","ES132","Non-functional",1,"Right box (side)",0,2,"1",37.309,5,0
-"814","ES133","Non-functional",1,"Right box (side)",0,2,"1",42.003,5,0
-"815","ES134","Non-functional",1,"Right box (side)",0,1,"2",36.744,1,0
-"816","ES135","Non-functional",1,"Right box (side)",0,2,"1",27.76,5,0
-"817","ES136","Non-functional",1,"Right box (side)",0,1,"2",34.527,1,0
-"818","ES101","Functional",2,"Right box (side)",0,1,"1",44.744,2,0
-"819","ES102","Functional",2,"Right box (side)",0,2,"2",45.501,6,0
-"820","ES103","Functional",2,"Right box (side)",0,1,"1",37.499,2,0
-"821","ES104","Functional",2,"Right box (side)",0,2,"2",44.178,6,0
-"822","ES106","Functional",2,"Right box (side)",0,2,"2",42.75,6,0
-"823","ES108","Functional",2,"Right box (side)",0,2,"2",28.997,6,0
-"824","ES110","Functional",2,"Right box (side)",0,1,"1",30.504,2,0
-"825","ES111","Functional",2,"Right box (side)",0,2,"2",28.505,6,0
-"826","ES112","Functional",2,"Right box (side)",0,1,"1",26.893,2,0
-"827","ES114","Functional",2,"Right box (side)",0,1,"1",41.809,2,0
-"828","ES116","Functional",2,"Right box (side)",0,1,"1",29.779,2,0
-"829","ES117","Functional",2,"Right box (side)",0,1,"1",41.842,2,0
-"830","ES118","Functional",2,"Right box (side)",0,2,"2",39.739,6,0
-"831","ES119","Functional",2,"Right box (side)",0,1,"1",34.651,2,0
-"832","ES120","Functional",2,"Right box (side)",0,1,"1",32.252,2,0
-"833","ES122","Functional",2,"Right box (side)",0,1,"1",28.751,2,0
-"834","ES123","Functional",2,"Right box (side)",0,1,"1",33.5,2,0
-"835","ES124","Functional",2,"Right box (side)",0,1,"1",38.496,2,0
-"836","Es125","Functional",2,"Right box (side)",0,2,"2",30.744,6,0
-"837","ES126","Functional",2,"Right box (side)",0,1,"1",37.298,2,0
-"838","ES127","Functional",2,"Right box (side)",0,1,"1",35.5,2,0
-"839","ES128","Functional",2,"Right box (side)",0,1,"1",39.247,2,0
-"840","ES129","Functional",2,"Right box (side)",0,2,"2",41.497,6,0
-"841","ES130","Functional",2,"Right box (side)",0,1,"1",33.033,2,0
-"842","ES132","Functional",2,"Right box (side)",0,1,"1",33.888,2,0
-"843","ES133","Functional",2,"Right box (side)",0,1,"1",34.745,2,0
-"844","ES134","Functional",2,"Right box (side)",0,2,"2",32.501,6,0
-"845","ES135","Functional",2,"Right box (side)",0,1,"1",30.743,2,0
-"846","ES136","Functional",2,"Right box (side)",0,2,"2",27.502,6,0
-"847","ES101","Non-functional",2,"Right box (side)",0,2,"1",43.944,6,0
-"848","ES102","Non-functional",2,"Right box (side)",0,1,"2",41.003,2,0
-"849","ES103","Non-functional",2,"Right box (side)",0,2,"1",34.754,6,0
-"850","ES104","Non-functional",2,"Right box (side)",0,1,"2",44.912,2,0
-"851","ES106","Non-functional",2,"Right box (side)",0,1,"2",57.25,2,0
-"852","ES108","Non-functional",2,"Right box (side)",0,1,"2",25.502,2,0
-"853","ES110","Non-functional",2,"Right box (side)",0,2,"1",30.998,6,0
-"854","ES111","Non-functional",2,"Right box (side)",0,1,"2",28.498,2,0
-"855","ES112","Non-functional",2,"Right box (side)",0,2,"1",23.74,6,0
-"856","ES113","Non-functional",2,"Right box (side)",0,1,"2",36.77,2,0
-"857","ES114","Non-functional",2,"Right box (side)",0,2,"1",37.27,6,0
-"858","ES116","Non-functional",2,"Right box (side)",0,2,"1",36.469,6,0
-"859","ES117","Non-functional",2,"Right box (side)",0,2,"1",34.452,6,0
-"860","ES118","Non-functional",2,"Right box (side)",0,1,"2",33.316,2,0
-"861","ES119","Non-functional",2,"Right box (side)",0,2,"1",33.4,6,0
-"862","ES120","Non-functional",2,"Right box (side)",0,2,"1",27.499,6,0
-"863","ES122","Non-functional",2,"Right box (side)",0,2,"1",25.749,6,0
-"864","ES123","Non-functional",2,"Right box (side)",0,2,"1",32,6,0
-"865","ES124","Non-functional",2,"Right box (side)",0,2,"1",45.249,6,0
-"866","Es125","Non-functional",2,"Right box (side)",0,1,"2",32.254,2,0
-"867","ES126","Non-functional",2,"Right box (side)",0,2,"1",44.583,6,0
-"868","ES127","Non-functional",2,"Right box (side)",0,2,"1",35.501,6,0
-"869","ES128","Non-functional",2,"Right box (side)",0,2,"1",36.999,6,0
-"870","ES129","Non-functional",2,"Right box (side)",0,1,"2",40.75,2,0
-"871","ES130","Non-functional",2,"Right box (side)",0,2,"1",41.002,6,0
-"872","ES132","Non-functional",2,"Right box (side)",0,2,"1",34.746,6,0
-"873","ES133","Non-functional",2,"Right box (side)",0,2,"1",36.736,6,0
-"874","ES134","Non-functional",2,"Right box (side)",0,1,"2",34.509,2,0
-"875","ES135","Non-functional",2,"Right box (side)",0,2,"1",27.504,6,0
-"876","ES136","Non-functional",2,"Right box (side)",0,1,"2",24.816,2,0
-"877","ES101","Functional",3,"Right box (side)",0,1,"1",49.349,3,0
-"878","ES102","Functional",3,"Right box (side)",0,2,"2",39.997,7,0
-"879","ES103","Functional",3,"Right box (side)",0,1,"1",40.496,3,0
-"880","ES104","Functional",3,"Right box (side)",0,2,"2",47.314,7,0
-"881","ES106","Functional",3,"Right box (side)",0,2,"2",45.753,7,0
-"882","ES108","Functional",3,"Right box (side)",0,2,"2",27.993,7,0
-"883","ES110","Functional",3,"Right box (side)",0,1,"1",27.504,3,0
-"884","ES111","Functional",3,"Right box (side)",0,2,"2",30.001,7,0
-"885","ES112","Functional",3,"Right box (side)",0,1,"1",30.397,3,0
-"886","ES114","Functional",3,"Right box (side)",0,1,"1",36.67,3,0
-"887","ES116","Functional",3,"Right box (side)",0,1,"1",30.164,3,0
-"888","ES117","Functional",3,"Right box (side)",0,1,"1",37.037,3,0
-"889","ES119","Functional",3,"Right box (side)",0,1,"1",32.299,3,0
-"890","ES120","Functional",3,"Right box (side)",0,1,"1",30,3,0
-"891","ES122","Functional",3,"Right box (side)",0,1,"1",31.751,3,0
-"892","ES123","Functional",3,"Right box (side)",0,1,"1",32.251,3,0
-"893","ES124","Functional",3,"Right box (side)",0,1,"1",36.999,3,0
-"894","Es125","Functional",3,"Right box (side)",0,2,"2",28.002,7,0
-"895","ES126","Functional",3,"Right box (side)",0,1,"1",36.002,3,0
-"896","ES127","Functional",3,"Right box (side)",0,1,"1",32.755,3,0
-"897","ES128","Functional",3,"Right box (side)",0,1,"1",36.747,3,0
-"898","ES129","Functional",3,"Right box (side)",0,2,"2",32.748,7,0
-"899","ES130","Functional",3,"Right box (side)",0,1,"1",36.268,3,0
-"900","ES132","Functional",3,"Right box (side)",0,1,"1",38.829,3,0
-"901","ES133","Functional",3,"Right box (side)",0,1,"1",50.504,3,0
-"902","ES134","Functional",3,"Right box (side)",0,2,"2",36.766,7,0
-"903","ES135","Functional",3,"Right box (side)",0,1,"1",30.744,3,0
-"904","ES136","Functional",3,"Right box (side)",0,2,"2",26.498,7,0
-"905","ES101","Non-functional",3,"Right box (side)",0,2,"1",36.603,7,0
-"906","ES102","Non-functional",3,"Right box (side)",0,1,"2",40.002,3,0
-"907","ES103","Non-functional",3,"Right box (side)",0,2,"1",33.754,7,0
-"908","ES104","Non-functional",3,"Right box (side)",0,1,"2",41.608,3,0
-"909","ES106","Non-functional",3,"Right box (side)",0,1,"2",56.751,3,0
-"910","ES108","Non-functional",3,"Right box (side)",0,1,"2",25.754,3,0
-"911","ES110","Non-functional",3,"Right box (side)",0,2,"1",31.246,7,0
-"912","ES111","Non-functional",3,"Right box (side)",0,1,"2",30.001,3,0
-"913","ES113","Non-functional",3,"Right box (side)",0,1,"2",36.086,3,0
-"914","ES114","Non-functional",3,"Right box (side)",0,2,"1",38.021,7,0
-"915","ES116","Non-functional",3,"Right box (side)",0,2,"1",35.869,7,0
-"916","ES117","Non-functional",3,"Right box (side)",0,2,"1",41.31,7,0
-"917","ES119","Non-functional",3,"Right box (side)",0,2,"1",35.386,7,0
-"918","ES120","Non-functional",3,"Right box (side)",0,2,"1",25.502,7,0
-"919","ES122","Non-functional",3,"Right box (side)",0,2,"1",35.254,7,0
-"920","ES123","Non-functional",3,"Right box (side)",0,2,"1",32.752,7,0
-"921","ES124","Non-functional",3,"Right box (side)",0,2,"1",39.757,7,0
-"922","Es125","Non-functional",3,"Right box (side)",0,1,"2",33.254,3,0
-"923","ES126","Non-functional",3,"Right box (side)",0,2,"1",37.811,7,0
-"924","ES127","Non-functional",3,"Right box (side)",0,2,"1",34.25,7,0
-"925","ES128","Non-functional",3,"Right box (side)",0,2,"1",52.005,7,0
-"926","ES129","Non-functional",3,"Right box (side)",0,1,"2",35.254,3,0
-"927","ES130","Non-functional",3,"Right box (side)",0,2,"1",39.004,7,0
-"928","ES132","Non-functional",3,"Right box (side)",0,2,"1",34.831,7,0
-"929","ES133","Non-functional",3,"Right box (side)",0,2,"1",28.503,7,0
-"930","ES134","Non-functional",3,"Right box (side)",0,1,"2",39.003,3,0
-"931","ES135","Non-functional",3,"Right box (side)",0,2,"1",29.739,7,0
-"932","ES136","Non-functional",3,"Right box (side)",0,1,"2",26.004,3,0
-"933","ES101","Functional",4,"Right box (side)",0,1,"1",38.939,4,0
-"934","ES102","Functional",4,"Right box (side)",0,2,"2",38.752,8,0
-"935","ES103","Functional",4,"Right box (side)",0,1,"1",32.494,4,0
-"936","ES104","Functional",4,"Right box (side)",0,2,"2",44.11,8,0
-"937","ES106","Functional",4,"Right box (side)",0,2,"2",48.496,8,0
-"938","ES108","Functional",4,"Right box (side)",0,2,"2",29.743,8,0
-"939","ES110","Functional",4,"Right box (side)",0,1,"1",28,4,0
-"940","ES111","Functional",4,"Right box (side)",0,2,"2",30.999,8,0
-"941","ES112","Functional",4,"Right box (side)",0,1,"1",25.042,4,0
-"942","ES114","Functional",4,"Right box (side)",0,1,"1",34.935,4,0
-"943","ES115","Functional",4,"Right box (side)",0,2,"2",30.664,8,0
-"944","ES116","Functional",4,"Right box (side)",0,1,"1",27.411,4,0
-"945","ES117","Functional",4,"Right box (side)",0,1,"1",37.621,4,0
-"946","ES118","Functional",4,"Right box (side)",0,2,"2",34.868,8,0
-"947","ES119","Functional",4,"Right box (side)",0,1,"1",32.099,4,0
-"948","ES120","Functional",4,"Right box (side)",0,1,"1",25.749,4,0
-"949","ES122","Functional",4,"Right box (side)",0,1,"1",29.773,4,0
-"950","ES123","Functional",4,"Right box (side)",0,1,"1",45.799,4,0
-"951","ES124","Functional",4,"Right box (side)",0,1,"1",44.999,4,0
-"952","Es125","Functional",4,"Right box (side)",0,2,"2",32.244,8,0
-"953","ES126","Functional",4,"Right box (side)",0,1,"1",31.003,4,0
-"954","ES127","Functional",4,"Right box (side)",0,1,"1",46.002,4,0
-"955","ES128","Functional",4,"Right box (side)",0,1,"1",39.997,4,0
-"956","ES129","Functional",4,"Right box (side)",0,2,"2",34.496,8,0
-"957","ES130","Functional",4,"Right box (side)",0,1,"1",36.453,4,0
-"958","ES132","Functional",4,"Right box (side)",0,1,"1",45.288,4,0
-"959","ES133","Functional",4,"Right box (side)",0,1,"1",34.257,4,0
-"960","ES134","Functional",4,"Right box (side)",0,2,"2",32.998,8,0
-"961","ES135","Functional",4,"Right box (side)",0,1,"1",30.746,4,0
-"962","ES136","Functional",4,"Right box (side)",0,2,"2",28.56,8,0
-"963","ES101","Non-functional",4,"Right box (side)",0,2,"1",44.044,8,0
-"964","ES102","Non-functional",4,"Right box (side)",0,1,"2",42.251,4,0
-"965","ES103","Non-functional",4,"Right box (side)",0,2,"1",40.752,8,0
-"966","ES104","Non-functional",4,"Right box (side)",0,1,"2",40.473,4,0
-"967","ES106","Non-functional",4,"Right box (side)",0,1,"2",48.751,4,0
-"968","ES108","Non-functional",4,"Right box (side)",0,1,"2",26.755,4,0
-"969","ES110","Non-functional",4,"Right box (side)",0,2,"1",26.002,8,0
-"970","ES111","Non-functional",4,"Right box (side)",0,1,"2",30.009,4,0
-"971","ES112","Non-functional",4,"Right box (side)",0,2,"1",26.126,8,0
-"972","ES114","Non-functional",4,"Right box (side)",0,2,"1",36.954,8,0
-"973","ES115","Non-functional",4,"Right box (side)",0,1,"2",27.511,4,0
-"974","ES116","Non-functional",4,"Right box (side)",0,2,"1",28.012,8,0
-"975","ES117","Non-functional",4,"Right box (side)",0,2,"1",41.041,8,0
-"976","ES118","Non-functional",4,"Right box (side)",0,1,"2",37.721,4,0
-"977","ES119","Non-functional",4,"Right box (side)",0,2,"1",37.654,8,0
-"978","ES120","Non-functional",4,"Right box (side)",0,2,"1",26.287,8,0
-"979","ES122","Non-functional",4,"Right box (side)",0,2,"1",31.499,8,0
-"980","ES123","Non-functional",4,"Right box (side)",0,2,"1",35.749,8,0
-"981","ES124","Non-functional",4,"Right box (side)",0,2,"1",36.734,8,0
-"982","Es125","Non-functional",4,"Right box (side)",0,1,"2",31.999,4,0
-"983","ES126","Non-functional",4,"Right box (side)",0,2,"1",38.503,8,0
-"984","ES127","Non-functional",4,"Right box (side)",0,2,"1",36.005,8,0
-"985","ES128","Non-functional",4,"Right box (side)",0,2,"1",37.404,8,0
-"986","ES129","Non-functional",4,"Right box (side)",0,1,"2",43.999,4,0
-"987","ES130","Non-functional",4,"Right box (side)",0,2,"1",41.687,8,0
-"988","ES132","Non-functional",4,"Right box (side)",0,2,"1",32.468,8,0
-"989","ES133","Non-functional",4,"Right box (side)",0,2,"1",36.75,8,0
-"990","ES134","Non-functional",4,"Right box (side)",0,1,"2",35.003,4,0
-"991","ES135","Non-functional",4,"Right box (side)",0,2,"1",32.251,8,0
-"992","ES136","Non-functional",4,"Right box (side)",0,1,"2",32.251,4,0
+"","subject","condition","Trial","Behavior","sum_duration","count_peeking","Block","trial_order","Trial_duration","trial_overall","proportion_peeking"
+"1","ES101","Functional",1,"Right side peek",6.573,1,1,"1",48.515,1,0.135483870967742
+"2","ES102","Non-functional",1,"Right side peek",4.749,1,1,"2",40.997,1,0.115837744225187
+"3","ES108","Functional",1,"Peek on top",8.492,1,2,"2",28.75,5,0.295373913043478
+"4","ES108","Functional",2,"Peek on top",11.749,1,2,"2",28.997,6,0.405179846190985
+"5","ES108","Functional",2,"Peephole peek",8.496,1,2,"2",28.997,6,0.292995827154533
+"6","ES111","Non-functional",1,"Right side peek",1.748,1,1,"2",34.842,1,0.0501693358590207
+"7","ES111","Non-functional",2,"Right side peek",1.493,1,1,"2",28.498,2,0.0523896413783423
+"8","ES112","Non-functional",1,"Right side peek",17.35,2,2,"1",32.032,5,0.541645854145854
+"9","ES112","Non-functional",3,"Right box (side)",4.155,1,2,"1",28.979,7,0.143379688740122
+"10","ES113","Non-functional",1,"Right side peek",1.435,1,1,"2",38.973,1,0.0368203628152824
+"11","ES114","Functional",1,"Right box (side)",18.168,1,1,"1",44.761,1,0.405889055204307
+"12","ES115","Functional",2,"Right box (side)",13.397,1,2,"2",33.083,6,0.404951183387238
+"13","ES115","Functional",3,"Right box (side)",8.642,1,2,"2",31.065,7,0.27819089006921
+"14","ES115","Non-functional",1,"Right box (side)",3.503,1,1,"2",37.905,1,0.0924152486479356
+"15","ES115","Non-functional",2,"Right box (side)",1.768,1,1,"2",33.867,2,0.0522042105884785
+"16","ES115","Non-functional",3,"Right box (side)",3.921,1,1,"2",26.16,3,0.149885321100917
+"17","ES116","Non-functional",1,"Right box (side)",1.585,1,2,"1",30.531,5,0.0519144476106253
+"18","ES116","Non-functional",4,"Peek on top",4.155,1,2,"1",28.012,8,0.148329287448236
+"19","ES118","Functional",3,"Right box (side)",2.519,1,2,"2",33.884,7,0.074341872270098
+"20","ES118","Non-functional",3,"Right box (side)",29.146,1,1,"2",38.171,3,0.763563962170234
+"21","ES124","Functional",4,"Right side peek",0.752,1,1,"1",44.999,4,0.0167114824773884
+"22","ES124","Non-functional",4,"Right side peek",2.001,1,2,"1",36.734,8,0.0544726955953612
+"23","ES129","Non-functional",4,"Right side peek",5.748,2,1,"2",40.501,4,0.141922421668601
+"24","ES135","Functional",1,"Right side peek",2.517,1,1,"1",45.761,1,0.055003168637049
+"25","ES135","Non-functional",1,"Right side peek",3.736,2,2,"1",27.76,5,0.134582132564841
+"26","ES136","Functional",4,"Right side peek",2.747,1,2,"2",28.56,8,0.0961834733893557
+"27","ES136","Non-functional",1,"Right side peek",2.496,1,1,"2",34.527,1,0.072291250325832
+"28","ES136","Non-functional",2,"Right side peek",3.511,1,1,"2",24.816,2,0.141481302385558
+"29","ES136","Non-functional",3,"Peephole peek",2.229,1,1,"2",26.004,3,0.0857175819104753
+"30","Es125","Non-functional",1,"Peephole peek",0.999,1,1,"2",31.999,1,0.0312197256164255
+"31","ES101","Functional",1,"Peek on top",0,0,1,"1",48.515,1,0
+"32","ES102","Functional",1,"Peek on top",0,0,2,"2",46,5,0
+"33","ES103","Functional",1,"Peek on top",0,0,1,"1",42.745,1,0
+"34","ES104","Functional",1,"Peek on top",0,0,2,"2",42.242,5,0
+"35","ES106","Functional",1,"Peek on top",0,0,2,"2",54.254,5,0
+"36","ES110","Functional",1,"Peek on top",0,0,1,"1",30.757,1,0
+"37","ES111","Functional",1,"Peek on top",0,0,2,"2",30.004,5,0
+"38","ES112","Functional",1,"Peek on top",0,0,1,"1",25.426,1,0
+"39","ES113","Functional",1,"Peek on top",0,0,2,"2",33.133,5,0
+"40","ES114","Functional",1,"Peek on top",0,0,1,"1",44.761,1,0
+"41","ES115","Functional",1,"Peek on top",0,0,2,"2",31.314,5,0
+"42","ES116","Functional",1,"Peek on top",0,0,1,"1",33.217,1,0
+"43","ES117","Functional",1,"Peek on top",0,0,1,"1",45.512,1,0
+"44","ES118","Functional",1,"Peek on top",0,0,2,"2",37.404,5,0
+"45","ES119","Functional",1,"Peek on top",0,0,1,"1",48.449,1,0
+"46","ES120","Functional",1,"Peek on top",0,0,1,"1",35.575,1,0
+"47","ES122","Functional",1,"Peek on top",0,0,1,"1",28.497,1,0
+"48","ES123","Functional",1,"Peek on top",0,0,1,"1",45.799,1,0
+"49","ES124","Functional",1,"Peek on top",0,0,1,"1",50.752,1,0
+"50","Es125","Functional",1,"Peek on top",0,0,2,"2",32.244,5,0
+"51","ES126","Functional",1,"Peek on top",0,0,1,"1",39.546,1,0
+"52","ES127","Functional",1,"Peek on top",0,0,1,"1",46.002,1,0
+"53","ES128","Functional",1,"Peek on top",0,0,1,"1",42.503,1,0
+"54","ES129","Functional",1,"Peek on top",0,0,2,"2",41.497,5,0
+"55","ES130","Functional",1,"Peek on top",0,0,1,"1",33.795,1,0
+"56","ES132","Functional",1,"Peek on top",0,0,1,"1",37.701,1,0
+"57","ES133","Functional",1,"Peek on top",0,0,1,"1",37.51,1,0
+"58","ES134","Functional",1,"Peek on top",0,0,2,"2",37.012,5,0
+"59","ES135","Functional",1,"Peek on top",0,0,1,"1",45.761,1,0
+"60","ES136","Functional",1,"Peek on top",0,0,2,"2",28.998,5,0
+"61","ES101","Non-functional",1,"Peek on top",0,0,2,"1",42.242,5,0
+"62","ES102","Non-functional",1,"Peek on top",0,0,1,"2",40.997,1,0
+"63","ES103","Non-functional",1,"Peek on top",0,0,2,"1",39.007,5,0
+"64","ES104","Non-functional",1,"Peek on top",0,0,1,"2",47.914,1,0
+"65","ES106","Non-functional",1,"Peek on top",0,0,1,"2",52.755,1,0
+"66","ES108","Non-functional",1,"Peek on top",0,0,1,"2",31.746,1,0
+"67","ES110","Non-functional",1,"Peek on top",0,0,2,"1",27.498,5,0
+"68","ES111","Non-functional",1,"Peek on top",0,0,1,"2",34.842,1,0
+"69","ES112","Non-functional",1,"Peek on top",0,0,2,"1",32.032,5,0
+"70","ES113","Non-functional",1,"Peek on top",0,0,1,"2",38.973,1,0
+"71","ES114","Non-functional",1,"Peek on top",0,0,2,"1",41.625,5,0
+"72","ES115","Non-functional",1,"Peek on top",0,0,1,"2",37.905,1,0
+"73","ES116","Non-functional",1,"Peek on top",0,0,2,"1",30.531,5,0
+"74","ES117","Non-functional",1,"Peek on top",0,0,2,"1",40.023,5,0
+"75","ES118","Non-functional",1,"Peek on top",0,0,1,"2",36.153,1,0
+"76","ES119","Non-functional",1,"Peek on top",0,0,2,"1",32.899,5,0
+"77","ES120","Non-functional",1,"Peek on top",0,0,2,"1",11.748,5,0
+"78","ES122","Non-functional",1,"Peek on top",0,0,2,"1",30.82,5,0
+"79","ES123","Non-functional",1,"Peek on top",0,0,2,"1",35.749,5,0
+"80","ES124","Non-functional",1,"Peek on top",0,0,2,"1",47.25,5,0
+"81","Es125","Non-functional",1,"Peek on top",0,0,1,"2",31.999,1,0
+"82","ES126","Non-functional",1,"Peek on top",0,0,2,"1",34.434,5,0
+"83","ES127","Non-functional",1,"Peek on top",0,0,2,"1",36.005,5,0
+"84","ES128","Non-functional",1,"Peek on top",0,0,2,"1",38.506,5,0
+"85","ES129","Non-functional",1,"Peek on top",0,0,1,"2",40.75,1,0
+"86","ES130","Non-functional",1,"Peek on top",0,0,2,"1",40.631,5,0
+"87","ES132","Non-functional",1,"Peek on top",0,0,2,"1",37.309,5,0
+"88","ES133","Non-functional",1,"Peek on top",0,0,2,"1",42.003,5,0
+"89","ES134","Non-functional",1,"Peek on top",0,0,1,"2",36.744,1,0
+"90","ES135","Non-functional",1,"Peek on top",0,0,2,"1",27.76,5,0
+"91","ES136","Non-functional",1,"Peek on top",0,0,1,"2",34.527,1,0
+"92","ES101","Functional",2,"Peek on top",0,0,1,"1",44.744,2,0
+"93","ES102","Functional",2,"Peek on top",0,0,2,"2",45.501,6,0
+"94","ES103","Functional",2,"Peek on top",0,0,1,"1",37.499,2,0
+"95","ES104","Functional",2,"Peek on top",0,0,2,"2",44.178,6,0
+"96","ES106","Functional",2,"Peek on top",0,0,2,"2",42.75,6,0
+"97","ES110","Functional",2,"Peek on top",0,0,1,"1",30.504,2,0
+"98","ES111","Functional",2,"Peek on top",0,0,2,"2",28.505,6,0
+"99","ES112","Functional",2,"Peek on top",0,0,1,"1",26.893,2,0
+"100","ES113","Functional",2,"Peek on top",0,0,2,"2",32.099,6,0
+"101","ES114","Functional",2,"Peek on top",0,0,1,"1",41.809,2,0
+"102","ES115","Functional",2,"Peek on top",0,0,2,"2",33.083,6,0
+"103","ES116","Functional",2,"Peek on top",0,0,1,"1",29.779,2,0
+"104","ES117","Functional",2,"Peek on top",0,0,1,"1",41.842,2,0
+"105","ES118","Functional",2,"Peek on top",0,0,2,"2",39.739,6,0
+"106","ES119","Functional",2,"Peek on top",0,0,1,"1",34.651,2,0
+"107","ES120","Functional",2,"Peek on top",0,0,1,"1",32.252,2,0
+"108","ES122","Functional",2,"Peek on top",0,0,1,"1",28.751,2,0
+"109","ES123","Functional",2,"Peek on top",0,0,1,"1",32.25,2,0
+"110","ES124","Functional",2,"Peek on top",0,0,1,"1",38.496,2,0
+"111","Es125","Functional",2,"Peek on top",0,0,2,"2",28.747,6,0
+"112","ES126","Functional",2,"Peek on top",0,0,1,"1",37.298,2,0
+"113","ES127","Functional",2,"Peek on top",0,0,1,"1",35.496,2,0
+"114","ES128","Functional",2,"Peek on top",0,0,1,"1",39.247,2,0
+"115","ES129","Functional",2,"Peek on top",0,0,2,"2",32.748,6,0
+"116","ES130","Functional",2,"Peek on top",0,0,1,"1",33.033,2,0
+"117","ES132","Functional",2,"Peek on top",0,0,1,"1",33.888,2,0
+"118","ES133","Functional",2,"Peek on top",0,0,1,"1",34.745,2,0
+"119","ES134","Functional",2,"Peek on top",0,0,2,"2",32.501,6,0
+"120","ES135","Functional",2,"Peek on top",0,0,1,"1",30.743,2,0
+"121","ES136","Functional",2,"Peek on top",0,0,2,"2",27.502,6,0
+"122","ES101","Non-functional",2,"Peek on top",0,0,2,"1",43.944,6,0
+"123","ES102","Non-functional",2,"Peek on top",0,0,1,"2",41.003,2,0
+"124","ES103","Non-functional",2,"Peek on top",0,0,2,"1",34.754,6,0
+"125","ES104","Non-functional",2,"Peek on top",0,0,1,"2",44.912,2,0
+"126","ES106","Non-functional",2,"Peek on top",0,0,1,"2",57.25,2,0
+"127","ES108","Non-functional",2,"Peek on top",0,0,1,"2",25.502,2,0
+"128","ES110","Non-functional",2,"Peek on top",0,0,2,"1",30.998,6,0
+"129","ES111","Non-functional",2,"Peek on top",0,0,1,"2",28.498,2,0
+"130","ES112","Non-functional",2,"Peek on top",0,0,2,"1",23.74,6,0
+"131","ES113","Non-functional",2,"Peek on top",0,0,1,"2",35.769,2,0
+"132","ES114","Non-functional",2,"Peek on top",0,0,2,"1",37.27,6,0
+"133","ES115","Non-functional",2,"Peek on top",0,0,1,"2",33.867,2,0
+"134","ES116","Non-functional",2,"Peek on top",0,0,2,"1",36.469,6,0
+"135","ES117","Non-functional",2,"Peek on top",0,0,2,"1",34.452,6,0
+"136","ES118","Non-functional",2,"Peek on top",0,0,1,"2",33.316,2,0
+"137","ES119","Non-functional",2,"Peek on top",0,0,2,"1",33.4,6,0
+"138","ES120","Non-functional",2,"Peek on top",0,0,2,"1",27.499,6,0
+"139","ES122","Non-functional",2,"Peek on top",0,0,2,"1",25.749,6,0
+"140","ES123","Non-functional",2,"Peek on top",0,0,2,"1",32.248,6,0
+"141","ES124","Non-functional",2,"Peek on top",0,0,2,"1",45.249,6,0
+"142","Es125","Non-functional",2,"Peek on top",0,0,1,"2",32.252,2,0
+"143","ES126","Non-functional",2,"Peek on top",0,0,2,"1",44.583,6,0
+"144","ES127","Non-functional",2,"Peek on top",0,0,2,"1",41.753,6,0
+"145","ES128","Non-functional",2,"Peek on top",0,0,2,"1",36.999,6,0
+"146","ES129","Non-functional",2,"Peek on top",0,0,1,"2",35.254,2,0
+"147","ES130","Non-functional",2,"Peek on top",0,0,2,"1",41.002,6,0
+"148","ES132","Non-functional",2,"Peek on top",0,0,2,"1",34.746,6,0
+"149","ES133","Non-functional",2,"Peek on top",0,0,2,"1",36.736,6,0
+"150","ES134","Non-functional",2,"Peek on top",0,0,1,"2",34.509,2,0
+"151","ES135","Non-functional",2,"Peek on top",0,0,2,"1",27.504,6,0
+"152","ES136","Non-functional",2,"Peek on top",0,0,1,"2",24.816,2,0
+"153","ES101","Functional",3,"Peek on top",0,0,1,"1",49.349,3,0
+"154","ES102","Functional",3,"Peek on top",0,0,2,"2",39.997,7,0
+"155","ES103","Functional",3,"Peek on top",0,0,1,"1",40.496,3,0
+"156","ES104","Functional",3,"Peek on top",0,0,2,"2",47.314,7,0
+"157","ES106","Functional",3,"Peek on top",0,0,2,"2",45.753,7,0
+"158","ES108","Functional",3,"Peek on top",0,0,2,"2",27.993,7,0
+"159","ES110","Functional",3,"Peek on top",0,0,1,"1",27.504,3,0
+"160","ES111","Functional",3,"Peek on top",0,0,2,"2",30.001,7,0
+"161","ES112","Functional",3,"Peek on top",0,0,1,"1",30.397,3,0
+"162","ES113","Functional",3,"Peek on top",0,0,2,"2",33.067,7,0
+"163","ES114","Functional",3,"Peek on top",0,0,1,"1",36.67,3,0
+"164","ES115","Functional",3,"Peek on top",0,0,2,"2",31.065,7,0
+"165","ES116","Functional",3,"Peek on top",0,0,1,"1",30.164,3,0
+"166","ES117","Functional",3,"Peek on top",0,0,1,"1",37.037,3,0
+"167","ES118","Functional",3,"Peek on top",0,0,2,"2",33.884,7,0
+"168","ES119","Functional",3,"Peek on top",0,0,1,"1",32.299,3,0
+"169","ES120","Functional",3,"Peek on top",0,0,1,"1",30,3,0
+"170","ES122","Functional",3,"Peek on top",0,0,1,"1",31.751,3,0
+"171","ES123","Functional",3,"Peek on top",0,0,1,"1",33.5,3,0
+"172","ES124","Functional",3,"Peek on top",0,0,1,"1",36.999,3,0
+"173","Es125","Functional",3,"Peek on top",0,0,2,"2",30.744,7,0
+"174","ES126","Functional",3,"Peek on top",0,0,1,"1",36.002,3,0
+"175","ES127","Functional",3,"Peek on top",0,0,1,"1",35.5,3,0
+"176","ES128","Functional",3,"Peek on top",0,0,1,"1",36.747,3,0
+"177","ES129","Functional",3,"Peek on top",0,0,2,"2",34.496,7,0
+"178","ES130","Functional",3,"Peek on top",0,0,1,"1",36.268,3,0
+"179","ES132","Functional",3,"Peek on top",0,0,1,"1",38.829,3,0
+"180","ES133","Functional",3,"Peek on top",0,0,1,"1",50.504,3,0
+"181","ES134","Functional",3,"Peek on top",0,0,2,"2",36.766,7,0
+"182","ES135","Functional",3,"Peek on top",0,0,1,"1",30.744,3,0
+"183","ES136","Functional",3,"Peek on top",0,0,2,"2",26.498,7,0
+"184","ES101","Non-functional",3,"Peek on top",0,0,2,"1",36.603,7,0
+"185","ES102","Non-functional",3,"Peek on top",0,0,1,"2",40.002,3,0
+"186","ES103","Non-functional",3,"Peek on top",0,0,2,"1",33.754,7,0
+"187","ES104","Non-functional",3,"Peek on top",0,0,1,"2",41.608,3,0
+"188","ES106","Non-functional",3,"Peek on top",0,0,1,"2",56.751,3,0
+"189","ES108","Non-functional",3,"Peek on top",0,0,1,"2",25.754,3,0
+"190","ES110","Non-functional",3,"Peek on top",0,0,2,"1",31.246,7,0
+"191","ES111","Non-functional",3,"Peek on top",0,0,1,"2",30.001,3,0
+"192","ES112","Non-functional",3,"Peek on top",0,0,2,"1",28.979,7,0
+"193","ES113","Non-functional",3,"Peek on top",0,0,1,"2",35.703,3,0
+"194","ES114","Non-functional",3,"Peek on top",0,0,2,"1",38.021,7,0
+"195","ES115","Non-functional",3,"Peek on top",0,0,1,"2",26.16,3,0
+"196","ES116","Non-functional",3,"Peek on top",0,0,2,"1",35.869,7,0
+"197","ES117","Non-functional",3,"Peek on top",0,0,2,"1",41.31,7,0
+"198","ES118","Non-functional",3,"Peek on top",0,0,1,"2",38.171,3,0
+"199","ES119","Non-functional",3,"Peek on top",0,0,2,"1",35.386,7,0
+"200","ES120","Non-functional",3,"Peek on top",0,0,2,"1",25.502,7,0
+"201","ES122","Non-functional",3,"Peek on top",0,0,2,"1",35.254,7,0
+"202","ES123","Non-functional",3,"Peek on top",0,0,2,"1",32,7,0
+"203","ES124","Non-functional",3,"Peek on top",0,0,2,"1",39.757,7,0
+"204","Es125","Non-functional",3,"Peek on top",0,0,1,"2",32.254,3,0
+"205","ES126","Non-functional",3,"Peek on top",0,0,2,"1",37.811,7,0
+"206","ES127","Non-functional",3,"Peek on top",0,0,2,"1",35.501,7,0
+"207","ES128","Non-functional",3,"Peek on top",0,0,2,"1",52.005,7,0
+"208","ES129","Non-functional",3,"Peek on top",0,0,1,"2",43.999,3,0
+"209","ES130","Non-functional",3,"Peek on top",0,0,2,"1",39.004,7,0
+"210","ES132","Non-functional",3,"Peek on top",0,0,2,"1",34.831,7,0
+"211","ES133","Non-functional",3,"Peek on top",0,0,2,"1",28.503,7,0
+"212","ES134","Non-functional",3,"Peek on top",0,0,1,"2",39.003,3,0
+"213","ES135","Non-functional",3,"Peek on top",0,0,2,"1",29.739,7,0
+"214","ES136","Non-functional",3,"Peek on top",0,0,1,"2",26.004,3,0
+"215","ES101","Functional",4,"Peek on top",0,0,1,"1",38.939,4,0
+"216","ES102","Functional",4,"Peek on top",0,0,2,"2",38.752,8,0
+"217","ES103","Functional",4,"Peek on top",0,0,1,"1",32.494,4,0
+"218","ES104","Functional",4,"Peek on top",0,0,2,"2",44.11,8,0
+"219","ES106","Functional",4,"Peek on top",0,0,2,"2",48.496,8,0
+"220","ES108","Functional",4,"Peek on top",0,0,2,"2",29.743,8,0
+"221","ES110","Functional",4,"Peek on top",0,0,1,"1",28,4,0
+"222","ES111","Functional",4,"Peek on top",0,0,2,"2",30.999,8,0
+"223","ES112","Functional",4,"Peek on top",0,0,1,"1",25.042,4,0
+"224","ES113","Functional",4,"Peek on top",0,0,2,"2",30.997,8,0
+"225","ES114","Functional",4,"Peek on top",0,0,1,"1",34.935,4,0
+"226","ES115","Functional",4,"Peek on top",0,0,2,"2",30.664,8,0
+"227","ES116","Functional",4,"Peek on top",0,0,1,"1",27.411,4,0
+"228","ES117","Functional",4,"Peek on top",0,0,1,"1",37.621,4,0
+"229","ES118","Functional",4,"Peek on top",0,0,2,"2",34.868,8,0
+"230","ES119","Functional",4,"Peek on top",0,0,1,"1",32.099,4,0
+"231","ES120","Functional",4,"Peek on top",0,0,1,"1",25.749,4,0
+"232","ES122","Functional",4,"Peek on top",0,0,1,"1",29.773,4,0
+"233","ES123","Functional",4,"Peek on top",0,0,1,"1",32.251,4,0
+"234","ES124","Functional",4,"Peek on top",0,0,1,"1",44.999,4,0
+"235","Es125","Functional",4,"Peek on top",0,0,2,"2",28.002,8,0
+"236","ES126","Functional",4,"Peek on top",0,0,1,"1",31.003,4,0
+"237","ES127","Functional",4,"Peek on top",0,0,1,"1",32.755,4,0
+"238","ES128","Functional",4,"Peek on top",0,0,1,"1",39.997,4,0
+"239","ES129","Functional",4,"Peek on top",0,0,2,"2",37.5,8,0
+"240","ES130","Functional",4,"Peek on top",0,0,1,"1",36.453,4,0
+"241","ES132","Functional",4,"Peek on top",0,0,1,"1",45.288,4,0
+"242","ES133","Functional",4,"Peek on top",0,0,1,"1",34.257,4,0
+"243","ES134","Functional",4,"Peek on top",0,0,2,"2",32.998,8,0
+"244","ES135","Functional",4,"Peek on top",0,0,1,"1",30.746,4,0
+"245","ES136","Functional",4,"Peek on top",0,0,2,"2",28.56,8,0
+"246","ES101","Non-functional",4,"Peek on top",0,0,2,"1",44.044,8,0
+"247","ES102","Non-functional",4,"Peek on top",0,0,1,"2",42.251,4,0
+"248","ES103","Non-functional",4,"Peek on top",0,0,2,"1",40.752,8,0
+"249","ES104","Non-functional",4,"Peek on top",0,0,1,"2",40.473,4,0
+"250","ES106","Non-functional",4,"Peek on top",0,0,1,"2",48.751,4,0
+"251","ES108","Non-functional",4,"Peek on top",0,0,1,"2",26.755,4,0
+"252","ES110","Non-functional",4,"Peek on top",0,0,2,"1",26.002,8,0
+"253","ES111","Non-functional",4,"Peek on top",0,0,1,"2",30.009,4,0
+"254","ES112","Non-functional",4,"Peek on top",0,0,2,"1",26.126,8,0
+"255","ES113","Non-functional",4,"Peek on top",0,0,1,"2",31.982,4,0
+"256","ES114","Non-functional",4,"Peek on top",0,0,2,"1",36.954,8,0
+"257","ES115","Non-functional",4,"Peek on top",0,0,1,"2",27.511,4,0
+"258","ES117","Non-functional",4,"Peek on top",0,0,2,"1",41.041,8,0
+"259","ES118","Non-functional",4,"Peek on top",0,0,1,"2",37.721,4,0
+"260","ES119","Non-functional",4,"Peek on top",0,0,2,"1",37.654,8,0
+"261","ES120","Non-functional",4,"Peek on top",0,0,2,"1",26.287,8,0
+"262","ES122","Non-functional",4,"Peek on top",0,0,2,"1",31.499,8,0
+"263","ES123","Non-functional",4,"Peek on top",0,0,2,"1",32.752,8,0
+"264","ES124","Non-functional",4,"Peek on top",0,0,2,"1",36.734,8,0
+"265","Es125","Non-functional",4,"Peek on top",0,0,1,"2",33.254,4,0
+"266","ES126","Non-functional",4,"Peek on top",0,0,2,"1",38.503,8,0
+"267","ES127","Non-functional",4,"Peek on top",0,0,2,"1",34.25,8,0
+"268","ES128","Non-functional",4,"Peek on top",0,0,2,"1",37.404,8,0
+"269","ES129","Non-functional",4,"Peek on top",0,0,1,"2",40.501,4,0
+"270","ES130","Non-functional",4,"Peek on top",0,0,2,"1",41.687,8,0
+"271","ES132","Non-functional",4,"Peek on top",0,0,2,"1",32.468,8,0
+"272","ES133","Non-functional",4,"Peek on top",0,0,2,"1",36.75,8,0
+"273","ES134","Non-functional",4,"Peek on top",0,0,1,"2",35.003,4,0
+"274","ES135","Non-functional",4,"Peek on top",0,0,2,"1",32.251,8,0
+"275","ES136","Non-functional",4,"Peek on top",0,0,1,"2",32.251,4,0
+"276","ES101","Functional",1,"Peephole peek",0,0,1,"1",48.515,1,0
+"277","ES102","Functional",1,"Peephole peek",0,0,2,"2",46,5,0
+"278","ES103","Functional",1,"Peephole peek",0,0,1,"1",42.745,1,0
+"279","ES104","Functional",1,"Peephole peek",0,0,2,"2",42.242,5,0
+"280","ES106","Functional",1,"Peephole peek",0,0,2,"2",54.254,5,0
+"281","ES108","Functional",1,"Peephole peek",0,0,2,"2",28.75,5,0
+"282","ES110","Functional",1,"Peephole peek",0,0,1,"1",30.757,1,0
+"283","ES111","Functional",1,"Peephole peek",0,0,2,"2",30.004,5,0
+"284","ES112","Functional",1,"Peephole peek",0,0,1,"1",25.426,1,0
+"285","ES113","Functional",1,"Peephole peek",0,0,2,"2",33.133,5,0
+"286","ES114","Functional",1,"Peephole peek",0,0,1,"1",44.761,1,0
+"287","ES115","Functional",1,"Peephole peek",0,0,2,"2",31.314,5,0
+"288","ES116","Functional",1,"Peephole peek",0,0,1,"1",33.217,1,0
+"289","ES117","Functional",1,"Peephole peek",0,0,1,"1",45.512,1,0
+"290","ES118","Functional",1,"Peephole peek",0,0,2,"2",37.404,5,0
+"291","ES119","Functional",1,"Peephole peek",0,0,1,"1",48.449,1,0
+"292","ES120","Functional",1,"Peephole peek",0,0,1,"1",35.575,1,0
+"293","ES122","Functional",1,"Peephole peek",0,0,1,"1",28.497,1,0
+"294","ES123","Functional",1,"Peephole peek",0,0,1,"1",45.799,1,0
+"295","ES124","Functional",1,"Peephole peek",0,0,1,"1",50.752,1,0
+"296","Es125","Functional",1,"Peephole peek",0,0,2,"2",32.244,5,0
+"297","ES126","Functional",1,"Peephole peek",0,0,1,"1",39.546,1,0
+"298","ES127","Functional",1,"Peephole peek",0,0,1,"1",46.002,1,0
+"299","ES128","Functional",1,"Peephole peek",0,0,1,"1",42.503,1,0
+"300","ES129","Functional",1,"Peephole peek",0,0,2,"2",41.497,5,0
+"301","ES130","Functional",1,"Peephole peek",0,0,1,"1",33.795,1,0
+"302","ES132","Functional",1,"Peephole peek",0,0,1,"1",37.701,1,0
+"303","ES133","Functional",1,"Peephole peek",0,0,1,"1",37.51,1,0
+"304","ES134","Functional",1,"Peephole peek",0,0,2,"2",37.012,5,0
+"305","ES135","Functional",1,"Peephole peek",0,0,1,"1",45.761,1,0
+"306","ES136","Functional",1,"Peephole peek",0,0,2,"2",28.998,5,0
+"307","ES101","Non-functional",1,"Peephole peek",0,0,2,"1",42.242,5,0
+"308","ES102","Non-functional",1,"Peephole peek",0,0,1,"2",40.997,1,0
+"309","ES103","Non-functional",1,"Peephole peek",0,0,2,"1",39.007,5,0
+"310","ES104","Non-functional",1,"Peephole peek",0,0,1,"2",47.914,1,0
+"311","ES106","Non-functional",1,"Peephole peek",0,0,1,"2",52.755,1,0
+"312","ES108","Non-functional",1,"Peephole peek",0,0,1,"2",31.746,1,0
+"313","ES110","Non-functional",1,"Peephole peek",0,0,2,"1",27.498,5,0
+"314","ES111","Non-functional",1,"Peephole peek",0,0,1,"2",34.842,1,0
+"315","ES112","Non-functional",1,"Peephole peek",0,0,2,"1",32.032,5,0
+"316","ES113","Non-functional",1,"Peephole peek",0,0,1,"2",38.973,1,0
+"317","ES114","Non-functional",1,"Peephole peek",0,0,2,"1",41.625,5,0
+"318","ES115","Non-functional",1,"Peephole peek",0,0,1,"2",37.905,1,0
+"319","ES116","Non-functional",1,"Peephole peek",0,0,2,"1",30.531,5,0
+"320","ES117","Non-functional",1,"Peephole peek",0,0,2,"1",40.023,5,0
+"321","ES118","Non-functional",1,"Peephole peek",0,0,1,"2",36.153,1,0
+"322","ES119","Non-functional",1,"Peephole peek",0,0,2,"1",32.899,5,0
+"323","ES120","Non-functional",1,"Peephole peek",0,0,2,"1",11.748,5,0
+"324","ES122","Non-functional",1,"Peephole peek",0,0,2,"1",30.82,5,0
+"325","ES123","Non-functional",1,"Peephole peek",0,0,2,"1",35.749,5,0
+"326","ES124","Non-functional",1,"Peephole peek",0,0,2,"1",47.25,5,0
+"327","ES126","Non-functional",1,"Peephole peek",0,0,2,"1",34.434,5,0
+"328","ES127","Non-functional",1,"Peephole peek",0,0,2,"1",36.005,5,0
+"329","ES128","Non-functional",1,"Peephole peek",0,0,2,"1",38.506,5,0
+"330","ES129","Non-functional",1,"Peephole peek",0,0,1,"2",40.75,1,0
+"331","ES130","Non-functional",1,"Peephole peek",0,0,2,"1",40.631,5,0
+"332","ES132","Non-functional",1,"Peephole peek",0,0,2,"1",37.309,5,0
+"333","ES133","Non-functional",1,"Peephole peek",0,0,2,"1",42.003,5,0
+"334","ES134","Non-functional",1,"Peephole peek",0,0,1,"2",36.744,1,0
+"335","ES135","Non-functional",1,"Peephole peek",0,0,2,"1",27.76,5,0
+"336","ES136","Non-functional",1,"Peephole peek",0,0,1,"2",34.527,1,0
+"337","ES101","Functional",2,"Peephole peek",0,0,1,"1",44.744,2,0
+"338","ES102","Functional",2,"Peephole peek",0,0,2,"2",45.501,6,0
+"339","ES103","Functional",2,"Peephole peek",0,0,1,"1",37.499,2,0
+"340","ES104","Functional",2,"Peephole peek",0,0,2,"2",44.178,6,0
+"341","ES106","Functional",2,"Peephole peek",0,0,2,"2",42.75,6,0
+"342","ES110","Functional",2,"Peephole peek",0,0,1,"1",30.504,2,0
+"343","ES111","Functional",2,"Peephole peek",0,0,2,"2",28.505,6,0
+"344","ES112","Functional",2,"Peephole peek",0,0,1,"1",26.893,2,0
+"345","ES113","Functional",2,"Peephole peek",0,0,2,"2",32.099,6,0
+"346","ES114","Functional",2,"Peephole peek",0,0,1,"1",41.809,2,0
+"347","ES115","Functional",2,"Peephole peek",0,0,2,"2",33.083,6,0
+"348","ES116","Functional",2,"Peephole peek",0,0,1,"1",29.779,2,0
+"349","ES117","Functional",2,"Peephole peek",0,0,1,"1",41.842,2,0
+"350","ES118","Functional",2,"Peephole peek",0,0,2,"2",39.739,6,0
+"351","ES119","Functional",2,"Peephole peek",0,0,1,"1",34.651,2,0
+"352","ES120","Functional",2,"Peephole peek",0,0,1,"1",32.252,2,0
+"353","ES122","Functional",2,"Peephole peek",0,0,1,"1",28.751,2,0
+"354","ES123","Functional",2,"Peephole peek",0,0,1,"1",32.25,2,0
+"355","ES124","Functional",2,"Peephole peek",0,0,1,"1",38.496,2,0
+"356","Es125","Functional",2,"Peephole peek",0,0,2,"2",28.747,6,0
+"357","ES126","Functional",2,"Peephole peek",0,0,1,"1",37.298,2,0
+"358","ES127","Functional",2,"Peephole peek",0,0,1,"1",35.496,2,0
+"359","ES128","Functional",2,"Peephole peek",0,0,1,"1",39.247,2,0
+"360","ES129","Functional",2,"Peephole peek",0,0,2,"2",32.748,6,0
+"361","ES130","Functional",2,"Peephole peek",0,0,1,"1",33.033,2,0
+"362","ES132","Functional",2,"Peephole peek",0,0,1,"1",33.888,2,0
+"363","ES133","Functional",2,"Peephole peek",0,0,1,"1",34.745,2,0
+"364","ES134","Functional",2,"Peephole peek",0,0,2,"2",32.501,6,0
+"365","ES135","Functional",2,"Peephole peek",0,0,1,"1",30.743,2,0
+"366","ES136","Functional",2,"Peephole peek",0,0,2,"2",27.502,6,0
+"367","ES101","Non-functional",2,"Peephole peek",0,0,2,"1",43.944,6,0
+"368","ES102","Non-functional",2,"Peephole peek",0,0,1,"2",41.003,2,0
+"369","ES103","Non-functional",2,"Peephole peek",0,0,2,"1",34.754,6,0
+"370","ES104","Non-functional",2,"Peephole peek",0,0,1,"2",44.912,2,0
+"371","ES106","Non-functional",2,"Peephole peek",0,0,1,"2",57.25,2,0
+"372","ES108","Non-functional",2,"Peephole peek",0,0,1,"2",25.502,2,0
+"373","ES110","Non-functional",2,"Peephole peek",0,0,2,"1",30.998,6,0
+"374","ES111","Non-functional",2,"Peephole peek",0,0,1,"2",28.498,2,0
+"375","ES112","Non-functional",2,"Peephole peek",0,0,2,"1",23.74,6,0
+"376","ES113","Non-functional",2,"Peephole peek",0,0,1,"2",35.769,2,0
+"377","ES114","Non-functional",2,"Peephole peek",0,0,2,"1",37.27,6,0
+"378","ES115","Non-functional",2,"Peephole peek",0,0,1,"2",33.867,2,0
+"379","ES116","Non-functional",2,"Peephole peek",0,0,2,"1",36.469,6,0
+"380","ES117","Non-functional",2,"Peephole peek",0,0,2,"1",34.452,6,0
+"381","ES118","Non-functional",2,"Peephole peek",0,0,1,"2",33.316,2,0
+"382","ES119","Non-functional",2,"Peephole peek",0,0,2,"1",33.4,6,0
+"383","ES120","Non-functional",2,"Peephole peek",0,0,2,"1",27.499,6,0
+"384","ES122","Non-functional",2,"Peephole peek",0,0,2,"1",25.749,6,0
+"385","ES123","Non-functional",2,"Peephole peek",0,0,2,"1",32.248,6,0
+"386","ES124","Non-functional",2,"Peephole peek",0,0,2,"1",45.249,6,0
+"387","Es125","Non-functional",2,"Peephole peek",0,0,1,"2",32.252,2,0
+"388","ES126","Non-functional",2,"Peephole peek",0,0,2,"1",44.583,6,0
+"389","ES127","Non-functional",2,"Peephole peek",0,0,2,"1",41.753,6,0
+"390","ES128","Non-functional",2,"Peephole peek",0,0,2,"1",36.999,6,0
+"391","ES129","Non-functional",2,"Peephole peek",0,0,1,"2",35.254,2,0
+"392","ES130","Non-functional",2,"Peephole peek",0,0,2,"1",41.002,6,0
+"393","ES132","Non-functional",2,"Peephole peek",0,0,2,"1",34.746,6,0
+"394","ES133","Non-functional",2,"Peephole peek",0,0,2,"1",36.736,6,0
+"395","ES134","Non-functional",2,"Peephole peek",0,0,1,"2",34.509,2,0
+"396","ES135","Non-functional",2,"Peephole peek",0,0,2,"1",27.504,6,0
+"397","ES136","Non-functional",2,"Peephole peek",0,0,1,"2",24.816,2,0
+"398","ES101","Functional",3,"Peephole peek",0,0,1,"1",49.349,3,0
+"399","ES102","Functional",3,"Peephole peek",0,0,2,"2",39.997,7,0
+"400","ES103","Functional",3,"Peephole peek",0,0,1,"1",40.496,3,0
+"401","ES104","Functional",3,"Peephole peek",0,0,2,"2",47.314,7,0
+"402","ES106","Functional",3,"Peephole peek",0,0,2,"2",45.753,7,0
+"403","ES108","Functional",3,"Peephole peek",0,0,2,"2",27.993,7,0
+"404","ES110","Functional",3,"Peephole peek",0,0,1,"1",27.504,3,0
+"405","ES111","Functional",3,"Peephole peek",0,0,2,"2",30.001,7,0
+"406","ES112","Functional",3,"Peephole peek",0,0,1,"1",30.397,3,0
+"407","ES113","Functional",3,"Peephole peek",0,0,2,"2",33.067,7,0
+"408","ES114","Functional",3,"Peephole peek",0,0,1,"1",36.67,3,0
+"409","ES115","Functional",3,"Peephole peek",0,0,2,"2",31.065,7,0
+"410","ES116","Functional",3,"Peephole peek",0,0,1,"1",30.164,3,0
+"411","ES117","Functional",3,"Peephole peek",0,0,1,"1",37.037,3,0
+"412","ES118","Functional",3,"Peephole peek",0,0,2,"2",33.884,7,0
+"413","ES119","Functional",3,"Peephole peek",0,0,1,"1",32.299,3,0
+"414","ES120","Functional",3,"Peephole peek",0,0,1,"1",30,3,0
+"415","ES122","Functional",3,"Peephole peek",0,0,1,"1",31.751,3,0
+"416","ES123","Functional",3,"Peephole peek",0,0,1,"1",33.5,3,0
+"417","ES124","Functional",3,"Peephole peek",0,0,1,"1",36.999,3,0
+"418","Es125","Functional",3,"Peephole peek",0,0,2,"2",30.744,7,0
+"419","ES126","Functional",3,"Peephole peek",0,0,1,"1",36.002,3,0
+"420","ES127","Functional",3,"Peephole peek",0,0,1,"1",35.5,3,0
+"421","ES128","Functional",3,"Peephole peek",0,0,1,"1",36.747,3,0
+"422","ES129","Functional",3,"Peephole peek",0,0,2,"2",34.496,7,0
+"423","ES130","Functional",3,"Peephole peek",0,0,1,"1",36.268,3,0
+"424","ES132","Functional",3,"Peephole peek",0,0,1,"1",38.829,3,0
+"425","ES133","Functional",3,"Peephole peek",0,0,1,"1",50.504,3,0
+"426","ES134","Functional",3,"Peephole peek",0,0,2,"2",36.766,7,0
+"427","ES135","Functional",3,"Peephole peek",0,0,1,"1",30.744,3,0
+"428","ES136","Functional",3,"Peephole peek",0,0,2,"2",26.498,7,0
+"429","ES101","Non-functional",3,"Peephole peek",0,0,2,"1",36.603,7,0
+"430","ES102","Non-functional",3,"Peephole peek",0,0,1,"2",40.002,3,0
+"431","ES103","Non-functional",3,"Peephole peek",0,0,2,"1",33.754,7,0
+"432","ES104","Non-functional",3,"Peephole peek",0,0,1,"2",41.608,3,0
+"433","ES106","Non-functional",3,"Peephole peek",0,0,1,"2",56.751,3,0
+"434","ES108","Non-functional",3,"Peephole peek",0,0,1,"2",25.754,3,0
+"435","ES110","Non-functional",3,"Peephole peek",0,0,2,"1",31.246,7,0
+"436","ES111","Non-functional",3,"Peephole peek",0,0,1,"2",30.001,3,0
+"437","ES112","Non-functional",3,"Peephole peek",0,0,2,"1",28.979,7,0
+"438","ES113","Non-functional",3,"Peephole peek",0,0,1,"2",35.703,3,0
+"439","ES114","Non-functional",3,"Peephole peek",0,0,2,"1",38.021,7,0
+"440","ES115","Non-functional",3,"Peephole peek",0,0,1,"2",26.16,3,0
+"441","ES116","Non-functional",3,"Peephole peek",0,0,2,"1",35.869,7,0
+"442","ES117","Non-functional",3,"Peephole peek",0,0,2,"1",41.31,7,0
+"443","ES118","Non-functional",3,"Peephole peek",0,0,1,"2",38.171,3,0
+"444","ES119","Non-functional",3,"Peephole peek",0,0,2,"1",35.386,7,0
+"445","ES120","Non-functional",3,"Peephole peek",0,0,2,"1",25.502,7,0
+"446","ES122","Non-functional",3,"Peephole peek",0,0,2,"1",35.254,7,0
+"447","ES123","Non-functional",3,"Peephole peek",0,0,2,"1",32,7,0
+"448","ES124","Non-functional",3,"Peephole peek",0,0,2,"1",39.757,7,0
+"449","Es125","Non-functional",3,"Peephole peek",0,0,1,"2",32.254,3,0
+"450","ES126","Non-functional",3,"Peephole peek",0,0,2,"1",37.811,7,0
+"451","ES127","Non-functional",3,"Peephole peek",0,0,2,"1",35.501,7,0
+"452","ES128","Non-functional",3,"Peephole peek",0,0,2,"1",52.005,7,0
+"453","ES129","Non-functional",3,"Peephole peek",0,0,1,"2",43.999,3,0
+"454","ES130","Non-functional",3,"Peephole peek",0,0,2,"1",39.004,7,0
+"455","ES132","Non-functional",3,"Peephole peek",0,0,2,"1",34.831,7,0
+"456","ES133","Non-functional",3,"Peephole peek",0,0,2,"1",28.503,7,0
+"457","ES134","Non-functional",3,"Peephole peek",0,0,1,"2",39.003,3,0
+"458","ES135","Non-functional",3,"Peephole peek",0,0,2,"1",29.739,7,0
+"459","ES101","Functional",4,"Peephole peek",0,0,1,"1",38.939,4,0
+"460","ES102","Functional",4,"Peephole peek",0,0,2,"2",38.752,8,0
+"461","ES103","Functional",4,"Peephole peek",0,0,1,"1",32.494,4,0
+"462","ES104","Functional",4,"Peephole peek",0,0,2,"2",44.11,8,0
+"463","ES106","Functional",4,"Peephole peek",0,0,2,"2",48.496,8,0
+"464","ES108","Functional",4,"Peephole peek",0,0,2,"2",29.743,8,0
+"465","ES110","Functional",4,"Peephole peek",0,0,1,"1",28,4,0
+"466","ES111","Functional",4,"Peephole peek",0,0,2,"2",30.999,8,0
+"467","ES112","Functional",4,"Peephole peek",0,0,1,"1",25.042,4,0
+"468","ES113","Functional",4,"Peephole peek",0,0,2,"2",30.997,8,0
+"469","ES114","Functional",4,"Peephole peek",0,0,1,"1",34.935,4,0
+"470","ES115","Functional",4,"Peephole peek",0,0,2,"2",30.664,8,0
+"471","ES116","Functional",4,"Peephole peek",0,0,1,"1",27.411,4,0
+"472","ES117","Functional",4,"Peephole peek",0,0,1,"1",37.621,4,0
+"473","ES118","Functional",4,"Peephole peek",0,0,2,"2",34.868,8,0
+"474","ES119","Functional",4,"Peephole peek",0,0,1,"1",32.099,4,0
+"475","ES120","Functional",4,"Peephole peek",0,0,1,"1",25.749,4,0
+"476","ES122","Functional",4,"Peephole peek",0,0,1,"1",29.773,4,0
+"477","ES123","Functional",4,"Peephole peek",0,0,1,"1",32.251,4,0
+"478","ES124","Functional",4,"Peephole peek",0,0,1,"1",44.999,4,0
+"479","Es125","Functional",4,"Peephole peek",0,0,2,"2",28.002,8,0
+"480","ES126","Functional",4,"Peephole peek",0,0,1,"1",31.003,4,0
+"481","ES127","Functional",4,"Peephole peek",0,0,1,"1",32.755,4,0
+"482","ES128","Functional",4,"Peephole peek",0,0,1,"1",39.997,4,0
+"483","ES129","Functional",4,"Peephole peek",0,0,2,"2",37.5,8,0
+"484","ES130","Functional",4,"Peephole peek",0,0,1,"1",36.453,4,0
+"485","ES132","Functional",4,"Peephole peek",0,0,1,"1",45.288,4,0
+"486","ES133","Functional",4,"Peephole peek",0,0,1,"1",34.257,4,0
+"487","ES134","Functional",4,"Peephole peek",0,0,2,"2",32.998,8,0
+"488","ES135","Functional",4,"Peephole peek",0,0,1,"1",30.746,4,0
+"489","ES136","Functional",4,"Peephole peek",0,0,2,"2",28.56,8,0
+"490","ES101","Non-functional",4,"Peephole peek",0,0,2,"1",44.044,8,0
+"491","ES102","Non-functional",4,"Peephole peek",0,0,1,"2",42.251,4,0
+"492","ES103","Non-functional",4,"Peephole peek",0,0,2,"1",40.752,8,0
+"493","ES104","Non-functional",4,"Peephole peek",0,0,1,"2",40.473,4,0
+"494","ES106","Non-functional",4,"Peephole peek",0,0,1,"2",48.751,4,0
+"495","ES108","Non-functional",4,"Peephole peek",0,0,1,"2",26.755,4,0
+"496","ES110","Non-functional",4,"Peephole peek",0,0,2,"1",26.002,8,0
+"497","ES111","Non-functional",4,"Peephole peek",0,0,1,"2",30.009,4,0
+"498","ES112","Non-functional",4,"Peephole peek",0,0,2,"1",26.126,8,0
+"499","ES113","Non-functional",4,"Peephole peek",0,0,1,"2",31.982,4,0
+"500","ES114","Non-functional",4,"Peephole peek",0,0,2,"1",36.954,8,0
+"501","ES115","Non-functional",4,"Peephole peek",0,0,1,"2",27.511,4,0
+"502","ES116","Non-functional",4,"Peephole peek",0,0,2,"1",28.012,8,0
+"503","ES117","Non-functional",4,"Peephole peek",0,0,2,"1",41.041,8,0
+"504","ES118","Non-functional",4,"Peephole peek",0,0,1,"2",37.721,4,0
+"505","ES119","Non-functional",4,"Peephole peek",0,0,2,"1",37.654,8,0
+"506","ES120","Non-functional",4,"Peephole peek",0,0,2,"1",26.287,8,0
+"507","ES122","Non-functional",4,"Peephole peek",0,0,2,"1",31.499,8,0
+"508","ES123","Non-functional",4,"Peephole peek",0,0,2,"1",32.752,8,0
+"509","ES124","Non-functional",4,"Peephole peek",0,0,2,"1",36.734,8,0
+"510","Es125","Non-functional",4,"Peephole peek",0,0,1,"2",33.254,4,0
+"511","ES126","Non-functional",4,"Peephole peek",0,0,2,"1",38.503,8,0
+"512","ES127","Non-functional",4,"Peephole peek",0,0,2,"1",34.25,8,0
+"513","ES128","Non-functional",4,"Peephole peek",0,0,2,"1",37.404,8,0
+"514","ES129","Non-functional",4,"Peephole peek",0,0,1,"2",40.501,4,0
+"515","ES130","Non-functional",4,"Peephole peek",0,0,2,"1",41.687,8,0
+"516","ES132","Non-functional",4,"Peephole peek",0,0,2,"1",32.468,8,0
+"517","ES133","Non-functional",4,"Peephole peek",0,0,2,"1",36.75,8,0
+"518","ES134","Non-functional",4,"Peephole peek",0,0,1,"2",35.003,4,0
+"519","ES135","Non-functional",4,"Peephole peek",0,0,2,"1",32.251,8,0
+"520","ES136","Non-functional",4,"Peephole peek",0,0,1,"2",32.251,4,0
+"521","ES102","Functional",1,"Right side peek",0,0,2,"2",46,5,0
+"522","ES103","Functional",1,"Right side peek",0,0,1,"1",42.745,1,0
+"523","ES104","Functional",1,"Right side peek",0,0,2,"2",42.242,5,0
+"524","ES106","Functional",1,"Right side peek",0,0,2,"2",54.254,5,0
+"525","ES108","Functional",1,"Right side peek",0,0,2,"2",28.75,5,0
+"526","ES110","Functional",1,"Right side peek",0,0,1,"1",30.757,1,0
+"527","ES111","Functional",1,"Right side peek",0,0,2,"2",30.004,5,0
+"528","ES112","Functional",1,"Right side peek",0,0,1,"1",25.426,1,0
+"529","ES113","Functional",1,"Right side peek",0,0,2,"2",33.133,5,0
+"530","ES114","Functional",1,"Right side peek",0,0,1,"1",44.761,1,0
+"531","ES115","Functional",1,"Right side peek",0,0,2,"2",31.314,5,0
+"532","ES116","Functional",1,"Right side peek",0,0,1,"1",33.217,1,0
+"533","ES117","Functional",1,"Right side peek",0,0,1,"1",45.512,1,0
+"534","ES118","Functional",1,"Right side peek",0,0,2,"2",37.404,5,0
+"535","ES119","Functional",1,"Right side peek",0,0,1,"1",48.449,1,0
+"536","ES120","Functional",1,"Right side peek",0,0,1,"1",35.575,1,0
+"537","ES122","Functional",1,"Right side peek",0,0,1,"1",28.497,1,0
+"538","ES123","Functional",1,"Right side peek",0,0,1,"1",45.799,1,0
+"539","ES124","Functional",1,"Right side peek",0,0,1,"1",50.752,1,0
+"540","Es125","Functional",1,"Right side peek",0,0,2,"2",32.244,5,0
+"541","ES126","Functional",1,"Right side peek",0,0,1,"1",39.546,1,0
+"542","ES127","Functional",1,"Right side peek",0,0,1,"1",46.002,1,0
+"543","ES128","Functional",1,"Right side peek",0,0,1,"1",42.503,1,0
+"544","ES129","Functional",1,"Right side peek",0,0,2,"2",41.497,5,0
+"545","ES130","Functional",1,"Right side peek",0,0,1,"1",33.795,1,0
+"546","ES132","Functional",1,"Right side peek",0,0,1,"1",37.701,1,0
+"547","ES133","Functional",1,"Right side peek",0,0,1,"1",37.51,1,0
+"548","ES134","Functional",1,"Right side peek",0,0,2,"2",37.012,5,0
+"549","ES136","Functional",1,"Right side peek",0,0,2,"2",28.998,5,0
+"550","ES101","Non-functional",1,"Right side peek",0,0,2,"1",42.242,5,0
+"551","ES103","Non-functional",1,"Right side peek",0,0,2,"1",39.007,5,0
+"552","ES104","Non-functional",1,"Right side peek",0,0,1,"2",47.914,1,0
+"553","ES106","Non-functional",1,"Right side peek",0,0,1,"2",52.755,1,0
+"554","ES108","Non-functional",1,"Right side peek",0,0,1,"2",31.746,1,0
+"555","ES110","Non-functional",1,"Right side peek",0,0,2,"1",27.498,5,0
+"556","ES114","Non-functional",1,"Right side peek",0,0,2,"1",41.625,5,0
+"557","ES115","Non-functional",1,"Right side peek",0,0,1,"2",37.905,1,0
+"558","ES116","Non-functional",1,"Right side peek",0,0,2,"1",30.531,5,0
+"559","ES117","Non-functional",1,"Right side peek",0,0,2,"1",40.023,5,0
+"560","ES118","Non-functional",1,"Right side peek",0,0,1,"2",36.153,1,0
+"561","ES119","Non-functional",1,"Right side peek",0,0,2,"1",32.899,5,0
+"562","ES120","Non-functional",1,"Right side peek",0,0,2,"1",11.748,5,0
+"563","ES122","Non-functional",1,"Right side peek",0,0,2,"1",30.82,5,0
+"564","ES123","Non-functional",1,"Right side peek",0,0,2,"1",35.749,5,0
+"565","ES124","Non-functional",1,"Right side peek",0,0,2,"1",47.25,5,0
+"566","Es125","Non-functional",1,"Right side peek",0,0,1,"2",31.999,1,0
+"567","ES126","Non-functional",1,"Right side peek",0,0,2,"1",34.434,5,0
+"568","ES127","Non-functional",1,"Right side peek",0,0,2,"1",36.005,5,0
+"569","ES128","Non-functional",1,"Right side peek",0,0,2,"1",38.506,5,0
+"570","ES129","Non-functional",1,"Right side peek",0,0,1,"2",40.75,1,0
+"571","ES130","Non-functional",1,"Right side peek",0,0,2,"1",40.631,5,0
+"572","ES132","Non-functional",1,"Right side peek",0,0,2,"1",37.309,5,0
+"573","ES133","Non-functional",1,"Right side peek",0,0,2,"1",42.003,5,0
+"574","ES134","Non-functional",1,"Right side peek",0,0,1,"2",36.744,1,0
+"575","ES101","Functional",2,"Right side peek",0,0,1,"1",44.744,2,0
+"576","ES102","Functional",2,"Right side peek",0,0,2,"2",45.501,6,0
+"577","ES103","Functional",2,"Right side peek",0,0,1,"1",37.499,2,0
+"578","ES104","Functional",2,"Right side peek",0,0,2,"2",44.178,6,0
+"579","ES106","Functional",2,"Right side peek",0,0,2,"2",42.75,6,0
+"580","ES108","Functional",2,"Right side peek",0,0,2,"2",28.997,6,0
+"581","ES110","Functional",2,"Right side peek",0,0,1,"1",30.504,2,0
+"582","ES111","Functional",2,"Right side peek",0,0,2,"2",28.505,6,0
+"583","ES112","Functional",2,"Right side peek",0,0,1,"1",26.893,2,0
+"584","ES113","Functional",2,"Right side peek",0,0,2,"2",32.099,6,0
+"585","ES114","Functional",2,"Right side peek",0,0,1,"1",41.809,2,0
+"586","ES115","Functional",2,"Right side peek",0,0,2,"2",33.083,6,0
+"587","ES116","Functional",2,"Right side peek",0,0,1,"1",29.779,2,0
+"588","ES117","Functional",2,"Right side peek",0,0,1,"1",41.842,2,0
+"589","ES118","Functional",2,"Right side peek",0,0,2,"2",39.739,6,0
+"590","ES119","Functional",2,"Right side peek",0,0,1,"1",34.651,2,0
+"591","ES120","Functional",2,"Right side peek",0,0,1,"1",32.252,2,0
+"592","ES122","Functional",2,"Right side peek",0,0,1,"1",28.751,2,0
+"593","ES123","Functional",2,"Right side peek",0,0,1,"1",32.25,2,0
+"594","ES124","Functional",2,"Right side peek",0,0,1,"1",38.496,2,0
+"595","Es125","Functional",2,"Right side peek",0,0,2,"2",28.747,6,0
+"596","ES126","Functional",2,"Right side peek",0,0,1,"1",37.298,2,0
+"597","ES127","Functional",2,"Right side peek",0,0,1,"1",35.496,2,0
+"598","ES128","Functional",2,"Right side peek",0,0,1,"1",39.247,2,0
+"599","ES129","Functional",2,"Right side peek",0,0,2,"2",32.748,6,0
+"600","ES130","Functional",2,"Right side peek",0,0,1,"1",33.033,2,0
+"601","ES132","Functional",2,"Right side peek",0,0,1,"1",33.888,2,0
+"602","ES133","Functional",2,"Right side peek",0,0,1,"1",34.745,2,0
+"603","ES134","Functional",2,"Right side peek",0,0,2,"2",32.501,6,0
+"604","ES135","Functional",2,"Right side peek",0,0,1,"1",30.743,2,0
+"605","ES136","Functional",2,"Right side peek",0,0,2,"2",27.502,6,0
+"606","ES101","Non-functional",2,"Right side peek",0,0,2,"1",43.944,6,0
+"607","ES102","Non-functional",2,"Right side peek",0,0,1,"2",41.003,2,0
+"608","ES103","Non-functional",2,"Right side peek",0,0,2,"1",34.754,6,0
+"609","ES104","Non-functional",2,"Right side peek",0,0,1,"2",44.912,2,0
+"610","ES106","Non-functional",2,"Right side peek",0,0,1,"2",57.25,2,0
+"611","ES108","Non-functional",2,"Right side peek",0,0,1,"2",25.502,2,0
+"612","ES110","Non-functional",2,"Right side peek",0,0,2,"1",30.998,6,0
+"613","ES112","Non-functional",2,"Right side peek",0,0,2,"1",23.74,6,0
+"614","ES113","Non-functional",2,"Right side peek",0,0,1,"2",35.769,2,0
+"615","ES114","Non-functional",2,"Right side peek",0,0,2,"1",37.27,6,0
+"616","ES115","Non-functional",2,"Right side peek",0,0,1,"2",33.867,2,0
+"617","ES116","Non-functional",2,"Right side peek",0,0,2,"1",36.469,6,0
+"618","ES117","Non-functional",2,"Right side peek",0,0,2,"1",34.452,6,0
+"619","ES118","Non-functional",2,"Right side peek",0,0,1,"2",33.316,2,0
+"620","ES119","Non-functional",2,"Right side peek",0,0,2,"1",33.4,6,0
+"621","ES120","Non-functional",2,"Right side peek",0,0,2,"1",27.499,6,0
+"622","ES122","Non-functional",2,"Right side peek",0,0,2,"1",25.749,6,0
+"623","ES123","Non-functional",2,"Right side peek",0,0,2,"1",32.248,6,0
+"624","ES124","Non-functional",2,"Right side peek",0,0,2,"1",45.249,6,0
+"625","Es125","Non-functional",2,"Right side peek",0,0,1,"2",32.252,2,0
+"626","ES126","Non-functional",2,"Right side peek",0,0,2,"1",44.583,6,0
+"627","ES127","Non-functional",2,"Right side peek",0,0,2,"1",41.753,6,0
+"628","ES128","Non-functional",2,"Right side peek",0,0,2,"1",36.999,6,0
+"629","ES129","Non-functional",2,"Right side peek",0,0,1,"2",35.254,2,0
+"630","ES130","Non-functional",2,"Right side peek",0,0,2,"1",41.002,6,0
+"631","ES132","Non-functional",2,"Right side peek",0,0,2,"1",34.746,6,0
+"632","ES133","Non-functional",2,"Right side peek",0,0,2,"1",36.736,6,0
+"633","ES134","Non-functional",2,"Right side peek",0,0,1,"2",34.509,2,0
+"634","ES135","Non-functional",2,"Right side peek",0,0,2,"1",27.504,6,0
+"635","ES101","Functional",3,"Right side peek",0,0,1,"1",49.349,3,0
+"636","ES102","Functional",3,"Right side peek",0,0,2,"2",39.997,7,0
+"637","ES103","Functional",3,"Right side peek",0,0,1,"1",40.496,3,0
+"638","ES104","Functional",3,"Right side peek",0,0,2,"2",47.314,7,0
+"639","ES106","Functional",3,"Right side peek",0,0,2,"2",45.753,7,0
+"640","ES108","Functional",3,"Right side peek",0,0,2,"2",27.993,7,0
+"641","ES110","Functional",3,"Right side peek",0,0,1,"1",27.504,3,0
+"642","ES111","Functional",3,"Right side peek",0,0,2,"2",30.001,7,0
+"643","ES112","Functional",3,"Right side peek",0,0,1,"1",30.397,3,0
+"644","ES113","Functional",3,"Right side peek",0,0,2,"2",33.067,7,0
+"645","ES114","Functional",3,"Right side peek",0,0,1,"1",36.67,3,0
+"646","ES115","Functional",3,"Right side peek",0,0,2,"2",31.065,7,0
+"647","ES116","Functional",3,"Right side peek",0,0,1,"1",30.164,3,0
+"648","ES117","Functional",3,"Right side peek",0,0,1,"1",37.037,3,0
+"649","ES118","Functional",3,"Right side peek",0,0,2,"2",33.884,7,0
+"650","ES119","Functional",3,"Right side peek",0,0,1,"1",32.299,3,0
+"651","ES120","Functional",3,"Right side peek",0,0,1,"1",30,3,0
+"652","ES122","Functional",3,"Right side peek",0,0,1,"1",31.751,3,0
+"653","ES123","Functional",3,"Right side peek",0,0,1,"1",33.5,3,0
+"654","ES124","Functional",3,"Right side peek",0,0,1,"1",36.999,3,0
+"655","Es125","Functional",3,"Right side peek",0,0,2,"2",30.744,7,0
+"656","ES126","Functional",3,"Right side peek",0,0,1,"1",36.002,3,0
+"657","ES127","Functional",3,"Right side peek",0,0,1,"1",35.5,3,0
+"658","ES128","Functional",3,"Right side peek",0,0,1,"1",36.747,3,0
+"659","ES129","Functional",3,"Right side peek",0,0,2,"2",34.496,7,0
+"660","ES130","Functional",3,"Right side peek",0,0,1,"1",36.268,3,0
+"661","ES132","Functional",3,"Right side peek",0,0,1,"1",38.829,3,0
+"662","ES133","Functional",3,"Right side peek",0,0,1,"1",50.504,3,0
+"663","ES134","Functional",3,"Right side peek",0,0,2,"2",36.766,7,0
+"664","ES135","Functional",3,"Right side peek",0,0,1,"1",30.744,3,0
+"665","ES136","Functional",3,"Right side peek",0,0,2,"2",26.498,7,0
+"666","ES101","Non-functional",3,"Right side peek",0,0,2,"1",36.603,7,0
+"667","ES102","Non-functional",3,"Right side peek",0,0,1,"2",40.002,3,0
+"668","ES103","Non-functional",3,"Right side peek",0,0,2,"1",33.754,7,0
+"669","ES104","Non-functional",3,"Right side peek",0,0,1,"2",41.608,3,0
+"670","ES106","Non-functional",3,"Right side peek",0,0,1,"2",56.751,3,0
+"671","ES108","Non-functional",3,"Right side peek",0,0,1,"2",25.754,3,0
+"672","ES110","Non-functional",3,"Right side peek",0,0,2,"1",31.246,7,0
+"673","ES111","Non-functional",3,"Right side peek",0,0,1,"2",30.001,3,0
+"674","ES112","Non-functional",3,"Right side peek",0,0,2,"1",28.979,7,0
+"675","ES113","Non-functional",3,"Right side peek",0,0,1,"2",35.703,3,0
+"676","ES114","Non-functional",3,"Right side peek",0,0,2,"1",38.021,7,0
+"677","ES115","Non-functional",3,"Right side peek",0,0,1,"2",26.16,3,0
+"678","ES116","Non-functional",3,"Right side peek",0,0,2,"1",35.869,7,0
+"679","ES117","Non-functional",3,"Right side peek",0,0,2,"1",41.31,7,0
+"680","ES118","Non-functional",3,"Right side peek",0,0,1,"2",38.171,3,0
+"681","ES119","Non-functional",3,"Right side peek",0,0,2,"1",35.386,7,0
+"682","ES120","Non-functional",3,"Right side peek",0,0,2,"1",25.502,7,0
+"683","ES122","Non-functional",3,"Right side peek",0,0,2,"1",35.254,7,0
+"684","ES123","Non-functional",3,"Right side peek",0,0,2,"1",32,7,0
+"685","ES124","Non-functional",3,"Right side peek",0,0,2,"1",39.757,7,0
+"686","Es125","Non-functional",3,"Right side peek",0,0,1,"2",32.254,3,0
+"687","ES126","Non-functional",3,"Right side peek",0,0,2,"1",37.811,7,0
+"688","ES127","Non-functional",3,"Right side peek",0,0,2,"1",35.501,7,0
+"689","ES128","Non-functional",3,"Right side peek",0,0,2,"1",52.005,7,0
+"690","ES129","Non-functional",3,"Right side peek",0,0,1,"2",43.999,3,0
+"691","ES130","Non-functional",3,"Right side peek",0,0,2,"1",39.004,7,0
+"692","ES132","Non-functional",3,"Right side peek",0,0,2,"1",34.831,7,0
+"693","ES133","Non-functional",3,"Right side peek",0,0,2,"1",28.503,7,0
+"694","ES134","Non-functional",3,"Right side peek",0,0,1,"2",39.003,3,0
+"695","ES135","Non-functional",3,"Right side peek",0,0,2,"1",29.739,7,0
+"696","ES136","Non-functional",3,"Right side peek",0,0,1,"2",26.004,3,0
+"697","ES101","Functional",4,"Right side peek",0,0,1,"1",38.939,4,0
+"698","ES102","Functional",4,"Right side peek",0,0,2,"2",38.752,8,0
+"699","ES103","Functional",4,"Right side peek",0,0,1,"1",32.494,4,0
+"700","ES104","Functional",4,"Right side peek",0,0,2,"2",44.11,8,0
+"701","ES106","Functional",4,"Right side peek",0,0,2,"2",48.496,8,0
+"702","ES108","Functional",4,"Right side peek",0,0,2,"2",29.743,8,0
+"703","ES110","Functional",4,"Right side peek",0,0,1,"1",28,4,0
+"704","ES111","Functional",4,"Right side peek",0,0,2,"2",30.999,8,0
+"705","ES112","Functional",4,"Right side peek",0,0,1,"1",25.042,4,0
+"706","ES113","Functional",4,"Right side peek",0,0,2,"2",30.997,8,0
+"707","ES114","Functional",4,"Right side peek",0,0,1,"1",34.935,4,0
+"708","ES115","Functional",4,"Right side peek",0,0,2,"2",30.664,8,0
+"709","ES116","Functional",4,"Right side peek",0,0,1,"1",27.411,4,0
+"710","ES117","Functional",4,"Right side peek",0,0,1,"1",37.621,4,0
+"711","ES118","Functional",4,"Right side peek",0,0,2,"2",34.868,8,0
+"712","ES119","Functional",4,"Right side peek",0,0,1,"1",32.099,4,0
+"713","ES120","Functional",4,"Right side peek",0,0,1,"1",25.749,4,0
+"714","ES122","Functional",4,"Right side peek",0,0,1,"1",29.773,4,0
+"715","ES123","Functional",4,"Right side peek",0,0,1,"1",32.251,4,0
+"716","Es125","Functional",4,"Right side peek",0,0,2,"2",28.002,8,0
+"717","ES126","Functional",4,"Right side peek",0,0,1,"1",31.003,4,0
+"718","ES127","Functional",4,"Right side peek",0,0,1,"1",32.755,4,0
+"719","ES128","Functional",4,"Right side peek",0,0,1,"1",39.997,4,0
+"720","ES129","Functional",4,"Right side peek",0,0,2,"2",37.5,8,0
+"721","ES130","Functional",4,"Right side peek",0,0,1,"1",36.453,4,0
+"722","ES132","Functional",4,"Right side peek",0,0,1,"1",45.288,4,0
+"723","ES133","Functional",4,"Right side peek",0,0,1,"1",34.257,4,0
+"724","ES134","Functional",4,"Right side peek",0,0,2,"2",32.998,8,0
+"725","ES135","Functional",4,"Right side peek",0,0,1,"1",30.746,4,0
+"726","ES101","Non-functional",4,"Right side peek",0,0,2,"1",44.044,8,0
+"727","ES102","Non-functional",4,"Right side peek",0,0,1,"2",42.251,4,0
+"728","ES103","Non-functional",4,"Right side peek",0,0,2,"1",40.752,8,0
+"729","ES104","Non-functional",4,"Right side peek",0,0,1,"2",40.473,4,0
+"730","ES106","Non-functional",4,"Right side peek",0,0,1,"2",48.751,4,0
+"731","ES108","Non-functional",4,"Right side peek",0,0,1,"2",26.755,4,0
+"732","ES110","Non-functional",4,"Right side peek",0,0,2,"1",26.002,8,0
+"733","ES111","Non-functional",4,"Right side peek",0,0,1,"2",30.009,4,0
+"734","ES112","Non-functional",4,"Right side peek",0,0,2,"1",26.126,8,0
+"735","ES113","Non-functional",4,"Right side peek",0,0,1,"2",31.982,4,0
+"736","ES114","Non-functional",4,"Right side peek",0,0,2,"1",36.954,8,0
+"737","ES115","Non-functional",4,"Right side peek",0,0,1,"2",27.511,4,0
+"738","ES116","Non-functional",4,"Right side peek",0,0,2,"1",28.012,8,0
+"739","ES117","Non-functional",4,"Right side peek",0,0,2,"1",41.041,8,0
+"740","ES118","Non-functional",4,"Right side peek",0,0,1,"2",37.721,4,0
+"741","ES119","Non-functional",4,"Right side peek",0,0,2,"1",37.654,8,0
+"742","ES120","Non-functional",4,"Right side peek",0,0,2,"1",26.287,8,0
+"743","ES122","Non-functional",4,"Right side peek",0,0,2,"1",31.499,8,0
+"744","ES123","Non-functional",4,"Right side peek",0,0,2,"1",32.752,8,0
+"745","Es125","Non-functional",4,"Right side peek",0,0,1,"2",33.254,4,0
+"746","ES126","Non-functional",4,"Right side peek",0,0,2,"1",38.503,8,0
+"747","ES127","Non-functional",4,"Right side peek",0,0,2,"1",34.25,8,0
+"748","ES128","Non-functional",4,"Right side peek",0,0,2,"1",37.404,8,0
+"749","ES130","Non-functional",4,"Right side peek",0,0,2,"1",41.687,8,0
+"750","ES132","Non-functional",4,"Right side peek",0,0,2,"1",32.468,8,0
+"751","ES133","Non-functional",4,"Right side peek",0,0,2,"1",36.75,8,0
+"752","ES134","Non-functional",4,"Right side peek",0,0,1,"2",35.003,4,0
+"753","ES135","Non-functional",4,"Right side peek",0,0,2,"1",32.251,8,0
+"754","ES136","Non-functional",4,"Right side peek",0,0,1,"2",32.251,4,0
+"755","ES101","Functional",1,"Right box (side)",0,0,1,"1",48.515,1,0
+"756","ES102","Functional",1,"Right box (side)",0,0,2,"2",46,5,0
+"757","ES103","Functional",1,"Right box (side)",0,0,1,"1",42.745,1,0
+"758","ES104","Functional",1,"Right box (side)",0,0,2,"2",42.242,5,0
+"759","ES106","Functional",1,"Right box (side)",0,0,2,"2",54.254,5,0
+"760","ES108","Functional",1,"Right box (side)",0,0,2,"2",28.75,5,0
+"761","ES110","Functional",1,"Right box (side)",0,0,1,"1",30.757,1,0
+"762","ES111","Functional",1,"Right box (side)",0,0,2,"2",30.004,5,0
+"763","ES112","Functional",1,"Right box (side)",0,0,1,"1",25.426,1,0
+"764","ES113","Functional",1,"Right box (side)",0,0,2,"2",33.133,5,0
+"765","ES115","Functional",1,"Right box (side)",0,0,2,"2",31.314,5,0
+"766","ES116","Functional",1,"Right box (side)",0,0,1,"1",33.217,1,0
+"767","ES117","Functional",1,"Right box (side)",0,0,1,"1",45.512,1,0
+"768","ES118","Functional",1,"Right box (side)",0,0,2,"2",37.404,5,0
+"769","ES119","Functional",1,"Right box (side)",0,0,1,"1",48.449,1,0
+"770","ES120","Functional",1,"Right box (side)",0,0,1,"1",35.575,1,0
+"771","ES122","Functional",1,"Right box (side)",0,0,1,"1",28.497,1,0
+"772","ES123","Functional",1,"Right box (side)",0,0,1,"1",45.799,1,0
+"773","ES124","Functional",1,"Right box (side)",0,0,1,"1",50.752,1,0
+"774","Es125","Functional",1,"Right box (side)",0,0,2,"2",32.244,5,0
+"775","ES126","Functional",1,"Right box (side)",0,0,1,"1",39.546,1,0
+"776","ES127","Functional",1,"Right box (side)",0,0,1,"1",46.002,1,0
+"777","ES128","Functional",1,"Right box (side)",0,0,1,"1",42.503,1,0
+"778","ES129","Functional",1,"Right box (side)",0,0,2,"2",41.497,5,0
+"779","ES130","Functional",1,"Right box (side)",0,0,1,"1",33.795,1,0
+"780","ES132","Functional",1,"Right box (side)",0,0,1,"1",37.701,1,0
+"781","ES133","Functional",1,"Right box (side)",0,0,1,"1",37.51,1,0
+"782","ES134","Functional",1,"Right box (side)",0,0,2,"2",37.012,5,0
+"783","ES135","Functional",1,"Right box (side)",0,0,1,"1",45.761,1,0
+"784","ES136","Functional",1,"Right box (side)",0,0,2,"2",28.998,5,0
+"785","ES101","Non-functional",1,"Right box (side)",0,0,2,"1",42.242,5,0
+"786","ES102","Non-functional",1,"Right box (side)",0,0,1,"2",40.997,1,0
+"787","ES103","Non-functional",1,"Right box (side)",0,0,2,"1",39.007,5,0
+"788","ES104","Non-functional",1,"Right box (side)",0,0,1,"2",47.914,1,0
+"789","ES106","Non-functional",1,"Right box (side)",0,0,1,"2",52.755,1,0
+"790","ES108","Non-functional",1,"Right box (side)",0,0,1,"2",31.746,1,0
+"791","ES110","Non-functional",1,"Right box (side)",0,0,2,"1",27.498,5,0
+"792","ES111","Non-functional",1,"Right box (side)",0,0,1,"2",34.842,1,0
+"793","ES112","Non-functional",1,"Right box (side)",0,0,2,"1",32.032,5,0
+"794","ES113","Non-functional",1,"Right box (side)",0,0,1,"2",38.973,1,0
+"795","ES114","Non-functional",1,"Right box (side)",0,0,2,"1",41.625,5,0
+"796","ES117","Non-functional",1,"Right box (side)",0,0,2,"1",40.023,5,0
+"797","ES118","Non-functional",1,"Right box (side)",0,0,1,"2",36.153,1,0
+"798","ES119","Non-functional",1,"Right box (side)",0,0,2,"1",32.899,5,0
+"799","ES120","Non-functional",1,"Right box (side)",0,0,2,"1",11.748,5,0
+"800","ES122","Non-functional",1,"Right box (side)",0,0,2,"1",30.82,5,0
+"801","ES123","Non-functional",1,"Right box (side)",0,0,2,"1",35.749,5,0
+"802","ES124","Non-functional",1,"Right box (side)",0,0,2,"1",47.25,5,0
+"803","Es125","Non-functional",1,"Right box (side)",0,0,1,"2",31.999,1,0
+"804","ES126","Non-functional",1,"Right box (side)",0,0,2,"1",34.434,5,0
+"805","ES127","Non-functional",1,"Right box (side)",0,0,2,"1",36.005,5,0
+"806","ES128","Non-functional",1,"Right box (side)",0,0,2,"1",38.506,5,0
+"807","ES129","Non-functional",1,"Right box (side)",0,0,1,"2",40.75,1,0
+"808","ES130","Non-functional",1,"Right box (side)",0,0,2,"1",40.631,5,0
+"809","ES132","Non-functional",1,"Right box (side)",0,0,2,"1",37.309,5,0
+"810","ES133","Non-functional",1,"Right box (side)",0,0,2,"1",42.003,5,0
+"811","ES134","Non-functional",1,"Right box (side)",0,0,1,"2",36.744,1,0
+"812","ES135","Non-functional",1,"Right box (side)",0,0,2,"1",27.76,5,0
+"813","ES136","Non-functional",1,"Right box (side)",0,0,1,"2",34.527,1,0
+"814","ES101","Functional",2,"Right box (side)",0,0,1,"1",44.744,2,0
+"815","ES102","Functional",2,"Right box (side)",0,0,2,"2",45.501,6,0
+"816","ES103","Functional",2,"Right box (side)",0,0,1,"1",37.499,2,0
+"817","ES104","Functional",2,"Right box (side)",0,0,2,"2",44.178,6,0
+"818","ES106","Functional",2,"Right box (side)",0,0,2,"2",42.75,6,0
+"819","ES108","Functional",2,"Right box (side)",0,0,2,"2",28.997,6,0
+"820","ES110","Functional",2,"Right box (side)",0,0,1,"1",30.504,2,0
+"821","ES111","Functional",2,"Right box (side)",0,0,2,"2",28.505,6,0
+"822","ES112","Functional",2,"Right box (side)",0,0,1,"1",26.893,2,0
+"823","ES113","Functional",2,"Right box (side)",0,0,2,"2",32.099,6,0
+"824","ES114","Functional",2,"Right box (side)",0,0,1,"1",41.809,2,0
+"825","ES116","Functional",2,"Right box (side)",0,0,1,"1",29.779,2,0
+"826","ES117","Functional",2,"Right box (side)",0,0,1,"1",41.842,2,0
+"827","ES118","Functional",2,"Right box (side)",0,0,2,"2",39.739,6,0
+"828","ES119","Functional",2,"Right box (side)",0,0,1,"1",34.651,2,0
+"829","ES120","Functional",2,"Right box (side)",0,0,1,"1",32.252,2,0
+"830","ES122","Functional",2,"Right box (side)",0,0,1,"1",28.751,2,0
+"831","ES123","Functional",2,"Right box (side)",0,0,1,"1",32.25,2,0
+"832","ES124","Functional",2,"Right box (side)",0,0,1,"1",38.496,2,0
+"833","Es125","Functional",2,"Right box (side)",0,0,2,"2",28.747,6,0
+"834","ES126","Functional",2,"Right box (side)",0,0,1,"1",37.298,2,0
+"835","ES127","Functional",2,"Right box (side)",0,0,1,"1",35.496,2,0
+"836","ES128","Functional",2,"Right box (side)",0,0,1,"1",39.247,2,0
+"837","ES129","Functional",2,"Right box (side)",0,0,2,"2",32.748,6,0
+"838","ES130","Functional",2,"Right box (side)",0,0,1,"1",33.033,2,0
+"839","ES132","Functional",2,"Right box (side)",0,0,1,"1",33.888,2,0
+"840","ES133","Functional",2,"Right box (side)",0,0,1,"1",34.745,2,0
+"841","ES134","Functional",2,"Right box (side)",0,0,2,"2",32.501,6,0
+"842","ES135","Functional",2,"Right box (side)",0,0,1,"1",30.743,2,0
+"843","ES136","Functional",2,"Right box (side)",0,0,2,"2",27.502,6,0
+"844","ES101","Non-functional",2,"Right box (side)",0,0,2,"1",43.944,6,0
+"845","ES102","Non-functional",2,"Right box (side)",0,0,1,"2",41.003,2,0
+"846","ES103","Non-functional",2,"Right box (side)",0,0,2,"1",34.754,6,0
+"847","ES104","Non-functional",2,"Right box (side)",0,0,1,"2",44.912,2,0
+"848","ES106","Non-functional",2,"Right box (side)",0,0,1,"2",57.25,2,0
+"849","ES108","Non-functional",2,"Right box (side)",0,0,1,"2",25.502,2,0
+"850","ES110","Non-functional",2,"Right box (side)",0,0,2,"1",30.998,6,0
+"851","ES111","Non-functional",2,"Right box (side)",0,0,1,"2",28.498,2,0
+"852","ES112","Non-functional",2,"Right box (side)",0,0,2,"1",23.74,6,0
+"853","ES113","Non-functional",2,"Right box (side)",0,0,1,"2",35.769,2,0
+"854","ES114","Non-functional",2,"Right box (side)",0,0,2,"1",37.27,6,0
+"855","ES116","Non-functional",2,"Right box (side)",0,0,2,"1",36.469,6,0
+"856","ES117","Non-functional",2,"Right box (side)",0,0,2,"1",34.452,6,0
+"857","ES118","Non-functional",2,"Right box (side)",0,0,1,"2",33.316,2,0
+"858","ES119","Non-functional",2,"Right box (side)",0,0,2,"1",33.4,6,0
+"859","ES120","Non-functional",2,"Right box (side)",0,0,2,"1",27.499,6,0
+"860","ES122","Non-functional",2,"Right box (side)",0,0,2,"1",25.749,6,0
+"861","ES123","Non-functional",2,"Right box (side)",0,0,2,"1",32.248,6,0
+"862","ES124","Non-functional",2,"Right box (side)",0,0,2,"1",45.249,6,0
+"863","Es125","Non-functional",2,"Right box (side)",0,0,1,"2",32.252,2,0
+"864","ES126","Non-functional",2,"Right box (side)",0,0,2,"1",44.583,6,0
+"865","ES127","Non-functional",2,"Right box (side)",0,0,2,"1",41.753,6,0
+"866","ES128","Non-functional",2,"Right box (side)",0,0,2,"1",36.999,6,0
+"867","ES129","Non-functional",2,"Right box (side)",0,0,1,"2",35.254,2,0
+"868","ES130","Non-functional",2,"Right box (side)",0,0,2,"1",41.002,6,0
+"869","ES132","Non-functional",2,"Right box (side)",0,0,2,"1",34.746,6,0
+"870","ES133","Non-functional",2,"Right box (side)",0,0,2,"1",36.736,6,0
+"871","ES134","Non-functional",2,"Right box (side)",0,0,1,"2",34.509,2,0
+"872","ES135","Non-functional",2,"Right box (side)",0,0,2,"1",27.504,6,0
+"873","ES136","Non-functional",2,"Right box (side)",0,0,1,"2",24.816,2,0
+"874","ES101","Functional",3,"Right box (side)",0,0,1,"1",49.349,3,0
+"875","ES102","Functional",3,"Right box (side)",0,0,2,"2",39.997,7,0
+"876","ES103","Functional",3,"Right box (side)",0,0,1,"1",40.496,3,0
+"877","ES104","Functional",3,"Right box (side)",0,0,2,"2",47.314,7,0
+"878","ES106","Functional",3,"Right box (side)",0,0,2,"2",45.753,7,0
+"879","ES108","Functional",3,"Right box (side)",0,0,2,"2",27.993,7,0
+"880","ES110","Functional",3,"Right box (side)",0,0,1,"1",27.504,3,0
+"881","ES111","Functional",3,"Right box (side)",0,0,2,"2",30.001,7,0
+"882","ES112","Functional",3,"Right box (side)",0,0,1,"1",30.397,3,0
+"883","ES113","Functional",3,"Right box (side)",0,0,2,"2",33.067,7,0
+"884","ES114","Functional",3,"Right box (side)",0,0,1,"1",36.67,3,0
+"885","ES116","Functional",3,"Right box (side)",0,0,1,"1",30.164,3,0
+"886","ES117","Functional",3,"Right box (side)",0,0,1,"1",37.037,3,0
+"887","ES119","Functional",3,"Right box (side)",0,0,1,"1",32.299,3,0
+"888","ES120","Functional",3,"Right box (side)",0,0,1,"1",30,3,0
+"889","ES122","Functional",3,"Right box (side)",0,0,1,"1",31.751,3,0
+"890","ES123","Functional",3,"Right box (side)",0,0,1,"1",33.5,3,0
+"891","ES124","Functional",3,"Right box (side)",0,0,1,"1",36.999,3,0
+"892","Es125","Functional",3,"Right box (side)",0,0,2,"2",30.744,7,0
+"893","ES126","Functional",3,"Right box (side)",0,0,1,"1",36.002,3,0
+"894","ES127","Functional",3,"Right box (side)",0,0,1,"1",35.5,3,0
+"895","ES128","Functional",3,"Right box (side)",0,0,1,"1",36.747,3,0
+"896","ES129","Functional",3,"Right box (side)",0,0,2,"2",34.496,7,0
+"897","ES130","Functional",3,"Right box (side)",0,0,1,"1",36.268,3,0
+"898","ES132","Functional",3,"Right box (side)",0,0,1,"1",38.829,3,0
+"899","ES133","Functional",3,"Right box (side)",0,0,1,"1",50.504,3,0
+"900","ES134","Functional",3,"Right box (side)",0,0,2,"2",36.766,7,0
+"901","ES135","Functional",3,"Right box (side)",0,0,1,"1",30.744,3,0
+"902","ES136","Functional",3,"Right box (side)",0,0,2,"2",26.498,7,0
+"903","ES101","Non-functional",3,"Right box (side)",0,0,2,"1",36.603,7,0
+"904","ES102","Non-functional",3,"Right box (side)",0,0,1,"2",40.002,3,0
+"905","ES103","Non-functional",3,"Right box (side)",0,0,2,"1",33.754,7,0
+"906","ES104","Non-functional",3,"Right box (side)",0,0,1,"2",41.608,3,0
+"907","ES106","Non-functional",3,"Right box (side)",0,0,1,"2",56.751,3,0
+"908","ES108","Non-functional",3,"Right box (side)",0,0,1,"2",25.754,3,0
+"909","ES110","Non-functional",3,"Right box (side)",0,0,2,"1",31.246,7,0
+"910","ES111","Non-functional",3,"Right box (side)",0,0,1,"2",30.001,3,0
+"911","ES113","Non-functional",3,"Right box (side)",0,0,1,"2",35.703,3,0
+"912","ES114","Non-functional",3,"Right box (side)",0,0,2,"1",38.021,7,0
+"913","ES116","Non-functional",3,"Right box (side)",0,0,2,"1",35.869,7,0
+"914","ES117","Non-functional",3,"Right box (side)",0,0,2,"1",41.31,7,0
+"915","ES119","Non-functional",3,"Right box (side)",0,0,2,"1",35.386,7,0
+"916","ES120","Non-functional",3,"Right box (side)",0,0,2,"1",25.502,7,0
+"917","ES122","Non-functional",3,"Right box (side)",0,0,2,"1",35.254,7,0
+"918","ES123","Non-functional",3,"Right box (side)",0,0,2,"1",32,7,0
+"919","ES124","Non-functional",3,"Right box (side)",0,0,2,"1",39.757,7,0
+"920","Es125","Non-functional",3,"Right box (side)",0,0,1,"2",32.254,3,0
+"921","ES126","Non-functional",3,"Right box (side)",0,0,2,"1",37.811,7,0
+"922","ES127","Non-functional",3,"Right box (side)",0,0,2,"1",35.501,7,0
+"923","ES128","Non-functional",3,"Right box (side)",0,0,2,"1",52.005,7,0
+"924","ES129","Non-functional",3,"Right box (side)",0,0,1,"2",43.999,3,0
+"925","ES130","Non-functional",3,"Right box (side)",0,0,2,"1",39.004,7,0
+"926","ES132","Non-functional",3,"Right box (side)",0,0,2,"1",34.831,7,0
+"927","ES133","Non-functional",3,"Right box (side)",0,0,2,"1",28.503,7,0
+"928","ES134","Non-functional",3,"Right box (side)",0,0,1,"2",39.003,3,0
+"929","ES135","Non-functional",3,"Right box (side)",0,0,2,"1",29.739,7,0
+"930","ES136","Non-functional",3,"Right box (side)",0,0,1,"2",26.004,3,0
+"931","ES101","Functional",4,"Right box (side)",0,0,1,"1",38.939,4,0
+"932","ES102","Functional",4,"Right box (side)",0,0,2,"2",38.752,8,0
+"933","ES103","Functional",4,"Right box (side)",0,0,1,"1",32.494,4,0
+"934","ES104","Functional",4,"Right box (side)",0,0,2,"2",44.11,8,0
+"935","ES106","Functional",4,"Right box (side)",0,0,2,"2",48.496,8,0
+"936","ES108","Functional",4,"Right box (side)",0,0,2,"2",29.743,8,0
+"937","ES110","Functional",4,"Right box (side)",0,0,1,"1",28,4,0
+"938","ES111","Functional",4,"Right box (side)",0,0,2,"2",30.999,8,0
+"939","ES112","Functional",4,"Right box (side)",0,0,1,"1",25.042,4,0
+"940","ES113","Functional",4,"Right box (side)",0,0,2,"2",30.997,8,0
+"941","ES114","Functional",4,"Right box (side)",0,0,1,"1",34.935,4,0
+"942","ES115","Functional",4,"Right box (side)",0,0,2,"2",30.664,8,0
+"943","ES116","Functional",4,"Right box (side)",0,0,1,"1",27.411,4,0
+"944","ES117","Functional",4,"Right box (side)",0,0,1,"1",37.621,4,0
+"945","ES118","Functional",4,"Right box (side)",0,0,2,"2",34.868,8,0
+"946","ES119","Functional",4,"Right box (side)",0,0,1,"1",32.099,4,0
+"947","ES120","Functional",4,"Right box (side)",0,0,1,"1",25.749,4,0
+"948","ES122","Functional",4,"Right box (side)",0,0,1,"1",29.773,4,0
+"949","ES123","Functional",4,"Right box (side)",0,0,1,"1",32.251,4,0
+"950","ES124","Functional",4,"Right box (side)",0,0,1,"1",44.999,4,0
+"951","Es125","Functional",4,"Right box (side)",0,0,2,"2",28.002,8,0
+"952","ES126","Functional",4,"Right box (side)",0,0,1,"1",31.003,4,0
+"953","ES127","Functional",4,"Right box (side)",0,0,1,"1",32.755,4,0
+"954","ES128","Functional",4,"Right box (side)",0,0,1,"1",39.997,4,0
+"955","ES129","Functional",4,"Right box (side)",0,0,2,"2",37.5,8,0
+"956","ES130","Functional",4,"Right box (side)",0,0,1,"1",36.453,4,0
+"957","ES132","Functional",4,"Right box (side)",0,0,1,"1",45.288,4,0
+"958","ES133","Functional",4,"Right box (side)",0,0,1,"1",34.257,4,0
+"959","ES134","Functional",4,"Right box (side)",0,0,2,"2",32.998,8,0
+"960","ES135","Functional",4,"Right box (side)",0,0,1,"1",30.746,4,0
+"961","ES136","Functional",4,"Right box (side)",0,0,2,"2",28.56,8,0
+"962","ES101","Non-functional",4,"Right box (side)",0,0,2,"1",44.044,8,0
+"963","ES102","Non-functional",4,"Right box (side)",0,0,1,"2",42.251,4,0
+"964","ES103","Non-functional",4,"Right box (side)",0,0,2,"1",40.752,8,0
+"965","ES104","Non-functional",4,"Right box (side)",0,0,1,"2",40.473,4,0
+"966","ES106","Non-functional",4,"Right box (side)",0,0,1,"2",48.751,4,0
+"967","ES108","Non-functional",4,"Right box (side)",0,0,1,"2",26.755,4,0
+"968","ES110","Non-functional",4,"Right box (side)",0,0,2,"1",26.002,8,0
+"969","ES111","Non-functional",4,"Right box (side)",0,0,1,"2",30.009,4,0
+"970","ES112","Non-functional",4,"Right box (side)",0,0,2,"1",26.126,8,0
+"971","ES113","Non-functional",4,"Right box (side)",0,0,1,"2",31.982,4,0
+"972","ES114","Non-functional",4,"Right box (side)",0,0,2,"1",36.954,8,0
+"973","ES115","Non-functional",4,"Right box (side)",0,0,1,"2",27.511,4,0
+"974","ES116","Non-functional",4,"Right box (side)",0,0,2,"1",28.012,8,0
+"975","ES117","Non-functional",4,"Right box (side)",0,0,2,"1",41.041,8,0
+"976","ES118","Non-functional",4,"Right box (side)",0,0,1,"2",37.721,4,0
+"977","ES119","Non-functional",4,"Right box (side)",0,0,2,"1",37.654,8,0
+"978","ES120","Non-functional",4,"Right box (side)",0,0,2,"1",26.287,8,0
+"979","ES122","Non-functional",4,"Right box (side)",0,0,2,"1",31.499,8,0
+"980","ES123","Non-functional",4,"Right box (side)",0,0,2,"1",32.752,8,0
+"981","ES124","Non-functional",4,"Right box (side)",0,0,2,"1",36.734,8,0
+"982","Es125","Non-functional",4,"Right box (side)",0,0,1,"2",33.254,4,0
+"983","ES126","Non-functional",4,"Right box (side)",0,0,2,"1",38.503,8,0
+"984","ES127","Non-functional",4,"Right box (side)",0,0,2,"1",34.25,8,0
+"985","ES128","Non-functional",4,"Right box (side)",0,0,2,"1",37.404,8,0
+"986","ES129","Non-functional",4,"Right box (side)",0,0,1,"2",40.501,4,0
+"987","ES130","Non-functional",4,"Right box (side)",0,0,2,"1",41.687,8,0
+"988","ES132","Non-functional",4,"Right box (side)",0,0,2,"1",32.468,8,0
+"989","ES133","Non-functional",4,"Right box (side)",0,0,2,"1",36.75,8,0
+"990","ES134","Non-functional",4,"Right box (side)",0,0,1,"2",35.003,4,0
+"991","ES135","Non-functional",4,"Right box (side)",0,0,2,"1",32.251,8,0
+"992","ES136","Non-functional",4,"Right box (side)",0,0,1,"2",32.251,4,0
